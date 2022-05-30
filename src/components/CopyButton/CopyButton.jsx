@@ -1,18 +1,17 @@
 import {
-  Box,
-  Container,
-  Stack,
-  Text,
   useColorModeValue,
   useClipboard,
   Tooltip,
-  IconButton,
   chakra,
   VisuallyHidden,
 } from "@chakra-ui/react";
+import styles from './CopyButton.module.scss'
 
 const CopyButton = ({ children, label, href }) => {
   const { hasCopied, onCopy } = useClipboard(href);
+  const darkMode = 'black.333';
+  const lightMode = 'white.333';
+
   return (
     <>
       <Tooltip
@@ -21,19 +20,16 @@ const CopyButton = ({ children, label, href }) => {
         hasArrow
       >
         <chakra.button
-          bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
+          className={styles.button}
+          bg={useColorModeValue(lightMode, darkMode)}
+          _hover={{
+            bg: useColorModeValue(darkMode, lightMode),
+            color: useColorModeValue(lightMode, darkMode)
+          }}
           rounded={"full"}
           w={8}
           h={8}
-          cursor={"pointer"}
           as={"a"}
-          display={"inline-flex"}
-          alignItems={"center"}
-          justifyContent={"center"}
-          transition={"background 0.3s ease"}
-          _hover={{
-            bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
-          }}
           onClick={onCopy}
         >
           <VisuallyHidden>{label}</VisuallyHidden>

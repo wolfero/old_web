@@ -1,27 +1,42 @@
-import { chakra, useColorModeValue, VisuallyHidden } from "@chakra-ui/react";
+import {
+  useColorModeValue,
+  Tooltip,
+  chakra,
+  VisuallyHidden,
+} from "@chakra-ui/react";
+
+import styles from './SocialButton.module.scss'
 
 const SocialButton = ({ children, label, href }) => {
+  const darkMode = 'black.333';
+  const lightMode = 'white.333';
+
   return (
-    <chakra.button
-      bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
-      rounded={"full"}
-      w={8}
-      h={8}
-      cursor={"pointer"}
-      as={"a"}
-      href={href}
-      display={"inline-flex"}
-      alignItems={"center"}
-      justifyContent={"center"}
-      transition={"background 0.3s ease"}
-      _hover={{
-        bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
-      }}
-      target="_blank"
-    >
-      <VisuallyHidden>{label}</VisuallyHidden>
-      {children}
-    </chakra.button>
+    <>
+      <Tooltip
+        label={label}
+        closeOnClick={false}
+        hasArrow
+      >
+        <chakra.button
+          className={styles.button}
+          bg={useColorModeValue(lightMode, darkMode)}
+          _hover={{
+            bg: useColorModeValue(darkMode, lightMode),
+            color: useColorModeValue(lightMode, darkMode)
+          }}
+          rounded={"full"}
+          w={8}
+          h={8}
+          as={"a"}
+          href={href}
+          target="_blank"
+        >
+          <VisuallyHidden>{label}</VisuallyHidden>
+          {children}
+        </chakra.button>
+      </Tooltip>
+    </>
   );
 };
 

@@ -2,7 +2,7 @@ import Head from "next/head";
 
 const HeadTags = ({ metadata = {} }) => {
   const SEO = {
-    title: metadata.title || "Kevin Hierro - Wolfremium",
+    title: metadata.title || "Frantisek Klucar - Fero",
     description: metadata.description || "Blog personal",
     slug: metadata.slug || "",
     image: "/assets/default-image.png",

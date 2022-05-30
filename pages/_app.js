@@ -8,11 +8,13 @@ import Layout from "../src/components/Layout/Layout";
 import HeadTags from "../src/components/HeadTags/HeadTags";
 
 function MyApp({ Component, pageProps }) {
+  const themes = [theme.colors.white, theme.colors.black];
+  
   return (
     <>
       <HeadTags />
       <ChakraProvider theme={theme}>
-        <Layout>
+        <Layout themes={themes}>
           <Component {...pageProps} />
         </Layout>
       </ChakraProvider>

@@ -7,9 +7,8 @@ import {
 
 import styles from './Buttons.module.scss'
 
-const SocialButton = ({ children, label, href }) => {
-  const darkMode = 'black.333';
-  const lightMode = 'white.333';
+const SocialButton = ({ children, label, href, themes }) => {
+  const [lightMode, darkMode] = themes;
 
   return (
     <>

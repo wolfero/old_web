@@ -7,10 +7,10 @@ import {
 } from "@chakra-ui/react";
 import styles from './Buttons.module.scss'
 
-const CopyButton = ({ children, label, href }) => {
+const CopyButton = ({ children, label, href, themes }) => {
   const { hasCopied, onCopy } = useClipboard(href);
-  const darkMode = 'black.333';
-  const lightMode = 'white.333';
+  const [lightMode, darkMode] = themes;
+
 
   return (
     <>

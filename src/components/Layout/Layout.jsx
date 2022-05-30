@@ -2,15 +2,15 @@ import { Box } from "@chakra-ui/react";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
-const Layout = ({ children }) => (
+const Layout = ({ children, themes }) => (
   <>
     <Box>
       <header>
-        <Navbar></Navbar>
+        <Navbar themes={themes}></Navbar>
       </header>
       <main>{children}</main>
       <footer>
-        <Footer></Footer>
+        <Footer themes={themes}></Footer>
       </footer>
     </Box>
   </>

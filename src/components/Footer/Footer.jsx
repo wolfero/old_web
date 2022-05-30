@@ -5,43 +5,45 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { MdEmail } from "react-icons/md";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-import SocialButton from "../SocialButton/SocialButton";
+
+import SocialButton from "../Buttons/SocialButton";
+import CopyButton from "../Buttons/CopyButton";
 import {
   linkedInUrl,
   githubUrl,
   gmailUrl
 } from "../../../data/socialLinks/social-links";
-import CopyButton from "../CopyButton/CopyButton";
-import { MdEmail } from "react-icons/md";
 
-const Footer = () => {
+import styles from './Footer.module.scss';
+
+const Footer = ({ themes }) => {
+  const [lightMode, darkMode] = themes;
+
   return (
     <Box
-      bg={useColorModeValue("gray.50", "gray.900")}
-      color={useColorModeValue("gray.700", "gray.200")}
+      className={styles.socialIconsBox}
+      bg={useColorModeValue(lightMode, darkMode)}
+      color={useColorModeValue(lightMode, darkMode)}
     >
       <Container
         as={Stack}
         maxW={"6xl"}
-        py={4}
-        direction={{ base: "column", md: "row" }}
-        spacing={4}
-        justify={{ base: "center", md: "space-between" }}
-        align={{ base: "center", md: "center" }}
+        className={styles.container}
       >
-        <Text>🐺 {new Date().getFullYear()} Frantisek Klucar</Text>
         <Stack direction={"row"} spacing={6}>
-          <CopyButton label={"Mail"} href={gmailUrl}>
+          <CopyButton label={"Mail"} href={gmailUrl} themes={themes}>
             <MdEmail></MdEmail>
           </CopyButton>
-          <SocialButton label={"Github"} href={githubUrl}>
+          <SocialButton label={"Github"} href={githubUrl} themes={themes}>
             <BsGithub />
           </SocialButton>
-          <SocialButton label={"LinkedIn"} href={linkedInUrl}>
+          <SocialButton label={"LinkedIn"} href={linkedInUrl} themes={themes}>
             <BsLinkedin />
           </SocialButton>
         </Stack>
+        <Text>{new Date().getFullYear()} Frantisek Klucar</Text>
       </Container>
     </Box>
   );

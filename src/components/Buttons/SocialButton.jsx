@@ -1,21 +1,20 @@
 import {
   useColorModeValue,
-  useClipboard,
   Tooltip,
   chakra,
   VisuallyHidden,
 } from "@chakra-ui/react";
-import styles from './CopyButton.module.scss'
 
-const CopyButton = ({ children, label, href }) => {
-  const { hasCopied, onCopy } = useClipboard(href);
+import styles from './Buttons.module.scss'
+
+const SocialButton = ({ children, label, href }) => {
   const darkMode = 'black.333';
   const lightMode = 'white.333';
 
   return (
     <>
       <Tooltip
-        label={hasCopied ? "Email Copiado!" : "Copiar Email"}
+        label={label}
         closeOnClick={false}
         hasArrow
       >
@@ -30,7 +29,8 @@ const CopyButton = ({ children, label, href }) => {
           w={8}
           h={8}
           as={"a"}
-          onClick={onCopy}
+          href={href}
+          target="_blank"
         >
           <VisuallyHidden>{label}</VisuallyHidden>
           {children}
@@ -40,4 +40,4 @@ const CopyButton = ({ children, label, href }) => {
   );
 };
 
-export default CopyButton;
+export default SocialButton;

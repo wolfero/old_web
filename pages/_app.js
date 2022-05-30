@@ -8,7 +8,7 @@ import Layout from "../src/components/Layout/Layout";
 import HeadTags from "../src/components/HeadTags/HeadTags";
 
 function MyApp({ Component, pageProps }) {
-  const themes = [theme.colors.white, theme.colors.black];
+  const themes = [theme.colorsTags.white, theme.colorsTags.black];
   
   return (
     <>

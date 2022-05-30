@@ -11,6 +11,10 @@ const theme = extendTheme({
             333: '#f6f6f6'
         }
     },
+    colorsTags: {
+        black: 'black.333',
+        white: 'white.333'
+    }
 });
 
 export default theme;

@@ -28,7 +28,7 @@ const Footer = ({ themes }) => {
     <Box
       className={styles.socialIconsBox}
       bg={useColorModeValue(lightMode, darkMode)}
-      color={useColorModeValue(darkMode,lightMode)}
+      color={useColorModeValue(darkMode, lightMode)}
     >
       <Container
         as={Stack}

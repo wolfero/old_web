@@ -11,13 +11,18 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import NavItem from "../NavItem/NavItem";
 import pageLinks from "../../../data/page-links";
 
-const Navbar = () => {
+import styles from './Navbar.module.scss';
+
+const Navbar = ({ themes }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [lightMode, darkMode] = themes;
 
   return (
     <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
-        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+      <Box
+        bg={useColorModeValue(lightMode, darkMode)}
+        px={4}>
+        <Flex h={16} className={styles.menu}>
           <IconButton
             size={"md"}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}

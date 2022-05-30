@@ -1,13 +1,30 @@
+import {
+  Container,
+  VStack,
+  Heading,
+  Text,
+  Link,
+  useColorModeValue
+} from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+
 import { getAllFilesMetadata } from "../lib/mdx";
 import { orderByDate } from "../lib/order-by-date";
-import { Container, VStack, Heading, Text, Link } from "@chakra-ui/react";
+
+import theme from "../src/theme/index";
 import PostList from "../src/components/blog/PostList";
 import HomeCard from "../src/components/HomeCard/HomeCard";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
+
+const lightMode = theme.colorsTags.white;
+const darkMode = theme.colorsTags.black;
 
 export default function Home({ posts }) {
   return (
-    <Container maxW={"7xl"} p="12">
+    <Container
+      bg={useColorModeValue(lightMode, darkMode)}
+      color={useColorModeValue(darkMode, lightMode)}
+      maxW={"7xl"}
+      p="12">
       <HomeCard></HomeCard>
       <PostList posts={posts}></PostList>
       {/* <VStack paddingTop="50px" spacing="6" alignItems="flex-start">

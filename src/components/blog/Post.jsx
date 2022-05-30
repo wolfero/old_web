@@ -2,7 +2,7 @@ import { Box, Heading, Link, Image } from "@chakra-ui/react";
 import PostTags from "./PostTags";
 import PostDate from "./PostDate";
 import PostReadingTime from "./PostReadingTime";
-import { formatDate } from "../../lib/format-date";
+import { formatDate } from "../../../lib/format-date";
 
 const defaultImage = "/assets/default-image.png";
 

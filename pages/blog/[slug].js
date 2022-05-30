@@ -1,6 +1,6 @@
 import { getFilesBySlug, getFiles } from "../../lib/mdx";
 import { MDXRemote } from "next-mdx-remote";
-import { MDXComponents } from "../../components/mdx/MDXComponents";
+import { MDXComponents } from "../../src/components/mdx/MDXComponents";
 import { Heading } from "@chakra-ui/react";
 import { formatDate } from "../../lib/format-date";
 

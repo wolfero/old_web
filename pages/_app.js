@@ -4,8 +4,8 @@ import "../styles/scroll.css";
 import "../styles/prism-material-oceanic.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../styles/theme.js";
-import Layout from "../components/page/Layout";
-import HeadTags from "../components/page/HeadTags";
+import Layout from "../src/components/Layout/Layout";
+import HeadTags from "../src/components/HeadTags/HeadTags";
 
 function MyApp({ Component, pageProps }) {
   return (

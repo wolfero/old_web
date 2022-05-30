@@ -5,17 +5,14 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { FaTwitter, FaYoutube } from "react-icons/fa";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-import SocialButton from "./SocialButton";
+import SocialButton from "../SocialButton/SocialButton";
 import {
   linkedInUrl,
   githubUrl,
-  youtubeUrl,
-  twitterUrl,
-  gmailUrl,
-} from "../../data/social-links";
-import CopyButton from "./CopyButton";
+  gmailUrl
+} from "../../../data/socialLinks/social-links";
+import CopyButton from "../CopyButton/CopyButton";
 import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
@@ -33,17 +30,11 @@ const Footer = () => {
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
       >
-        <Text>🐺 {new Date().getFullYear()} - Kevin Hierro Carrasco</Text>
+        <Text>🐺 {new Date().getFullYear()} Frantisek Klucar</Text>
         <Stack direction={"row"} spacing={6}>
           <CopyButton label={"Mail"} href={gmailUrl}>
             <MdEmail></MdEmail>
           </CopyButton>
-          <SocialButton label={"Twitter"} href={twitterUrl}>
-            <FaTwitter />
-          </SocialButton>
-          <SocialButton label={"YouTube"} href={youtubeUrl}>
-            <FaYoutube />
-          </SocialButton>
           <SocialButton label={"Github"} href={githubUrl}>
             <BsGithub />
           </SocialButton>

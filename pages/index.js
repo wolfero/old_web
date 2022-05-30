@@ -1,8 +1,8 @@
 import { getAllFilesMetadata } from "../lib/mdx";
 import { orderByDate } from "../lib/order-by-date";
 import { Container, VStack, Heading, Text, Link } from "@chakra-ui/react";
-import PostList from "../components/blog/PostList";
-import HomeCard from "../components/HomeCard/HomeCard";
+import PostList from "../src/components/blog/PostList";
+import HomeCard from "../src/components/HomeCard/HomeCard";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 export default function Home({ posts }) {

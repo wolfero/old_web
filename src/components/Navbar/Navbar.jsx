@@ -8,8 +8,8 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import NavItem from "./NavItem";
-import pageLinks from "../../data/page-links";
+import NavItem from "../NavItem/NavItem";
+import pageLinks from "../../../data/page-links";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

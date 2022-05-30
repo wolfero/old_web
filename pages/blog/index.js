@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from "react";
-import PostList from "../../components/blog/PostList";
+import PostList from "../../src/components/blog/PostList";
 import { getAllFilesMetadata } from "../../lib/mdx";
 import { orderByDate } from "../../lib/order-by-date";
 import {

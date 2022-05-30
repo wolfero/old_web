@@ -37,7 +37,7 @@ const Navbar = ({ themes }) => {
               display={{ base: "none", md: "flex" }}
             >
               {pageLinks.map(({ name, path }) => (
-                <NavItem key={name} name={name} path={path}>
+                <NavItem key={name} name={name} path={path} darkMode={darkMode} lightMode={lightMode}>
                   {name}
                 </NavItem>
               ))}
@@ -49,7 +49,7 @@ const Navbar = ({ themes }) => {
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               {pageLinks.map(({ name, path }) => (
-                <NavItem key={name} name={name} path={path}>
+                <NavItem key={name} name={name} path={path} darkMode={darkMode} lightMode={lightMode}>
                   {name}
                 </NavItem>
               ))}

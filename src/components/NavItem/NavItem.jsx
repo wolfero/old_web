@@ -1,13 +1,17 @@
 import { Link, useColorModeValue } from "@chakra-ui/react";
 
-const NavItem = ({ name, path }) => (
+import styles from './NavItem.module.scss';
+
+const NavItem = ({ name, path, darkMode, lightMode }) => (
+
   <Link
+    className={styles.button}
     px={2}
     py={1}
     rounded={"md"}
     _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
+      bg: useColorModeValue(darkMode, lightMode),
+      color:useColorModeValue(lightMode, darkMode),
     }}
     href={path}
   >

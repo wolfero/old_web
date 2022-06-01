@@ -11,7 +11,7 @@ const NavItem = ({ name, path, darkMode, lightMode }) => (
     rounded={"md"}
     _hover={{
       bg: useColorModeValue(darkMode, lightMode),
-      color:useColorModeValue(lightMode, darkMode),
+      color: useColorModeValue(lightMode, darkMode),
     }}
     href={path}
   >

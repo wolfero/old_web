@@ -5,7 +5,9 @@ import {
   IconButton,
   useDisclosure,
   useColorModeValue,
+  useColorMode,
   Stack,
+  Switch
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import NavItem from "../NavItem/NavItem";
@@ -14,6 +16,7 @@ import pageLinks from "../../../data/page-links";
 import styles from './Navbar.module.scss';
 
 const Navbar = ({ themes }) => {
+  const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [lightMode, darkMode] = themes;
 
@@ -30,7 +33,7 @@ const Navbar = ({ themes }) => {
             display={{ md: "none" }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <HStack spacing={8} alignItems={"center"}>
+          <HStack spacing={8}>
             <HStack
               as={"nav"}
               spacing={4}
@@ -43,6 +46,8 @@ const Navbar = ({ themes }) => {
               ))}
             </HStack>
           </HStack>
+          <Switch className={styles.pepe}
+            colorScheme={colorMode === 'dark' ? 'whiteAlpha' : 'blackAlpha '} onChange={toggleColorMode} />
         </Flex>
 
         {isOpen ? (

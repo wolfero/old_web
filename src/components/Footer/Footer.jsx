@@ -1,11 +1,9 @@
 import {
   Box,
-  Button,
   Container,
   Stack,
   Text,
   useColorModeValue,
-  useColorMode
 } from "@chakra-ui/react";
 import { MdEmail } from "react-icons/md";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
@@ -21,7 +19,7 @@ import {
 import styles from './Footer.module.scss';
 
 const Footer = ({ themes }) => {
-  const { toggleColorMode } = useColorMode()
+
   const [lightMode, darkMode] = themes;
 
   return (
@@ -45,9 +43,6 @@ const Footer = ({ themes }) => {
           <SocialButton label={"LinkedIn"} href={linkedInUrl} themes={themes}>
             <BsLinkedin />
           </SocialButton>
-          <Button onClick={toggleColorMode}>
-            to
-          </Button>
         </Stack>
         <Text>{new Date().getFullYear()} Frantisek Klucar</Text>
       </Container>

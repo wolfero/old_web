@@ -42,7 +42,7 @@ function Blog({ posts }) {
 
     return (
         <>
-            <Container ref={searchRef} mt="10" maxW={"2xl"}>
+            <Container ref={searchRef} maxW={"2xl"}>
                 <InputGroup>
                     <InputLeftElement pointerEvents="none">
                         <MdSearch color="gray.200" />

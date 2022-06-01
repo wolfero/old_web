@@ -16,10 +16,6 @@ export default function NotFoundPage() {
       <Text fontSize="18px" mt={3} mb={2}>
         Página no encontrada
       </Text>
-      <Text color={"gray.500"} mb={6}>
-        No está lo qué buscabas 😱
-      </Text>
-
       <NextLink href="/">
         <Button
           colorScheme="teal"

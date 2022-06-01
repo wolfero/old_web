@@ -8,7 +8,7 @@ import {
 import { MdSearch } from "react-icons/md";
 
 import PostList from "../../src/components/blog/PostList";
-import styles from './Blog.module.scss';
+import styles from "./Blog.module.scss";
 
 function Blog({ posts }) {
     const searchRef = useRef(null);
@@ -22,10 +22,12 @@ function Blog({ posts }) {
             query = query.toLowerCase();
             const res = query
                 ? posts.filter(
-                    (post) =>
-                        post.title.toLowerCase().includes(query) ||
-                        post.tags.some((tag) => tag.toLowerCase().includes(query))
-                )
+                      (post) =>
+                          post.title.toLowerCase().includes(query) ||
+                          post.tags.some((tag) =>
+                              tag.toLowerCase().includes(query)
+                          )
+                  )
                 : [];
             setResults(res);
         } else {

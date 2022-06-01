@@ -1,10 +1,9 @@
 import Blog from "./Blog";
-import { getAllFilesMetadata } from "../../lib/mdx";
-import { orderByDate } from "../../lib/order-by-date";
+import { getAllFiles } from "../../lib/mdx";
 
 export default Blog;
 export async function getStaticProps() {
-  const posts = await getAllFilesMetadata().sort(orderByDate);
+  const posts = await getAllFiles();
   return {
     props: {
       posts,

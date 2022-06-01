@@ -8,9 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 
-import { getAllFilesMetadata } from "../lib/mdx";
-import { orderByDate } from "../lib/order-by-date";
-
+import { getAllFiles } from "../lib/mdx";
 import theme from "../src/theme/index";
 import PostList from "../src/components/blog/PostList";
 import HomeCard from "../src/components/HomeCard/HomeCard";
@@ -57,9 +55,9 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const allPosts = getAllFilesMetadata();
+  const allPosts = await getAllFiles();
   const maxPosts = 3;
-  const posts = allPosts.sort(orderByDate).slice(0, maxPosts);
+  const posts = allPosts.slice(0, maxPosts);
   return {
     props: {
       posts,

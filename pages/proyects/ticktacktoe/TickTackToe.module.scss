@@ -1,0 +1,42 @@
+.Game {
+    font: 16px "Century Gothic", Futura, sans-serif;
+    padding: 20px;
+    min-height: 260px;
+}
+
+.GameBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .Status {
+        padding: 1rem 0;
+    }
+
+    .Restart {
+        align-self: flex-start;
+        background-color: #fff;
+        color: #333;
+        padding: .5rem;
+        border-radius: .5rem;
+    }
+
+    .Squares {
+        display: grid;
+        margin-top: 1rem;
+        grid-template-columns: 4rem 4rem 4rem;
+        grid-template-rows: 4rem 4rem 4rem;
+
+        .Square {
+            background: #fff;
+            color: #333;
+            border: 1px solid #999;
+            font-size: 2rem;
+            font-weight: bold;
+            height: 34px;
+            text-align: center;
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+}

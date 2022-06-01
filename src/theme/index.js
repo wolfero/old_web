@@ -5,15 +5,15 @@ const theme = extendTheme({
     useSystemColorMode: false,
     colors: {
         black: {
-            333: '#333'
+            100: '#242526'
         },
         white: {
-            333: '#f6f6f6'
+            100: '#f0f2f5'
         }
     },
     colorsTags: {
-        black: 'black.333',
-        white: 'white.333'
+        black: 'black.100',
+        white: 'white.100'
     }
 });
 

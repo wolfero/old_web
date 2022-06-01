@@ -1,3 +1,4 @@
+import { Box, Heading } from "@chakra-ui/react";
 import { useCallback, useMemo, useState } from "react";
 
 import styles from './TickTackToe.module.scss';
@@ -13,63 +14,66 @@ const getWinner = squares => [
     line.map(number => squares[number]))
     .find(([a, b, c]) => a === b && a === c)?.[0];
 
-const getNext = squares => squares.filter(Boolean).length % 2 === 0 ? "X" : "O";
-
 const Game = () => {
     const [squares, setSquares] = useState(DEFAULT_BOARD);
-    const next = useMemo(() => getNext(squares), [squares]);
-    const winner = useMemo(() => getWinner(squares), [squares]);
-    const onRestartClick = useCallback(
-        () => setSquares(DEFAULT_BOARD), [setSquares]
+    const getNextPlayer = squares => squares.filter(Boolean).length % 2 === 0 ? "X" : "O";
+    const nextPlayer = useMemo(() =>
+        getNextPlayer(squares),
+        [squares]);
+    const winner = useMemo(() =>
+        getWinner(squares),
+        [squares]);
+    const onRestartClick = useCallback(() =>
+        setSquares(DEFAULT_BOARD),
+        [setSquares]
     );
     const onSquareClick = useCallback(
         index => winner === undefined && squares[index] === undefined
             ? setSquares([
                 ...squares.slice(0, index),
-                next,
+                nextPlayer,
                 ...squares.slice(index + 1)
             ])
             : undefined,
-        [next, setSquares, squares, winner]
+        [nextPlayer, setSquares, squares, winner]
     );
 
     return (
-        <div className={styles.Game} >
+        <Box className={styles.Game} >
             <Board
                 {...{
                     onRestartClick,
                     onSquareClick,
-                    next,
+                    nextPlayer,
                     squares,
                     winner
                 }}
             />
-        </div>
+        </Box>
     );
 }
 
 export default Game;
 
 const Board = ({
-    next,
+    nextPlayer,
     onRestartClick,
     onSquareClick,
     squares,
     winner,
     ...props
 }) => (
-    <div className={styles.GameBoard} {...props}>
-        <div className={styles.Status}>
-            {winner
-                ? `Winner: ${winner}`
+    <Box className={styles.GameBoard} {...props}>
+        <Heading className={styles.Status}>
+            {winner ? `Winner: ${winner}`
                 : squares.every(Boolean)
                     ? "Draw"
-                    : `Next player: ${next}`}
-        </div>
+                    : `Next player: ${nextPlayer}`}
+        </Heading>
         <button className={styles.Restart} onClick={onRestartClick}>
-            restart
+            Restart
         </button>
-        <div className={styles.Squares}>
+        <Box className={styles.Squares}>
             {squares.map((square, index) => (
                 <button
                     className={styles.Square}
@@ -79,7 +83,7 @@ const Board = ({
                     {square}
                 </button>
             ))}
-        </div>
-    </div>
+        </Box>
+    </Box>
 );
 

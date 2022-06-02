@@ -17,18 +17,18 @@ const HomeCard = () => {
   return (
     <Center py={6}>
       <Box
-        className={styles.card}>
+        className={styles.Card}>
 
         <Avatar
           src={'/assets/default-image.png'}
-          className={styles.image}
+          className={styles.Image}
         />
 
-        <Heading className={styles.name}>
+        <Heading className={styles.Name}>
           Frantisek Klucar
         </Heading>
 
-        <Box className={styles.content}>
+        <Box className={styles.Content}>
           <Text
             textAlign={'center'}
             color={useColorModeValue('gray.700', 'gray.400')}

@@ -11,6 +11,8 @@ import {
   import theme from "../../src/theme/index";
   import PostList from "../../src/components/blog/PostList";
   import HomeCard from "../../src/components/HomeCard/HomeCard";
+
+  import styles from './Home.module.scss';
   
   const lightMode = theme.colorsTags.white;
   const darkMode = theme.colorsTags.black;

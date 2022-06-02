@@ -1,6 +1,5 @@
 .Game {
     font: 16px "Century Gothic", Futura, sans-serif;
-    
     display: grid;
     justify-content: center;
     align-items: center;
@@ -44,9 +43,9 @@
             }
         }
     }
+}
 
-    .Dark {
-        background-color: var(--color-white);
-        color: var(--color-black);
-    }
+.Dark {
+    background-color: var(--color-white);
+    color: var(--color-black);
 }

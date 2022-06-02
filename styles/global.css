@@ -9,3 +9,7 @@ main {
 	align-items: center;
 	justify-content: center;
 }
+
+button:focus{
+	box-shadow: none !important;
+}

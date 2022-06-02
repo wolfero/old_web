@@ -14,9 +14,17 @@
         color: var(--color-white);
         padding: 0.5rem;
         border-radius: 0.5rem;
+        &:hover {
+            background-color: var(--color-red);
+            color: var(--color-white);
+        }
 
         &.DarkMode {
             @extend .Dark;
+            &:hover {
+                background-color: var(--color-red);
+                color: var(--color-white);
+            }
         }
     }
 
@@ -40,6 +48,43 @@
 
             &.DarkMode {
                 @extend .Dark;
+                &:hover {
+                    background-color: var(--color-red);
+                    color: var(--color-white);
+                }
+            }
+
+            &:hover {
+                background-color: var(--color-red);
+                color: var(--color-white);
+            }
+        }
+    }
+
+    @media (max-width: 425px) {
+        .Restart {
+            &:hover {
+                background-color: none;
+            }
+
+            &.DarkMode {
+                &:hover {
+                    background-color: none;
+                }
+            }
+        }
+
+        .Board {
+            grid-template-columns: 5rem 5rem 5rem;
+            grid-template-rows: 5rem 5rem 5rem;
+            .Square {
+                width: 5rem;
+                height: 5rem;
+                &.DarkMode {
+                    &:hover {
+                        background-color: none;
+                    }
+                }
             }
         }
     }

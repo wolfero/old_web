@@ -1,8 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 
-import "../styles/github-markdown.css";
-import "../styles/scroll.css";
 import "../styles/prism-material-oceanic.css";
+import "../styles/github-markdown.css";
 import '../styles/global.css';
 
 import theme from "../src/theme/index";

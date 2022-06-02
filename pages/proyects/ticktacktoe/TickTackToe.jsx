@@ -1,4 +1,4 @@
-import { Box, Heading, useColorMode } from "@chakra-ui/react";
+import { Box, Button, Heading, useColorMode } from "@chakra-ui/react";
 import { useCallback, useMemo, useState } from "react";
 
 import styles from "./TickTackToe.module.scss";
@@ -64,9 +64,9 @@ const Game = () => {
                     ? "Draw"
                     : `Next player: ${nextPlayer}`}
             </Heading>
-            <button className={restartButtonClass} onClick={onRestartClick}>
+            <Button className={restartButtonClass} onClick={onRestartClick}>
                 Restart
-            </button>
+            </Button>
             <Board
                 {...{
                     onSquareClick,
@@ -84,16 +84,21 @@ const Board = ({ onSquareClick, squares, isDark }) => {
     return (
         <Box className={styles.Board}>
             {squares.map((square, index) => (
-                <button
+                <Square
+                    square={square}
+                    index={index}
                     className={squareButtonClass}
-                    key={index}
                     onClick={() => onSquareClick(index)}
-                >
-                    {square}
-                </button>
+                />
             ))}
         </Box>
     );
 };
+
+const Square = ({ square, index, className, onClick }) => (
+    <Button className={className} key={index} onClick={onClick}>
+        {square}
+    </Button>
+);
 
 export default Game;

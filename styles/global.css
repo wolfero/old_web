@@ -1,15 +1,16 @@
 :root {
     --color-black: #242526;
     --color-white: #f0f2f5;
+    --color-red: red;
 }
 
 main {
-	min-height: 100vh;
-	display: grid !important;
-	align-items: center;
-	justify-content: center;
+    min-height: 100vh;
+    display: grid !important;
+    align-items: center;
+    justify-content: center;
 }
 
-button:focus{
-	box-shadow: none !important;
+button:focus {
+    box-shadow: none !important;
 }

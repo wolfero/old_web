@@ -1,44 +1,52 @@
 .Game {
     font: 16px "Century Gothic", Futura, sans-serif;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.GameBoard {
+    
     display: grid;
     justify-content: center;
     align-items: center;
     grid-gap: 1rem;
 
-    .Status {
+    .NextPLayer {
         text-align: center;
     }
 
     .Restart {
-        background-color: var(--color-white);
-        color: var(--color-black);
-        padding: .5rem;
-        border-radius: .5rem;
+        background-color: var(--color-black);
+        color: var(--color-white);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+
+        &.DarkMode {
+            @extend .Dark;
+        }
     }
 
-    .Squares {
+    .Board {
         display: grid;
         justify-content: center;
         align-items: center;
         grid-template-columns: 10rem 10rem 10rem;
         grid-template-rows: 10rem 10rem 10rem;
-        grid-gap: .5rem;
+        grid-gap: 0.5rem;
 
         .Square {
-            background: var(--color-white);
-            color: var(--color-black);
+            background-color: var(--color-black);
+            color: var(--color-white);
+            border-radius: 0.5rem;
             font-size: 5rem;
             font-weight: bold;
             text-align: center;
             width: 10rem;
             height: 10rem;
+
+            &.DarkMode {
+                @extend .Dark;
+            }
         }
+    }
+
+    .Dark {
+        background-color: var(--color-white);
+        color: var(--color-black);
     }
 }

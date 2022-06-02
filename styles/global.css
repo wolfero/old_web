@@ -2,3 +2,10 @@
     --color-black: #242526;
     --color-white: #f0f2f5;
 }
+
+main {
+	min-height: 100vh;
+	display: grid !important;
+	align-items: center;
+	justify-content: center;
+}

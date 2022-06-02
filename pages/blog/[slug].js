@@ -1,17 +1,21 @@
 import { MDXRemote } from "next-mdx-remote";
 import { Heading } from "@chakra-ui/react";
 import { getMdxPaths } from "next-mdx/server";
+
 import { getFileBySlug } from "../../lib/mdx";
 import { MDXComponents } from "../../src/components/mdx/MDXComponents";
 import { formatDate } from "../../lib/format-date";
+import styles from './Blog.module.scss';
 
 export default function Post({ post }) {
     const metadata = post.frontMatter;
     return (
         <>
-            <Heading mt="4" align="center">📅 {formatDate(metadata.date)}</Heading>
-            <section className="post-body">
-                <article className="markdown-body">
+            <Heading mt="4" align="center">
+                📅 {formatDate(metadata.date)}
+            </Heading>
+            <section className={styles.PostBody}>
+                <article className='markdown-body'>
                     <MDXRemote
                         {...post.serialize}
                         components={MDXComponents}

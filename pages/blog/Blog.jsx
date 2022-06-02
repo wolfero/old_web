@@ -54,7 +54,7 @@ function Blog({ posts }) {
                         placeholder="¿Estás buscando algo?"
                         type="text"
                         value={query}
-                        borderColor="teal.600"
+                        borderColor="red.600"
                         border={"2px"}
                     />
                 </InputGroup>

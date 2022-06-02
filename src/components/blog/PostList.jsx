@@ -8,7 +8,7 @@ const PostList = ({ posts }) => {
       <Heading as="h2" marginTop="5">
         Artículos
       </Heading>
-      <Divider marginTop="5" />
+      <Divider marginTop="4" />
       <Wrap spacing="30px" marginTop="5">
         {posts.map((post) => (
           <WrapItem

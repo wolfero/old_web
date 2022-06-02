@@ -41,10 +41,10 @@ export default function Home({ posts }) {
           {
             <Link
               href={"https://github.com/Wolfremium13/blog-react"}
-              color="teal.200"
+              color="red.500"
               isExternal
             >
-              repositorio <ExternalLinkIcon w={3} h={3} color="teal.200" />
+              repositorio <ExternalLinkIcon w={3} h={3} color="red.500" />
             </Link>
           }{" "}
           por si lo quieres clonar, no tiene nada del otro mundo (de momento 😎).

@@ -1,5 +1,5 @@
 const proyectsLinks = [
-    { name: "Tick Tack Toe", path: "/proyects/ticktacktoe" },
+    { name: "Tick Tack Toe", webLink: "/proyects/ticktacktoe", githubLink: "" },
 ];
 
 export default proyectsLinks;

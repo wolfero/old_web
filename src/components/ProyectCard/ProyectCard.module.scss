@@ -7,35 +7,36 @@
 	text-align: center;
 	border-radius: 1rem;
 	transition: 0.4s;
+
+	.Image {
+		position: relative;
+		background-color: darkviolet;
+		margin: -8rem auto 1.5rem;
+		padding: 0.25rem;
+		width: var(--image-width);
+		height: var(--image-width);
+		border-radius: 50%;
+		transition: 0.4s;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			border-radius: 50%;
+			transition: 0.4s;
+		}
+	}
+	
+	&:hover {
+		--card-width: 480px;
+		--image-width: calc(var(--card-width) / 2);
+
+		.Image {
+			margin-top: -4rem;
+			border-radius: 2rem;
+		}
+	}
 }
 
-.Card .Image {
-    position: relative;
-	background-color: darkviolet;
-	margin: -8rem auto 1.5rem;
-	padding: 0.25rem;
-	width: var(--image-width);
-	height: var(--image-width);
-	border-radius: 50%;
-	transition: 0.4s;
-	overflow: hidden;
-}
-
-.Card .Image img {
-	width: 100%;
-	border-radius: 50%;
-	transition: 0.4s;
-}
-
-.Card:hover {
-	--card-width: 480px;
-	--image-width: calc(var(--card-width) / 2);
-}
-
-.Card:hover .Image {
-	margin-top: -4rem;
-	border-radius: 2rem;
-}
 
 .Card:hover .Image img {
 	border-radius: 2rem;

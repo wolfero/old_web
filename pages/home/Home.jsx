@@ -10,9 +10,6 @@ import {
   
   import theme from "../../src/theme/index";
   import PostList from "../../src/components/blog/PostList";
-  import HomeCard from "../../src/components/HomeCard/HomeCard";
-
-  import styles from './Home.module.scss';
   
   const lightMode = theme.colorsTags.white;
   const darkMode = theme.colorsTags.black;
@@ -24,7 +21,6 @@ import {
         color={useColorModeValue(darkMode, lightMode)}
         maxW={"7xl"}
         p="12">
-        <HomeCard></HomeCard>
         <PostList posts={posts}></PostList>
         {/* <VStack paddingTop="50px" spacing="6" alignItems="flex-start">
           <Heading as="h2">¿De qué suelo escribir?</Heading>

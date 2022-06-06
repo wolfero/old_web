@@ -1,0 +1,208 @@
+---
+title: "Principios SOLID"
+date: "2022-03-30"
+preview: "/assets/blog/solid-principles/solid.png"
+tags:
+    - "👨‍🎓 Learning"
+    - "📘 SOLID principles"
+---
+
+# Principios SOLID
+
+## ¿Qué son los principios SOLID?
+
+Los principios SOLID son un conjunto de principios aplicados a la programación orientada a objetos, aplicándolos correctamente ayudan a crear un software de calidad en cualquier lenguaje de programación. Robert C Martin formulo los cinco principios de la programación orientada a objetos que posteriormente pasaron a ser los principios SOLID.
+
+## Los cinco principios
+
+-   **S** → Principio de Responsabilidad Única
+-   **O** → Principio de Abierto-Cerrado
+-   **L** → Principio de Sustitución de Liskov
+-   **I** → Principio de Segregación Interfaces
+-   **D** → Principio de Inversión de Dependencias
+
+<MdxImage
+    src="/assets/blog/solid-principles/solid.png"
+    alt="solid principles"
+></MdxImage>
+
+## Principio de Responsabilidad Única
+
+Este principio se explica de una manera bastante simple:
+
+> **_Cada componente de nuestro código tiene que tener una única responsabilidad._**
+
+Cuando nos referimos a componente, nos referimos a todo lo que engloba, ya sea una función, una clase o cual estructura concreta. Siguiendo el principio, una función tiene que tener una única responsabilidad, una clase tiene que tener única responsabilidad, etc…
+
+Cuando cada componente de nuestro software tiene una única responsabilidad, entonces decimos que el nivel de cohesión es alto. Y si hablamos de cohesión estamos hablando también de acoplamiento. El acoplamiento es el grado de relación entre un componente y los demás.
+
+El **_Principio de Responsabilidad Única_** nos ayuda enormemente a mejorar los niveles de acoplamiento y cohesión, lo que se traduce en un código más sencillo de diseñar, programar y mantener.
+
+Ejemplo sencillo del Principio de **_Responsabilidad Única:_**
+
+```java
+class MyClass
+{
+	private $counter = 0;
+	public function incrementCounter(){
+		$this-> counter++;
+		return $this-> counter;
+	}
+}
+```
+
+---
+
+## Principio de Abierto-Cerrado
+
+El segundo principio se vio por primera vez en el libro Object-Oriented Software Construction escrito por Bertrand Meyer por el año 1988 y se puede resumir en:
+
+> **_Las entidades de software deben ser abiertas para extender, pero cerradas para modificación._**
+
+Cuando se refiere a abierto para extender, se refiere a extender el comportamiento de ese componente sin necesidad de modificar su código. Los cambios en son malos, todo lo contrario, todo sistema cambia su ciclo de vida a lo largo del tiempo. Esto nos ayuda a añadir a los componentes nuevas funcionalidades, con la certeza de que el código anterior no se vea comprometido y seguirá funcionando.
+
+Este principio se suele resolver usando **_polimorfismo_**, es decir, en vez de usar un componente principal para resolver una operación, este lo delega en los objetos que utiliza, liberándose de esa responsabilidad.
+
+Una forma sencilla de saber que estamos violando el **_Principio de Abierto-Cerrado_**, es identificar cuales son los componentes que estamos modificando más amenudeo.
+
+Un ejemplo sencillo del **_Principio de Abierto-Cerrado:_**
+
+```java
+enum Class VehicleType{CAR,MOTORBIKE}
+interface Vehicle{
+	fun draw()
+}
+class Car: Vehicle{
+	override fun draw(){
+		//Draw the car
+	}
+}
+class Motorbike: Vehicle{
+	override fun draw(){
+		//Draw the motorbike
+	}
+}
+fun draw(vehicle: Vehicles){
+	vehicle.draw()
+}
+```
+
+Como podemos apreciar en el ejemplo estamos usando también el **_Principio de Responsabilidad Única._**
+
+---
+
+## El Principio de Sustitución de Liskov
+
+Este principio viene a hablar sobre cómo usar una de las herramientas que nos da la programación orientada a objetos a la hora de reutilizar código, que es la herencia y fue desarrollado por Barbara Liskov, en una conferencia allá por el año 1987. La herencia es una potente herramienta que nos permite reutilizar código, también es una de las herramientas que nos permite implementar el polimorfismo, que es otro de los grandes puntos fuertes de la programación orientada a objetos.
+
+Este principio viene a decir:
+
+> **_Cada clase que hereda de otra puede usarse como su padre sin necesidad de conocer las diferencias entre ellas._**
+
+La definición del principio también puede verse de la siguiente manera:
+
+> **_Debe ser posible utilizar cualquier objeto instancia de una subclase en lugar de cualquier objeto instancia de su superclase sin que la semántica del programa escrito en los términos de la superclase se vea afectado._**
+
+Esto lo que nos quiere decir es que si tenemos una clase hija, deberíamos poder sustituir a las clases padre sin que el código se vea comprometido. Esto es lo que nos permite es a extender una clase, sin modificar el comportamiento de la clase padre. Si un método sobrescrito no hace nada o lanza una excepción, seguramente estamos incumpliendo este principio. Otra manera de ver si estamos incumpliendo el principio, es si los test de la clase padre no funcionan para la hija.
+
+En este ejemplo podemos ver que la clase elefante solo puede caminar, mientras que la clase perro puede caminar y saltar.
+
+```java
+open class Animal{
+	open fun walk(){}
+}
+open class LightweightAnimal: Animal(){
+	open fun jump(){}
+}
+fun jumpHole(animal: LightweightAnimal){
+	animal.walk()
+	animal.jump()
+}
+class Elephant : Animal()
+class Dog: LightweightAnimal()
+```
+
+---
+
+## El Principio de Segregación de Interfaces
+
+This.simple()
+
+> **_Muchas interfaces específicas son mejores que una interfaz de propósito general._**
+
+Si desarrollamos interfaces muy grandes estamos obligando a que los objetos que implementen esta interface tengan todos los métodos de esta. También podemos enunciar el principio de la siguiente manera:
+
+> **_Las clases que implementan interfaces no tiene que estar obligadas a implementar métodos que no usan._**
+
+Debemos priorizar las interfaces pequeñas sobre las grandes. Si necesitamos una interface muy grande, es mejor que lo dividamos en una serie de interfaces más pequeñas, de manera que si nuestros objetos solo implementen las interfaces que realmente necesiten y no tengamos que crear funciones que no necesitamos solo porque lo dice la interface.
+
+El ejemplo nos muestra un uso correcto de nuestro **_Principio de Segregación de Interfaces:_**
+
+```java
+interface ReadableStreamIface{
+	open function openIt()
+	open function readIt()
+}
+interface WritableStreamIface{
+	open function writeIt()
+}
+class File: ReadableStreamIface, WritableStreamIface{
+	open function openIt(){//...}
+	open function readIt(){//...}
+	open function writeIt(){//...}
+}
+class File: ReadableStreamIface{
+	open function openIt(){//...}
+	open function readIt(){//...}
+}
+```
+
+---
+
+## El Principio de Inversión de Dependencias
+
+Y para terminar el ultimo principio de SOLID, que nos habla de una manera de desacoplar nuestros objetos. Suele definirse como:
+
+> **_Los módulos de alto nivel no deberían depender de módulos de bajo nivel, ambos deberían depender de abstracciones._**
+
+Que suele venir acompañado por:
+
+> **_Las abstracciones no deberían depender de detalles, sino que los detalles deberían depender de las abstracciones._**
+
+Esto se traduce a que nuestros objetos están acoplados entre si. Hay una dependencia estrecha entre nuestros objetos que deriva en tres efectos colaterales, la rigidez, la fragilidad y la inmovilidad.
+
+Cuando hablamos de **_rigidez_** nos referimos a que nuestro sistema es difícil de modificar. Esto implica que cualquier cambio nos va a obligar a cambiar cosas en muchas partes de nuestros sistemas.
+
+Con el termino **_fragilidad_** queremos decir que, dado que cada cambio puede tener muchos efectos inesperados en diferentes partes de nuestro código, nuestro sistema es frágil. Es decir que se puede romper con facilidad.
+
+Si nuestro código está acoplado es muy difícil que podamos usarlo en otra parte de nuestro programa. Para esto usamos el termino inmovilidad. Esto dificulta en gran medida su reutilización.
+
+En resumen, un mayor acoplamiento se traduce en una mayor rigidez, un sistema más frágil y una **_inmovilidad_** que se traduce en, no solo un menor índice de reutilización sino en un mayor coste de mantenimiento.
+
+Podemos ver la flexibilidad que le otorga esta arquitectura a nuestras clases:
+
+```java
+interface Persistence{
+	fun save( shopping: Shopping)
+}
+
+interface PaymentMethod{
+	fun pay( shopping: Shopping)
+}
+
+class Shopping
+
+fun main(){
+	val shoppingBasket = ShopingBasket( Server(), Paypal())
+}
+
+class ShopingBasket(
+	private val persistence: Persistence,
+	private val paymentMethid: PaymentMethod
+){
+	fun buy( shopping: Shoping){
+		persistence.save( shopping)
+		paymentMethid.pay( shopping)
+	}
+}
+```

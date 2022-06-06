@@ -1,0 +1,138 @@
+---
+title: "Aprendiendo React"
+date: "2021-04-10"
+preview: "/assets/blog/learning-react/react.png"
+tags:
+    - "👨‍🎓 Learning"
+    - "📘 React"
+---
+
+# Aprendiendo React
+
+En este post y los siguientes, quiero ir dejando conocimientos que voy aprendiendo sobre React, así puede ser que sea util para otras personas que buscan aprender React.
+
+<MdxImage
+    src="/assets/blog/learning-react/react.png"
+    alt="React"
+></MdxImage>
+
+## ¿Qué es React?
+
+React es una librería de codigo abierto de JavaScript, que nos permite diseñar interfaces de usuario con el objetivo de facilitar el desarollo de aplicaciones en una sola página. Fue creado por Facebook en el 2013 y desde entonces lo han mantenido junto con una comunidad de desarolladores independientes.
+
+Ahora que tenemos una ligera idea de que es React, vamos a ver algunos conceptos:
+
+-   Create React App
+-   JSX
+-   Componentes
+-   Props vs States
+-   Hooks básicos
+-   Ciclo de vida de un componente
+-   Listas y keys
+-   Renderizado condicional
+-   Composición vs herencia
+
+## Create React App
+
+Create React App es un CLI oficial de React que nos permite como su nombre indica, crear una nueva aplicación de página única de un modo rápido y con poca complejidad.
+
+El comando para crear una nueva aplicación de React es el siguiente:
+
+`create-react-app hola-mundo`
+
+## Que es el JSX?
+
+El JSX es una extensión de sintaxis para JavaScript. En una primera instancia, puede parecer HTML pero es JavaScript. Sirve de preprocesador (como Sass) y transforma el codigo a JavaScript.
+
+## Componentes
+
+Los componentes son pequeños y reutilizables fragmentos de código que devuelven un elemento de React para ser renderizado en una página. La mayoría de las aplicaciones React tienen muchos componentes pequeños, y todo se carga en el componente principal de la aplicación, permitiendo separar la interfaz de usuario en piezas independientes,reutilizables y pensar en cada pieza de manera aisalada.
+
+Un componente de clase es una clase de JavaScript que extiende de la clase Component de React.
+
+```JavaScript
+class HolaMundoextends React.Component {
+  render() {
+    return <h1>Hola Mundo</h1>;
+  }
+}
+```
+
+Los componentes funcionales son funciones que normalmente reciben un objeto (llamado props) y retorna un ReactNode (ReactNode uede ser un elemento html, un string, un booleano, entre otros tipos de datos).
+
+```JavaScript
+function HolaMundo(props) {
+  return <h1>Hola Mundo, {props.name} os saluda.</h1>
+}
+```
+
+## Props vs States
+
+Como menciono antes, las props son objetos que reciben los componentes del componente padre, son sólo de lectura y no deben ser modificados de ninguna forma. De una manera más sencilla, son las propiedades del componente las cuales cumplen un rol importante en el proceso de desarollar una página web.
+
+El estado es un objeto React incorporado que se utiliza para contener datos o información sobre el componente. El estado de un componente puede cambiar con el tiempo; cada vez que cambia, el componente se vuelve a renderizar.
+
+-   Cada vez que cambia el estado de un objeto, React devuelve el componente al navegador.
+-   El objeto de estado se inicializa en el constructor.
+-   El objeto de estado puede almacenar varios props.
+-   this.setState() se utiliza para cambiar el valor del objeto de estado.
+-   La función setState() realiza una fusión superficial entre el estado nuevo y el anterior.
+
+## Hooks básicos
+
+Los Hooks fueron incorporados en la version 16.8 de React , que nos permite tener estado, y otras características de React, en los componentes creados con una funcion. Esto antes, no era posible y nos obligaba a crear un componente classe para poder acceder a todas las posibilidades de la librería.
+
+En los hooks básicos podemos encontrar **_useState_** y **_useEffect_**:
+
+**_useState_** nos permite otorgar estados a nuestros componentes, permitiendonos renderizar de nuevo el componente cada vez que cambie el contenido guardado en useState.
+
+**_useEffect_** nos permite ejecutar codigo en el momento que se crea el componente, siendo como un metodo de ciclo de vida, que nos permite acceder en momentos concretos , cuando se crea, cuando se destruye, etc, al componente.
+
+## Ciclo de vida de un componente
+
+El ciclo de vida de un componente son una serie de funciones que se ejecutan en distintos momentos de la vida del componente y nos permiten realizar distintas acciones en estos momentos. El ciclo de vida se puede dividir en 3 etapas, Montaje, Actualización y Desmontaje. A su vez cada ciclo de vida, nos va a proporcionar diferentes métodos de ciclo de vida para el componente, dependiendo en qué fase se encuentre, que vamos a poder utilizar.
+
+<MdxImage
+    src="/assets/blog/learning-react/component-live-cicle.png"
+    alt="component live cicle"
+></MdxImage>
+
+## Listas y keys
+
+Cuando creamos una lista de componentes, a cada uno se le debe asignar una key única, para que react lo pueda identificar y distinguir de los otros componentes en la lista.
+
+Las keys ayudan a React a identificar que ítems han cambiado, son agregados, o son eliminados. Las keys deben ser dadas a los elementos dentro del array para darle a los elementos una identidad estable. La mejor forma de elegir una key es usando un string que identifique únicamente a un elemento de la lista entre sus hermanos. Habitualmente usaremos los IDs de nuestros datos como key.
+
+## Renderizado condicional
+
+En React, puedes crear distintos componentes que encapsulan el comportamiento que necesitas. Entonces, puedes renderizar solamente algunos de ellos, dependiendo del estado de tu aplicación. El renderizado condicional en React funciona de la misma forma que lo hacen las condiciones en JavaScript. Usa operadores de JavaScript, como if o el operador condicional, para crear elementos representando el estado actual, y deja que React actualice la interfaz de usuario para emparejarlos.Veamos un ejemplo:
+
+Teniendo estos dos componentes:
+
+```JavaScript
+function UserGreeting(props) {
+  return <h1>Welcome back!</h1>;
+}
+function GuestGreeting(props) {
+  return <h1>Please sign up.</h1>;
+}
+```
+
+Vamos a crear un componente Greeting que muestra cualquiera de estos componentes dependiendo si el usuario ha iniciado sesión:
+
+```JavaScript
+function Greeting(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {    return <UserGreeting />;  }  return <GuestGreeting />;}
+ReactDOM.render(
+  // Intentar cambiando isLoggedIn={true}:
+  <Greeting isLoggedIn={false} />,  document.getElementById('root'));
+```
+
+## Composición vs herencia
+
+La herencia en React es muy similar a la de JS, y no hay mucho que agregar sobre ese tema. Por ejemplo, si vamos con la clase, existe la misma herencia que con las clases de JavaScript. Podemos usar solo una extensión simple para heredar métodos del componente principal.
+
+La composición de componentes es uno de los patrones más esenciales en React relacionado con el modelo de componentes. Nos ayuda a construir incluso funciones muy complejas usando muchas partes pequeñas. Al usar la composición, podemos implementar otros componentes en el componente. Por ejemplo, cuando creamos el perfil de usuario, podemos crear el componente userProfile, poner componentes userPhoto y usar userDescription como accesorios secundarios.
+
+Cuando desarrollamos aplicaciones para React, existen algunas razones principales por las que deberíamos optar por la composición en lugar de la herencia. El primero es la posibilidad de evitar componentes demasiado anidados. Debido a props.children, podemos separar el código en lugares separados. No necesitamos profundizar mucho en los componentes y crear muchos si. La siguiente cosa importante. Con la composición, seguimos el modelo de todo es componente diseñado por React.

@@ -1,0 +1,72 @@
+---
+title: "Applying the DRY principle"
+date: "2022-05-25"
+preview: "/assets/blog/dry-principle/logo.jpg"
+tags:
+    - "👨‍🎓 Learning"
+    - "♻️ Refactoring"
+    - "🚧 Projects"
+    - "📘 DRY principle"
+---
+
+# Applying the DRY principle
+
+<MdxImage src="/assets/blog/dry-principle/logo.jpg" alt="dry logo"></MdxImage>
+
+I am currently assisting in the Savvily web project that is created with Hugo.
+
+> Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again.
+
+Each time when we introduced a new feature, I saw that the code was getting more complicated to maintain. So I decided start to apply the DRY principle:
+
+The main objective of DRY (Don’t Repeat Yourself) is to reduce the number of code repetitions. Duplicating data, logic or function in your code not only makes your code long, but also makes you spend a lot of time maintaining, debugging or modifying your code. If you need to make small changes to your code, you will need to do it in several places.
+
+## In project
+
+The first thing I noticed that was repeated several times was the author section. It appears in both the book, where main color is pink, and podcast,where main color is yellow, products:
+
+<MdxImage src="/assets/blog/dry-principle/step-1.png" alt="Step 1"></MdxImage>
+
+Only the color changes, so we can make it a component. We create a new file in the partials folder and name it author.html. Inside we add this:
+
+<MdxImage src="/assets/blog/dry-principle/step-2.png" alt="Step 2"></MdxImage>
+
+Now we fix the section so that it ends like this:
+
+<MdxImage src="/assets/blog/dry-principle/step-3.png" alt="Step 3"></MdxImage>
+
+Now followed the option to subscribe to savviletter that appears on the pages of the podcast and savvi people:
+
+<MdxImage src="/assets/blog/dry-principle/step-4.png" alt="Step 4"></MdxImage>
+
+We create another file in the partials folder, but this time we call it subscribe.html and it will contain:
+
+<MdxImage src="/assets/blog/dry-principle/step-5.png" alt="Step 5"></MdxImage>
+
+And to call the component we need just add this line:
+
+<MdxImage src="/assets/blog/dry-principle/step-6.png" alt="Step 6"></MdxImage>
+
+Thus, we have been creating components of the product reviews section, savvily products, savvily people page header.
+
+The last component added is podcast-episodes.html. Which we use to paint the boxes of all the episodes of each podcast. This component is born by creating a page that hosts all the episodes of the previously selected podcast. The necessity of this component comes to that when we enter in the main page of a podcast. We can only see the last three episodes. To see all the episodes you have to click on the “see all episodes” button. The way we paint these three episodes is identical to how all the other episodes are painted on the page:
+
+<MdxImage src="/assets/blog/dry-principle/step-7.png" alt="Step 7"></MdxImage>
+
+The content of the component is as follows:
+
+<MdxImage src="/assets/blog/dry-principle/step-8.png" alt="Step 8"></MdxImage>
+
+So we invoke it in the templates like this:
+
+<MdxImage src="/assets/blog/dry-principle/step-9.png" alt="Step 9"></MdxImage>
+
+> Call in podcast page.
+
+<MdxImage src="/assets/blog/dry-principle/step-10.png" alt="Step 10"></MdxImage>
+
+> Call in episodes page.
+
+In conclusion, duplication can cause maintenance nightmares, poor factorization and logical contradictions. Therefore, if we write the same logic more than once, we should do DRY in our code. The common way to make DRY in a code is to wrap the duplicated logic with a function and replace it from all places where it appears with function calls.
+
+In my opinion, the DRY principle is key to creating good applications, with unification and reuse improving the quality of the code base and in turn improving maintainability.

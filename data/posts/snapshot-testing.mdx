@@ -1,0 +1,40 @@
+---
+title: "Snapshot testing"
+date: "2022-05-04"
+preview: "/assets/blog/snapshot-testing/snapshot.png"
+tags:
+    - "👨‍🎓 Learning"
+    - "🧪 Testing"
+    - "📘 Snapshot Testing"
+---
+
+# Snapshot testing
+
+<MdxImage
+    src="/assets/blog/snapshot-testing/snapshot.png"
+    alt="Snapshot testing"
+></MdxImage>
+
+## What is snapshot testing?
+
+Snapshot testing is a type of “output comparison” or “golden master” testing. These tests prevent regressions by comparing the current characteristics of an application or component with stored “good” values for those characteristics.
+
+## How Snapshot Testing Works
+
+As the name suggests, Snapshot testing records take a snap of the system. In Jest, this would be a render tree. Then it compares the recorded snapshot in future executions.
+
+## Benefits of Snapshot testing
+
+-   It introduces a clear pattern for testing the component render trees.
+-   Easier to view code changes.
+-   Easier to update when the component changes.
+-   Allows conditional rendering tests.
+-   Allows checking how components behave once you pass various combinations of props to them
+
+## Difference with functional/unit test
+
+The main difference between snapshot testing and functional/unit tests is, snapshot tests never assert the correct behavior of the application functionality but does an output comparison instead.
+
+## My conclusion
+
+Snapshot tests are easy to create and they are a great way to check that your application’s behavior isn’t changing unexpectedly during development. I’ve tested snapshot tests , but I still prefer functional/unit tests, because they bring me more security.

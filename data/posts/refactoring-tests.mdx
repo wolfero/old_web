@@ -1,0 +1,55 @@
+---
+title: "Refactoring tests"
+date: "2022-05-17"
+preview: "/assets/blog/refactoring-tests/logo.png"
+tags:
+  - "👨‍🎓 Learning"
+  - "♻️ Refactoring"
+  - "🧪 Testing"
+---
+
+# Refactoring tests
+
+<MdxImage
+  src="/assets/blog/refactoring-tests/logo.png"
+  alt="logo"
+></MdxImage>
+
+Yesterday I finished my Bowling kata in java and I asked my practice tutor to give me feedback on the kata. He suggested doing one more refactor, but this time instead of doing it to the code, do it to the tests using Parameterized Tests.
+
+## What are Parameterized Tests?
+Parameterized test is to execute the same test over and over again using different values. It helps developer to save time in executing same test which differs only in their inputs and expected results.
+
+Now that we know what is a parameterized tests, let’s take a look at the test before making a refactor:
+
+<MdxImage
+  src="/assets/blog/refactoring-tests/refactor-1.png"
+  alt="start code"
+></MdxImage>
+
+As we can see, the test bodies are the same. The only thing that changes is the data that we enter in the roll function and the expectation that we expect to obtain.
+
+Let’s start by extracting the data and expect:
+
+<MdxImage
+  src="/assets/blog/refactoring-tests/refactor-2.png"
+  alt="first refactor"
+></MdxImage>
+
+Now let’s create a single test that covers all cases:
+
+<MdxImage
+  src="/assets/blog/refactoring-tests/refactor-3.png"
+  alt="second refactor"
+></MdxImage>
+
+As we can see, the test has been greatly simplified. I also removed the roll function and made a refactor of the saveRolls function. The refactor is instead of saving the rolls one by one, I save all the rolls.
+
+As we can see we have reduced the size of BowlingGameShould quite a lot:
+
+<MdxImage
+  src="/assets/blog/refactoring-tests/refactor-4.png"
+  alt="third refactor"
+></MdxImage>
+
+The use of Parameterized test can’t always be used and sometimes generates more noise than benefit. But in this case the test process is always the same, so it is acceptable.

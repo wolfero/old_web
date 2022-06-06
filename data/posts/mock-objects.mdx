@@ -1,0 +1,54 @@
+---
+title: "Mock Objects in TDD"
+date: "2021-04-14"
+preview: "/assets/blog/mock-objects-in-tdd/experiment-lab.svg"
+tags:
+    - "👨‍🎓 Learning"
+    - "🧪 Testing"
+    - "📘 Mock Objects"
+---
+
+# Mock Objects in TDD
+
+Recently finished reading “Diseño Ágil con TDD” book from Carlos Blé, where in chapter five talks about mock objects in TDD, that wasn’t the first time I hear about mock objects, but never imagine what great use can have this thing.
+
+## What are Mock Objects?
+
+The term ‘Mock Objects’ has become a popular one to describe special case objects that mimic real objects for testing. If you’re testing a pure function, which only depends on it, there we no need mocks. But if you want to test a function or method that depends on different function or method, then we can use mocks.
+
+<MdxImage
+    src="/assets/blog/mock-objects-in-tdd/mock-objects.png"
+    alt="brain-things"
+></MdxImage>
+
+## How are Mocks Created?
+
+Right now, you might be thinking that creating these mocks would mean a lot of additional work. Most language environments now have frameworks that make it easy to create mock objects. What’s often not realized, however, is that mock objects are but one form of special case test object, one that enables a different style of testing.
+
+## Why Mocks Improve Development?
+
+Mocks play a critical role in the TDD process, making it possible to develop code using a top-down approach. This means that you start at the beginning of the program, the main loop, and work your way down to the lowest-level peripheral drivers.
+
+## Types of Mock Object
+
+From the most basic to the most advanced type we had Dummy, Stub, Spy, Mocks and Fake.
+
+## Dummy
+
+A class that you pass into something when you don’t care how it’s used. e.g. As part of a test, when you must pass an argument, but you know the argument will never be used. In general, if a dummy is used, you will want it to throw an exception to tell you something is wrong.
+
+## Stub
+
+Provide canned answers to calls made during the test, usually not responding at all to anything outside what’s programmed in for the test.
+
+## Spy
+
+Spies are stubs that also record some information based on how they were called. One form of this might be an email service that records how many messages it was sent.
+
+## Mocks
+
+They are what we are talking about here: objects pre-programmed with expectations which form a specification of the calls they are expected to receive.
+
+## Fake
+
+This objects actually have working implementations, but usually take some shortcut which makes them not suitable for production.

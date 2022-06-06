@@ -21,13 +21,16 @@ function Blog({ posts }) {
         if (query.length) {
             query = query.toLowerCase();
             const res = query
-                ? posts.filter(
-                      (post) =>
-                          post.title.toLowerCase().includes(query) ||
-                          post.tags.some((tag) =>
-                              tag.toLowerCase().includes(query)
-                          )
-                  )
+                ? posts.filter((post) => {
+                      const frontMatter = post.frontMatter;
+                      const title = frontMatter.title
+                          .toLowerCase()
+                          .includes(query);
+                      const tag = frontMatter.tags.some((tag) =>
+                          tag.toLowerCase().includes(query)
+                      );
+                      return title || tag;
+                  })
                 : [];
             setResults(res);
         } else {

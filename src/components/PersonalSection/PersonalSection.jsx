@@ -22,16 +22,6 @@ const PersonalSection = () => {
                             alt="Home image"
                         />
                     </Box>
-                    <Box className={styles.PersonalBackground}>
-                        <Box
-                            className={styles.PersonalBackgroundColors}
-                            bgGradient={useColorModeValue(
-                                "linear(red.400 0.2rem, transparent 1px)",
-                                "linear(red.600 0.1rem, transparent 10px)",
-                                "linear(red.600 0.1rem, transparent 10px)"
-                            )}
-                        />
-                    </Box>
                 </Box>
                 <Box
                     display="flex"

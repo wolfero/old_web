@@ -8,7 +8,7 @@ const HeadTags = ({ metadata = {} }) => {
     image: "/assets/default-image.png",
     date: metadata.date || new Date().toISOString(),
     domain: "https://wolfremium.dev",
-    site_name: "Kevin Hierro Carrasco",
+    site_name: "Frantisek Klucar",
   };
 
   return (

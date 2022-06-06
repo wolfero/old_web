@@ -6,7 +6,7 @@ const PostTags = (props) => {
       <Flex wrap={"wrap"}>
         {props?.tags.map((tag) => {
           return (
-            <Tag m="1" size={"lg"} variant="solid" colorScheme="teal" key={tag}>
+            <Tag m="1" size={"lg"} variant="solid" colorScheme="red" key={tag}>
               <Text isTruncated key={tag}>
                 {tag}
               </Text>

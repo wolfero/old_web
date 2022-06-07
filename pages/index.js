@@ -1,14 +1,6 @@
-import Home from './home/home';
+import Home,{getStaticProps as getStaticPropsHome} from './home';
 export default Home;
 
-import { getAllFiles } from "../lib/mdx";
-export async function getStaticProps() {
-  const allPosts = await getAllFiles();
-  const maxPosts = 3;
-  const posts = allPosts.slice(0, maxPosts);
-  return {
-    props: {
-      posts,
-    },
-  };
+export async function getStaticProps(){
+  return getStaticPropsHome();
 }

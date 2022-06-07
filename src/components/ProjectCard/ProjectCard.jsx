@@ -11,9 +11,9 @@ import {
     Text,
 } from "@chakra-ui/react";
 
-import styles from "./ProyectCard.module.scss";
+import styles from "./ProjectCard.module.scss";
 
-const ProyectCard = ({ title,githubLink, webLink }) => {
+const ProjectCard = ({ title,githubLink, webLink }) => {
     return (
         <Center py={6}>
             <Box className={styles.Card}>
@@ -66,4 +66,4 @@ const ProyectCard = ({ title,githubLink, webLink }) => {
     );
 };
 
-export default ProyectCard;
+export default ProjectCard;

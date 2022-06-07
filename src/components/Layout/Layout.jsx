@@ -5,17 +5,17 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 
 const Layout = ({ children, themes }) => (
-  <>
-    <Box>
-      <header>
-        <Navbar themes={themes}></Navbar>
-      </header>
-      <Main themes={themes} children={children} />
-      <footer>
-        <Footer themes={themes}></Footer>
-      </footer>
-    </Box>
-  </>
+    <>
+        <Box>
+            <header>
+                <Navbar themes={themes}></Navbar>
+            </header>
+            <Main themes={themes}>{children}</Main>
+            <footer>
+                <Footer themes={themes}></Footer>
+            </footer>
+        </Box>
+    </>
 );
 
 export default Layout;

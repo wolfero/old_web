@@ -6,7 +6,7 @@ const PostList = ({ posts }) => {
   return (
     <>
       <Heading as="h2" marginTop="5">
-        Artículos
+        Articles
       </Heading>
       <Divider marginTop="4" />
       <Wrap spacing="30px" marginTop="5">

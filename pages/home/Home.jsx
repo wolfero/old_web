@@ -1,5 +1,6 @@
 import {
     Container,
+    Heading,
     useColorModeValue,
 } from "@chakra-ui/react";
 
@@ -18,6 +19,7 @@ export default function Home({ posts }) {
             maxW={"7xl"}
             p="12"
         >
+            <Heading textAlign={"center"}>🚧 In Progress</Heading>
             <PersonalSection />
             <PostList posts={posts}></PostList>
         </Container>

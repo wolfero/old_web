@@ -1,2 +1,2 @@
-import Game from "./ticktacktoe";
+import Game from "./TickTackToe";
 export default Game;

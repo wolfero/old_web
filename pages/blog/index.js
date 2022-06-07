@@ -1,4 +1,4 @@
-import Blog from "./blog";
+import Blog from "./Blog";
 import { getAllFiles } from "../../lib/mdx";
 
 export default Blog;

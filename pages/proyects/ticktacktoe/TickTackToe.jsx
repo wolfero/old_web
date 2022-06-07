@@ -38,18 +38,14 @@ const Game = () => {
     const onSquareClick = useCallback(
         (index) =>
             winner === undefined && squares[index] === undefined
-                ? updateSquares(index)
+                ? setSquares([
+                      ...squares.slice(0, index),
+                      nextPlayer,
+                      ...squares.slice(index + 1),
+                  ])
                 : undefined,
         [nextPlayer, setSquares, squares, winner]
     );
-
-    function updateSquares(index) {
-        setSquares([
-            ...squares.slice(0, index),
-            nextPlayer,
-            ...squares.slice(index + 1),
-        ]);
-    }
 
     const { colorMode } = useColorMode();
     const isDark = colorMode === "dark" ? styles.DarkMode : "";

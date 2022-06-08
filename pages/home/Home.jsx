@@ -1,4 +1,8 @@
-import { Container, Heading, useColorModeValue } from "@chakra-ui/react";
+import {
+    Container,
+    Heading,
+    useColorModeValue,
+} from "@chakra-ui/react";
 
 import theme from "../../src/theme/index";
 import PostList from "../../src/components/blog/PostList";
@@ -7,7 +11,7 @@ import PersonalSection from "../../src/components/PersonalSection/PersonalSectio
 const lightMode = theme.colorsTags.white;
 const darkMode = theme.colorsTags.black;
 
-export const Home = ({ posts }) => {
+export default function Home({ posts }) {
     return (
         <Container
             bg={useColorModeValue(lightMode, darkMode)}
@@ -20,6 +24,4 @@ export const Home = ({ posts }) => {
             <PostList posts={posts}></PostList>
         </Container>
     );
-};
-
-export default Home;
+}

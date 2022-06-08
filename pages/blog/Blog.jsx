@@ -10,25 +10,24 @@ import { MdSearch } from "react-icons/md";
 import PostList from "../../src/components/blog/PostList";
 import styles from "./Blog.module.scss";
 
-export const Blog = ({ posts }) => {
+function Blog({ posts }) {
     const searchRef = useRef(null);
     const [query, setQuery] = useState("");
     const [results, setResults] = useState(posts);
 
     const onChange = useCallback((event) => {
-        const newQuery = event.target.value;
-        setQuery(newQuery);
-        console.log(newQuery);
-        if (newQuery.length) {
-            newQuery = newQuery.toLowerCase();
-            const res = newQuery
+        const query = event.target.value;
+        setQuery(query);
+        if (query.length) {
+            query = query.toLowerCase();
+            const res = query
                 ? results.filter((post) => {
                       const frontMatter = post.frontMatter;
                       const title = frontMatter.title
                           .toLowerCase()
-                          .includes(newQuery);
+                          .includes(query);
                       const tag = frontMatter.tags.some((tag) =>
-                          tag.toLowerCase().includes(newQuery)
+                          tag.toLowerCase().includes(query)
                       );
                       return title || tag;
                   })
@@ -70,6 +69,6 @@ export const Blog = ({ posts }) => {
             )}
         </>
     );
-};
+}
 
 export default Blog;

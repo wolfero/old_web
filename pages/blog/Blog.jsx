@@ -21,7 +21,7 @@ function Blog({ posts }) {
         if (query.length) {
             query = query.toLowerCase();
             const res = query
-                ? posts.filter((post) => {
+                ? results.filter((post) => {
                       const frontMatter = post.frontMatter;
                       const title = frontMatter.title
                           .toLowerCase()
@@ -34,7 +34,7 @@ function Blog({ posts }) {
                 : [];
             setResults(res);
         } else {
-            setResults(posts);
+            setResults(results);
         }
     }, []);
 

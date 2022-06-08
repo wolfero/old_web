@@ -2,7 +2,7 @@ import { Box, Link } from "@chakra-ui/react";
 
 import { projectsLinks } from "../../lib/projectsLinks";
 
-import styles from "./Projects.module.scss";
+import styles from "./projects.module.scss";
 import ProjectCard from "../../src/components/ProjectCard/ProjectCard";
 
 function Projects() {

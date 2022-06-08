@@ -1,7 +1,7 @@
 import { Box, Heading, useColorMode } from "@chakra-ui/react";
 import { useCallback, useMemo, useState } from "react";
 
-import styles from "./ticktacktoe.module.scss";
+import styles from "./TickTackToe.module.scss";
 
 const DEFAULT_BOARD = [...Array(9)];
 const winningCases = [

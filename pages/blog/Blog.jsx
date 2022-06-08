@@ -8,7 +8,7 @@ import {
 import { MdSearch } from "react-icons/md";
 
 import PostList from "../../src/components/blog/PostList";
-import styles from "./blog.module.scss";
+import styles from "./Blog.module.scss";
 
 function Blog({ posts }) {
     const searchRef = useRef(null);

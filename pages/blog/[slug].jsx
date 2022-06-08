@@ -5,7 +5,7 @@ import { getMdxPaths } from "next-mdx/server";
 import { getFileBySlug } from "../../lib/mdx";
 import { MDXComponents } from "../../src/components/mdx/MDXComponents";
 import { formatDate } from "../../lib/format-date";
-import styles from './Blog.module.scss';
+import styles from './Post.module.scss';
 
 export default function Post({ post }) {
     const metadata = post.frontMatter;

@@ -7,21 +7,21 @@ import {
 } from "@chakra-ui/react";
 import { MdSearch } from "react-icons/md";
 
+import { getAllFiles } from "../../lib/mdx";
 import PostList from "../../src/components/blog/PostList";
-import styles from "./Blog.module.scss";
 
-function Blog({ posts }) {
+export const Blog = ({ posts }) => {
     const searchRef = useRef(null);
     const [query, setQuery] = useState("");
     const [results, setResults] = useState(posts);
 
-    const onChange = useCallback((event) => {
+    const onChange = useCallback((posts, event) => {
         const query = event.target.value;
         setQuery(query);
         if (query.length) {
             query = query.toLowerCase();
             const res = query
-                ? results.filter((post) => {
+                ? posts.filter((post) => {
                       const frontMatter = post.frontMatter;
                       const title = frontMatter.title
                           .toLowerCase()
@@ -34,7 +34,7 @@ function Blog({ posts }) {
                 : [];
             setResults(res);
         } else {
-            setResults(results);
+            setResults(posts);
         }
     }, []);
 
@@ -47,18 +47,19 @@ function Blog({ posts }) {
 
     return (
         <>
-            <Container ref={searchRef} maxW={"2xl"}>
+            <Container
+                ref={searchRef}
+                maxW={"2xl"}
+            >
                 <InputGroup>
                     <InputLeftElement pointerEvents="none">
-                        <MdSearch color="gray.200" />
+                        <MdSearch />
                     </InputLeftElement>
                     <Input
-                        onChange={onChange}
+                        onChange={(e) => onChange(posts, e)}
                         placeholder="¿Estás buscando algo?"
                         type="text"
                         value={query}
-                        borderColor="red.600"
-                        border={"2px"}
                     />
                 </InputGroup>
             </Container>
@@ -69,6 +70,14 @@ function Blog({ posts }) {
             )}
         </>
     );
-}
+};
 
 export default Blog;
+export async function getStaticProps() {
+    const posts = await getAllFiles();
+    return {
+        props: {
+            posts,
+        },
+    };
+}

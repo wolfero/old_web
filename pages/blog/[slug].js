@@ -29,6 +29,7 @@ export default function Post({ post }) {
 
 export async function getStaticProps({ params }) {
     const post = await getFileBySlug(params.slug);
+
     return {
         props: {
             post,

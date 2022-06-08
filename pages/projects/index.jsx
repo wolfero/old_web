@@ -1,11 +1,11 @@
-import { Box, Link } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
-import {projectsLinks} from "../../lib/projectsLinks";
+import { projectsLinks } from "../../lib/projectsLinks";
 
 import styles from "./Projects.module.scss";
 import ProjectCard from "../../src/components/ProjectCard/ProjectCard";
 
-function Projects() {
+export const Projects = () => {
     return (
         <Box>
             {projectsLinks.map(({ name, webLink, githubLink }) => (
@@ -18,6 +18,6 @@ function Projects() {
             ))}
         </Box>
     );
-}
+};
 
 export default Projects;

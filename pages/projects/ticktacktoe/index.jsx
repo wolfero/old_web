@@ -20,7 +20,7 @@ const getWinner = (squares) =>
         .map((line) => line.map((number) => squares[number]))
         .find(([a, b, c]) => a === b && a === c)?.[0];
 
-const Game = () => {
+export const Game = () => {
     const [squares, setSquares] = useState(DEFAULT_BOARD);
     const winner = useMemo(() => getWinner(squares), [squares]);
 

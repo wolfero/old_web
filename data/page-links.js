@@ -1,7 +1,7 @@
 const pageLinks = [
-  { name: "Inicio", path: "/" },
+  { name: "Home", path: "/" },
   { name: "Blog", path: "/blog" },
-  { name: "Proyects", path: "/proyects" },
+  { name: "Projects", path: "/projects" },
 ];
 
 export default pageLinks;

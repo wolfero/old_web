@@ -18,7 +18,6 @@ export const Blog = ({ posts }) => {
     const onChange = useCallback((event) => {
         const newQuery = event.target.value;
         setQuery(newQuery);
-        console.log(newQuery);
         if (newQuery.length) {
             newQuery = newQuery.toLowerCase();
             const res = newQuery

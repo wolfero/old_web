@@ -1,0 +1,22 @@
+$color-html: red;
+
+.Html {
+    transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+    stroke-dashoffset: 100;
+    stroke-dasharray: 471;
+    height: 100%;
+    stroke: $color-html;
+    filter: drop-shadow(0 0 1rem $color-html);
+    animation: htmlStart 4s 1s infinite;
+}
+
+@keyframes htmlStart {
+    from {
+        stroke-dashoffset: 496;
+        stroke-dasharray: 471;
+    }
+
+    to {
+        stroke-dashoffset: 100;
+    }
+}

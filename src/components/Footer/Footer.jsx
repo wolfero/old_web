@@ -10,11 +10,7 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 import SocialButton from "../Buttons/SocialButton";
 import CopyButton from "../Buttons/CopyButton";
-import {
-  linkedInUrl,
-  githubUrl,
-  gmailUrl
-} from "../../../data/socialLinks/social-links";
+import {socialLinks} from "../../../data/page-links";
 
 import styles from './Footer.module.scss';
 
@@ -34,13 +30,13 @@ const Footer = ({ themes }) => {
         className={styles.container}
       >
         <Stack direction={"row"} spacing={6}>
-          <CopyButton label={"Mail"} href={gmailUrl} themes={themes}>
+          <CopyButton label={"Mail"} href={socialLinks.gmail} themes={themes}>
             <MdEmail></MdEmail>
           </CopyButton>
-          <SocialButton label={"Github"} href={githubUrl} themes={themes}>
+          <SocialButton label={"Github"} href={socialLinks.gitHub} themes={themes}>
             <BsGithub />
           </SocialButton>
-          <SocialButton label={"LinkedIn"} href={linkedInUrl} themes={themes}>
+          <SocialButton label={"LinkedIn"} href={socialLinks.linkedIn} themes={themes}>
             <BsLinkedin />
           </SocialButton>
         </Stack>

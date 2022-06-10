@@ -45,17 +45,17 @@ const PersonalSection = () => {
                         color={useColorModeValue("gray.700", "gray.200")}
                         fontSize="lg"
                     >
-                        I'm a web developer, eager to continue training and
+                        I&apos;m a web developer, eager to continue training and
                         improve as a professional. I consider myself very
                         attentive to minimalist details, which in my opinion, in
                         the end are always important. I have a great ability to
                         work in a team. I am passionate about learning new
                         technologies. When I am presented with a challenge, the
                         more difficult it is, the more I care about solving it.
-                        I'm pretty hard on myself as I was always told.
+                        I&apos;m pretty hard on myself as I was always told.
                         <Text mt={4}>
-                            "Today be better than yesterday, but tomorrow, be
-                            better than today".
+                            &quot;Today be better than yesterday, but tomorrow, be
+                            better than today&quot;.
                         </Text>
                     </Text>
                 </Box>

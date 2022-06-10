@@ -6,6 +6,7 @@ import {
 
 import theme from "../src/theme/index";
 import PostList from "../src/components/blog/PostList";
+import Skills from "../src/components/Skills/Skills";
 import PersonalSection from "../src/components/PersonalSection/PersonalSection";
 
 const lightMode = theme.colorsTags.white;
@@ -21,6 +22,7 @@ export default function Home({ posts }) {
       >
           <Heading textAlign={"center"}>🚧 In Progress</Heading>
           <PersonalSection />
+          <Skills/>
           <PostList posts={posts}></PostList>
       </Container>
   );

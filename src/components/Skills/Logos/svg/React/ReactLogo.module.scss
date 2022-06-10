@@ -1,0 +1,53 @@
+$color-react: #3bb2d3;
+
+.React {
+    height: 100%;
+    width: 100%;
+    stroke: $color-react;
+    z-index: 2;
+    filter: drop-shadow(0 0 1rem $color-react);
+
+    #center {
+        transition: 0.2s linear;
+        transform-origin: center;
+        stroke: none;
+        opacity: 1;
+        animation: 0.4s 1s reactAnim2 linear infinite alternate;
+        fill: $color-react;
+    }
+
+    #one,
+    #two,
+    #tre {
+        transition: 0s linear;
+        stroke-linecap: round;
+        animation: 0.3s 1s reactAnim infinite linear;
+        stroke-dasharray: 50;
+        filter: drop-shadow(0 0 0.5rem $color-react);
+        stroke-dashoffset: -286;
+        opacity: 1;
+    }
+}
+
+@keyframes reactAnim {
+    from {
+        stroke-dasharray: 50;
+        stroke-dashoffset: -286;
+    }
+
+    to {
+        stroke-dashoffset: -386;
+    }
+}
+
+@keyframes reactAnim2 {
+    from {
+        opacity: 1;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+}

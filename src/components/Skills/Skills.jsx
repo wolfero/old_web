@@ -1,7 +1,7 @@
 import { Divider, Heading, Box} from "@chakra-ui/react";
 
 import { skillsTags } from "../../../data/skills";
-import Logos from "./logos/Logos";
+import Logos from "./Logos/Logos";
 import styles from "./Skills.module.scss";
 
 const Skills = () => {

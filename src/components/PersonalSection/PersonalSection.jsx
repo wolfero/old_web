@@ -36,7 +36,7 @@ const PersonalSection = () => {
                             textDecoration="none"
                             _hover={{ textDecoration: "none" }}
                         >
-                            ¿Quién soy?
+                            Who I am?
                         </Link>
                     </Heading>
                     <Text
@@ -45,16 +45,18 @@ const PersonalSection = () => {
                         color={useColorModeValue("gray.700", "gray.200")}
                         fontSize="lg"
                     >
-                        Soy un desarrollador nuevo en el sector, aunque ya
-                        algunas cosas he visto, back end y data enginnering con
-                        sus respectivos stacks tecnológicos. Me gusta mucho el
-                        trabajo en este sector, el teletrabajo y la comunicación
-                        en ingles con otras personas del mundo es muy
-                        interesante. Me gustaría decir qué suelo girar alrededor
-                        del marco Agile, aprendiendo cómo se aplica. Empecé el
-                        camino sel software crafter sin tener mucha idea pero
-                        aspirando a hacer las cosas lo mejor qué se puede y
-                        mejorando.
+                        I'm a web developer, eager to continue training and
+                        improve as a professional. I consider myself very
+                        attentive to minimalist details, which in my opinion, in
+                        the end are always important. I have a great ability to
+                        work in a team. I am passionate about learning new
+                        technologies. When I am presented with a challenge, the
+                        more difficult it is, the more I care about solving it.
+                        I'm pretty hard on myself as I was always told.
+                        <Text mt={4}>
+                            "Today be better than yesterday, but tomorrow, be
+                            better than today".
+                        </Text>
                     </Text>
                 </Box>
             </Box>

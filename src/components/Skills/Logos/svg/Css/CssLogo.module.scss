@@ -1,0 +1,61 @@
+$color-css: #268b8f;
+$color-css-active: #1eb6bb;
+
+.Css {
+    transition: 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+    height: 100%;
+    z-index: 2;
+    filter: drop-shadow(0 0 0.1rem $color-css-active);
+    animation: cssAnim 3s 1s infinite alternate
+        cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-delay: 0.4s;
+    stroke: $color-css-active;
+
+    #cssLetter {
+        transition: 0.2s;
+        stroke: $color-css-active;
+        animation: cssAnim2 3s 1s infinite alternate-reverse
+            cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .bg-icon {
+        stroke: none;
+        z-index: 1;
+    }
+}
+
+@keyframes cssAnim {
+    from {
+        filter: drop-shadow(0 0 0.1rem $color-css-active);
+    }
+
+    to {
+        filter: drop-shadow(0 0 0.5rem $color-css-active);
+    }
+}
+
+@keyframes cssAnim2 {
+    62% {
+        opacity: 1;
+    }
+
+    65% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    77% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    85% {
+        opacity: 1;
+    }
+}

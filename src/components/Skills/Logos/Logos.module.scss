@@ -1,0 +1,29 @@
+.SkillsBox {
+    text-align: center;
+
+    .SkillsLogo {
+        padding: 1rem;
+        height: 8rem;
+        width: 8rem;
+        justify-content: center;
+        transition: 0.5s;
+        border-radius: 1rem;
+        background-color: #111;
+
+        .SkillsLogoSvg {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    &:hover {
+        .SkillsLogo {
+            transform: translateY(-0.2rem);
+            box-shadow: 0 0.5rem 1rem 0 var(--color-red);
+        }
+    }
+
+    .SkillsLogoTitle {
+        margin-top: 1rem;
+    }
+}

@@ -3,11 +3,11 @@ import Head from "next/head";
 const HeadTags = ({ metadata = {} }) => {
   const SEO = {
     title: metadata.title || "Frantisek Klucar - Fero",
-    description: metadata.description || "Blog personal",
+    description: metadata.description || "Personal web",
     slug: metadata.slug || "",
-    image: "/assets/default-image.png",
+    image: "/assets/default.jpg",
     date: metadata.date || new Date().toISOString(),
-    domain: "https://wolfremium.dev",
+    domain: "https://web-wolfero.vercel.app/",
     site_name: "Frantisek Klucar",
   };
 
@@ -28,6 +28,7 @@ const HeadTags = ({ metadata = {} }) => {
         name="viewport"
         content="width=device-width, initial-scale=1"
       ></meta>
+      <link rel="shortcut icon" href="/wolfero.ico" />
     </Head>
   );
 };

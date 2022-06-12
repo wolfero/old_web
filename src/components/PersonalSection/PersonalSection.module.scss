@@ -1,6 +1,7 @@
 .PersonalSection {
     display: flex;
     justify-content: space-between;
+    gap: 2rem;
 
     @media (max-width: 768px) {
         & {
@@ -16,8 +17,6 @@
         position: relative;
 
         .PersonalFoto {
-            z-index: 2;
-            padding: 2.5rem;
 
             .Foto {
                 border-radius: 2rem;

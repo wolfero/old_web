@@ -1,96 +1,82 @@
+$card-width: 20rem;
+$image-width: calc($card-width/2);
+
 .Card {
     position: relative;
-    background-color: var(--color-white);
-    width: 100%;
-    max-width: var(--card-width);
+
+    width: $card-width;
+    border-radius: 2rem;
     padding: 1.5rem;
     text-align: center;
-    border-radius: 1rem;
-    transition: 0.4s;
+    transition: width 0.4s linear;
+
+    &:hover {
+        $card-width: 25rem;
+        $image-width: calc($card-width/2);
+        width: $card-width;
+
+        .Image {
+            width: $image-width;
+            height: $image-width;
+            border-radius: 2rem;
+
+            img {
+                border-radius: 2rem;
+            }
+        }
+
+        .Buttons {
+            max-height: 2.5rem;
+            opacity: 1;
+            overflow: visible;
+        }
+    }
 
     .Image {
         position: relative;
-        background-color: darkviolet;
-        margin: -8rem auto 1.5rem;
-        padding: 0.25rem;
-        width: var(--image-width);
-        height: var(--image-width);
+        width: $image-width;
+        height: $image-width;
         border-radius: 50%;
-        transition: 0.4s;
-        overflow: hidden;
+        box-shadow: 0 0.25rem 1rem gray;
+        padding: 0.3rem;
+        transition: 0.4s linear;
 
         img {
             width: 100%;
             border-radius: 50%;
-            transition: 0.4s;
+            border: 0.2rem solid var(--color-red);
+            transition: 0.4s linear;
         }
     }
 
-    &:hover {
-        --card-width: 480px;
-        --image-width: calc(var(--card-width) / 2);
+    .Name {
+        margin-top: 1.5rem;
+        transition: 0.4s;
+    }
 
-        .Image {
-            margin-top: -4rem;
-            border-radius: 2rem;
+    .Buttons {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: 0.4s;
+
+        a {
+            margin: 0;
+            text-decoration: none;
+
+            button {
+                border-radius: 0.5rem;
+                transition: 0.2s linear;
+                &:hover {
+                    transform: translateY(-0.5rem);
+                    box-shadow: 0 0.5rem 1rem gray;
+                }
+            }
         }
     }
-}
-
-.Card:hover .Image img {
-    border-radius: 2rem;
-}
-
-.Card .Name {
-    color: var(--color-black);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.Card .Content {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: 0.4s;
-}
-
-.Card .Content p {
-    font-size: 1.125rem;
-}
-
-.Card:hover .Content {
-    max-height: 300px;
-    opacity: 1;
-    overflow: visible;
-}
-
-.Card .buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1.5rem;
-}
-
-.Card .buttons button {
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: pointer;
-
-    display: block;
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-    background-color: var(--color-black);
-    color: #fff;
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin: 0 0.5rem;
-    min-width: 160px;
-    transition: 0.4s;
-}
-
-.Card .buttons button:hover {
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    transform: translateY(-0.5rem) scale(1.15);
 }

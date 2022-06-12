@@ -1,64 +1,60 @@
 import {
     Avatar,
-    Badge,
     Box,
     Button,
-    Center,
     Heading,
     Link,
-    useColorModeValue,
     Stack,
-    Text,
+    useColorModeValue,
 } from "@chakra-ui/react";
 
 import styles from "./ProjectCard.module.scss";
 
-const ProjectCard = ({ title, githubLink, webLink }) => {
+import theme from "../../theme/index";
+
+const ProjectCard = ({ title, githubLink, webLink, image }) => {
+    const imageUrl = image ? image : "/assets/default.png";
+    const [lightMode, darkMode] = [
+        theme.colorsTags.white,
+        theme.colorsTags.black,
+    ];
+
     return (
-        <Center py={6}>
-            <Box className={styles.Card}>
-                <Avatar src={"/assets/default.png"} className={styles.Image} />
-
+        <Box>
+            <Box
+                className={styles.Card}
+                bg={useColorModeValue(darkMode, lightMode)}
+                color={useColorModeValue(lightMode, darkMode)}
+            >
+                <Avatar src={imageUrl} className={styles.Image}
+                bg={useColorModeValue(lightMode, darkMode)} />
                 <Heading className={styles.Name}>{title}</Heading>
-
-                <Box className={styles.Content}>
-                    <Stack mt={8} direction={"row"} spacing={4}>
-                        <Link href={githubLink}>
-                            <Button
-                                flex={1}
-                                fontSize={"sm"}
-                                rounded={"full"}
-                                bg={"black"}
-                                color={"white"}
-                                _hover={{
-                                    bg: "black.100",
-                                }}
-                            >
-                                Ver en Github
-                            </Button>
-                        </Link>
-
-                        <Link href={webLink}>
-                            <Button
-                                flex={1}
-                                fontSize={"sm"}
-                                rounded={"full"}
-                                bg={"blue.400"}
-                                color={"white"}
-                                boxShadow={
-                                    "0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)"
-                                }
-                                _hover={{
-                                    bg: "blue.500",
-                                }}
-                            >
-                                Ver en la web
-                            </Button>
-                        </Link>
-                    </Stack>
-                </Box>
+                <Stack className={styles.Buttons}>
+                    <Link href={githubLink}>
+                        <Button
+                            fontSize={"sm"}
+                            bg="red.500"
+                            _hover={{
+                                bg: "red.400",
+                            }}
+                        >
+                            Ver en Github
+                        </Button>
+                    </Link>
+                    <Link href={webLink}>
+                        <Button
+                            fontSize={"sm"}
+                            bg={"blue.500"}
+                            _hover={{
+                                bg: "blue.400",
+                            }}
+                        >
+                            Ver en la web
+                        </Button>
+                    </Link>
+                </Stack>
             </Box>
-        </Center>
+        </Box>
     );
 };
 

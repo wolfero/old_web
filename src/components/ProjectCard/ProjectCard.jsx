@@ -13,14 +13,11 @@ import {
 
 import styles from "./ProjectCard.module.scss";
 
-const ProjectCard = ({ title,githubLink, webLink }) => {
+const ProjectCard = ({ title, githubLink, webLink }) => {
     return (
         <Center py={6}>
             <Box className={styles.Card}>
-                <Avatar
-                    src={"/assets/default-image.png"}
-                    className={styles.Image}
-                />
+                <Avatar src={"/assets/default.png"} className={styles.Image} />
 
                 <Heading className={styles.Name}>{title}</Heading>
 
@@ -31,7 +28,9 @@ const ProjectCard = ({ title,githubLink, webLink }) => {
                                 flex={1}
                                 fontSize={"sm"}
                                 rounded={"full"}
-                                _focus={{
+                                bg={"black"}
+                                color={"white"}
+                                _hover={{
                                     bg: "black.100",
                                 }}
                             >
@@ -50,9 +49,6 @@ const ProjectCard = ({ title,githubLink, webLink }) => {
                                     "0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)"
                                 }
                                 _hover={{
-                                    bg: "blue.500",
-                                }}
-                                _focus={{
                                     bg: "blue.500",
                                 }}
                             >

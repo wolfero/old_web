@@ -1,5 +1,5 @@
 import { MDXRemote } from "next-mdx-remote";
-import { Heading } from "@chakra-ui/react";
+import { Container, Heading } from "@chakra-ui/react";
 import { getMdxPaths } from "next-mdx/server";
 
 import { getFileBySlug } from "../../lib/mdx";
@@ -10,8 +10,8 @@ import styles from './Post.module.scss';
 export default function Post({ post }) {
     const metadata = post.frontMatter;
     return (
-        <>
-            <Heading mt="4" align="center">
+        <Container maxW={"7xl"} p="20">
+            <Heading align="center">
                 📅 {formatDate(metadata.date)}
             </Heading>
             <section className={styles.PostBody}>
@@ -23,7 +23,7 @@ export default function Post({ post }) {
                     />
                 </article>
             </section>
-        </>
+        </Container>
     );
 }
 

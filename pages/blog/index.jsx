@@ -46,11 +46,8 @@ export const Blog = ({ posts }) => {
     }, []);
 
     return (
-        <>
-            <Container
-                ref={searchRef}
-                maxW={"2xl"}
-            >
+        <Container maxW={"7xl"} p="20">
+            <Container ref={searchRef} maxW={"2xl"}>
                 <InputGroup>
                     <InputLeftElement pointerEvents="none">
                         <MdSearch />
@@ -63,12 +60,8 @@ export const Blog = ({ posts }) => {
                     />
                 </InputGroup>
             </Container>
-            {results.length > 0 && (
-                <Container maxW={"7xl"} p="12">
-                    {results && <PostList posts={results}></PostList>}
-                </Container>
-            )}
-        </>
+            {results && <PostList posts={results}></PostList>}
+        </Container>
     );
 };
 

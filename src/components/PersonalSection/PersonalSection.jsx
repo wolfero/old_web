@@ -39,7 +39,7 @@ const PersonalSection = () => {
                     </Link>
                 </Heading>
                 <Text
-                    as="p"
+                    as="span"
                     marginTop="2"
                     color={useColorModeValue("gray.700", "gray.200")}
                     fontSize="lg"

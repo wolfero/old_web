@@ -1,19 +1,5 @@
-import { Container, Heading } from "@chakra-ui/react";
-
-import PostList from "../src/components/blog/PostList";
-import Skills from "../src/components/Skills/Skills";
-import PersonalSection from "../src/components/PersonalSection/PersonalSection";
-
-export default function Home({ posts }) {
-    return (
-        <Container maxW={"7xl"} p="20">
-            <Heading textAlign={"center"}>🚧 In development</Heading>
-            <PersonalSection />
-            <Skills />
-            <PostList posts={posts}></PostList>
-        </Container>
-    );
-}
+import {Home} from '../src/views/home/Home';
+export default Home;
 
 import { getAllFiles } from "../lib/mdx";
 export async function getStaticProps() {

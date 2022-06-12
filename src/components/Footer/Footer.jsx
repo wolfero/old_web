@@ -52,6 +52,7 @@ const Footer = ({ themes }) => {
                     <Image
                         className={styles.FooterImg}
                         src="/assets/default.png"
+                        alt="Wolf Logo"
                     />
                     <Text>{new Date().getFullYear()} Frantisek Klucar</Text>
                 </Box>

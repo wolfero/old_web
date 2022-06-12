@@ -30,7 +30,7 @@ const PersonalSection = () => {
                     justifyContent="center"
                     marginTop={{ base: "5", sm: "2" }}
                 >
-                    <PostTags tags={["Software Developer"],["Animal lover"]} />
+                    <PostTags tags={["Software Developer","Animal lover ❤"]} />
                     <Heading marginTop="1">
                         <Link
                             textDecoration="none"

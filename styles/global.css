@@ -2,8 +2,6 @@
     --color-black: #242526;
     --color-white: #f0f2f5;
     --color-red: red;
-    --card-width: 15rem;
-    --image-width: calc(var(--card-width) / 1.5);
 }
 
 * {
@@ -16,9 +14,6 @@
 
 main {
     min-height: 100vh;
-    display: grid !important;
-    align-items: center;
-    justify-content: center;
 }
 
 button:focus,
@@ -44,7 +39,7 @@ a:focus {
 /* Firefox */
 * {
     scrollbar-width: auto;
-    scrollbar-color: #1d4044 #171923;
+    scrollbar-color: var(--color-red) #171923;
 }
 
 /* Chrome, Edge, and Safari */
@@ -57,11 +52,9 @@ a:focus {
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #1d4044;
+    background-color: var(--color-red);
     border-radius: 1rem;
     border: 3px solid #171923;
 }
 
-*::-webkit-scrollbar-thumb:active {
-    background-color: red;
-}
+

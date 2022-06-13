@@ -9,7 +9,6 @@ import {
 } from "@chakra-ui/react";
 
 import styles from "./ProjectCard.module.scss";
-
 import theme from "../../theme/index";
 
 const ProjectCard = ({ title, githubLink, webLink, image }) => {
@@ -26,8 +25,11 @@ const ProjectCard = ({ title, githubLink, webLink, image }) => {
                 bg={useColorModeValue(darkMode, lightMode)}
                 color={useColorModeValue(lightMode, darkMode)}
             >
-                <Avatar src={imageUrl} className={styles.Image}
-                bg={useColorModeValue(lightMode, darkMode)} />
+                <Avatar
+                    src={imageUrl}
+                    className={styles.Image}
+                    bg={useColorModeValue(lightMode, darkMode)}
+                />
                 <Heading className={styles.Name}>{title}</Heading>
                 <Stack className={styles.Buttons}>
                     <Link href={githubLink}>
@@ -37,8 +39,12 @@ const ProjectCard = ({ title, githubLink, webLink, image }) => {
                             _hover={{
                                 bg: "red.400",
                             }}
+                            _active={{
+                                bg: useColorModeValue(lightMode, darkMode),
+                                color: useColorModeValue(darkMode, lightMode),
+                            }}
                         >
-                            Ver en Github
+                            In Github
                         </Button>
                     </Link>
                     <Link href={webLink}>
@@ -48,8 +54,12 @@ const ProjectCard = ({ title, githubLink, webLink, image }) => {
                             _hover={{
                                 bg: "blue.400",
                             }}
+                            _active={{
+                                bg: useColorModeValue(lightMode, darkMode),
+                                color: useColorModeValue(darkMode, lightMode),
+                            }}
                         >
-                            Ver en la web
+                            In Web
                         </Button>
                     </Link>
                 </Stack>

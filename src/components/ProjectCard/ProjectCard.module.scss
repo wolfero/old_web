@@ -1,18 +1,22 @@
-$card-width: 20rem;
-$image-width: calc($card-width/2);
+$card-width: 10rem;
+$font-size: calc($card-width/8);
+$buttons-width: calc($card-width/2);
+$image-width: calc($card-width/1.5);
 
 .Card {
-    position: relative;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     width: $card-width;
     border-radius: 2rem;
-    padding: 1.5rem;
+    padding: 1rem;
     text-align: center;
     transition: width 0.4s linear;
 
     &:hover {
-        $card-width: 25rem;
-        $image-width: calc($card-width/2);
+        $card-width: 15rem;
+        $image-width: calc($card-width/1.5);
         width: $card-width;
 
         .Image {
@@ -26,7 +30,8 @@ $image-width: calc($card-width/2);
         }
 
         .Buttons {
-            max-height: 2.5rem;
+            margin-top: 1.5rem;
+            max-height: 3rem;
             opacity: 1;
             overflow: visible;
         }
@@ -38,7 +43,7 @@ $image-width: calc($card-width/2);
         height: $image-width;
         border-radius: 50%;
         box-shadow: 0 0.25rem 1rem gray;
-        padding: 0.3rem;
+        margin: 1rem;
         transition: 0.4s linear;
 
         img {
@@ -50,7 +55,7 @@ $image-width: calc($card-width/2);
     }
 
     .Name {
-        margin-top: 1.5rem;
+        font-size: $font-size;
         transition: 0.4s;
     }
 
@@ -59,19 +64,21 @@ $image-width: calc($card-width/2);
         justify-content: center;
         flex-direction: row;
         gap: 1rem;
-        margin-top: 1.5rem;
         max-height: 0;
+        transition: 0.4s;
         opacity: 0;
         overflow: hidden;
-        transition: 0.4s;
 
         a {
             margin: 0;
             text-decoration: none;
 
             button {
+                width: $buttons-width;
                 border-radius: 0.5rem;
+                word-wrap: break-word;
                 transition: 0.2s linear;
+
                 &:hover {
                     transform: translateY(-0.5rem);
                     box-shadow: 0 0.5rem 1rem gray;

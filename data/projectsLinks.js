@@ -8,13 +8,13 @@ export const projectsLinks = [
     {
         name: "Tick Tack Toe",
         webLink: "/projects/ticktacktoe",
-        githubLink: "https://github.com/wolfero/web/tree/master/pages/projects/ticktacktoe",
+        githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/TickTackToe",
         image: "/assets/projects/ticktacktoe.jpg"
     },
     {
         name: "Trello clone",
         webLink: "/projects/trello-clone",
-        githubLink: "https://github.com/wolfero/web/tree/master/pages/projects/trello-clone",
+        githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/trello-clone",
         image: ""
     },
 ];

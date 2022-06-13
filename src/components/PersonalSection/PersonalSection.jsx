@@ -45,7 +45,7 @@ const PersonalSection = () => {
                     fontSize="lg"
                     textAlign="justify"
                 >
-                    I&apos;m a web developer, eager to continue training and
+                    I&apos;m a software developer, eager to continue training and
                     improve as a professional. I consider myself very attentive
                     to minimalist details, which in my opinion, in the end are
                     always important. I have a great ability to work in a team.

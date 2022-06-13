@@ -76,7 +76,7 @@ export const Game = () => {
     const restartButtonClass = [styles.Restart, isDark].join(" ");
 
     return (
-        <Box className={styles.Game}>
+        <Box className={styles.Game} px={"20"} py={"5"}>
             <Heading className={styles.NextPLayer}>
                 {winner
                     ? `Winner: ${winner}`

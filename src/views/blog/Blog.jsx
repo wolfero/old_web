@@ -45,7 +45,7 @@ export const Blog = ({ posts }) => {
     }, []);
 
     return (
-        <Container maxW={"7xl"} p="20">
+        <Container maxW={"7xl"} px={"20"}  py={"5"}>
             <Container ref={searchRef} maxW={"2xl"}>
                 <InputGroup>
                     <InputLeftElement pointerEvents="none">

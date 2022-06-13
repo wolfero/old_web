@@ -14,7 +14,7 @@ export const projectsLinks = [
     {
         name: "Trello clone",
         webLink: "/projects/trello-clone",
-        githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/trello-clone",
+        githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/TrelloClone",
         image: ""
     },
 ];

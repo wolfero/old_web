@@ -1,4 +1,4 @@
-import {Home} from '../src/views/home/Home';
+import Home from '../src/views/home/Home';
 export default Home;
 
 import { getAllFiles } from "../lib/mdx";

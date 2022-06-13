@@ -1,10 +1,10 @@
-import {Post} from '../../src/views/blog/Post/Post';
+import Post from '../../src/views/blog/Post/Post';
 export default Post;
 
 import { getFileBySlug } from "../../lib/mdx";
 export async function getStaticProps({ params }) {
     const post = await getFileBySlug(params.slug);
-    
+
     return {
         props: {
             post,

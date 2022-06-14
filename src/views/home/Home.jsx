@@ -7,7 +7,6 @@ import PersonalSection from "../../components/PersonalSection/PersonalSection";
 export function Home({ posts }) {
     return (
         <Container maxW={"7xl"} px={"20"} py={"5"}>
-            <Heading textAlign={"center"}>🚧 In development</Heading>
             <PersonalSection />
             <Skills />
             <PostList posts={posts}></PostList>

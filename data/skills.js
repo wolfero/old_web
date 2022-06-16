@@ -11,7 +11,7 @@ export const skillsTags = [
     },
     {
         type: "es6",
-        title: "JavaScript (ES6+)",
+        title: "JavaScript",
         color: "yellow"
     },
     {

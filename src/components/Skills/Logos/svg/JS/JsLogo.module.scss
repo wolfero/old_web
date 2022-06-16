@@ -18,18 +18,6 @@ $color-js: yellow;
         stroke-dashoffset: 0;
         stroke-dasharray: 0;
     }
-
-    #flag {
-        transition: 0;
-        stroke: $color-js;
-        fill: $color-js;
-    }
-
-    #text {
-        stroke-dashoffset: 0;
-        stroke-dasharray: 0;
-        stroke: black;
-    }
 }
 
 @keyframes jsAnim2 {

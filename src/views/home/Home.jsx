@@ -1,15 +1,14 @@
-import { Container, Heading } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 
 import PostList from "../../components/blog/PostList";
-import Skills from "../../components/Skills/Skills";
-import PersonalSection from "../../components/PersonalSection/PersonalSection";
+import SelfIntroduction from "../../components/SelfIntroduction/SelfIntroduction";
 
 export function Home({ posts }) {
     return (
         <Container maxW={"7xl"} px={"20"} py={"5"}>
-            <PersonalSection />
-            <Skills />
-            <PostList posts={posts}></PostList>
+            <SelfIntroduction />
+            <PostList posts={posts} />
+            {/* <LastProjects/> */}
         </Container>
     );
 }

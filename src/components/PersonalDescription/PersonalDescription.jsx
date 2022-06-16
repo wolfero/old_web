@@ -20,7 +20,6 @@ const PersonalDescription = () => {
                     marginTop={{ base: "5", sm: "2" }}
                     className={styles.Content}
                 >
-                    <Heading className={styles.SubTitle}>Who I am?</Heading>
                     <Text fontSize="lg" className={styles.Text}>
                         Hello! My name is Frantisek Klucar, the diminutive of my
                         name is Fero. I&apos;m a Slovak living since 2006 in
@@ -51,9 +50,7 @@ const PersonalDescription = () => {
                     marginTop={{ base: "5", sm: "2" }}
                     className={styles.Content}
                 >
-                    <Heading as="h3" className={styles.SubTitle}>
-                        My father
-                    </Heading>
+
                     <Text fontSize="lg" className={styles.Text}>
                         My father is an important part of my life. I&apos;m very
                         proud to have my father. He is a hardworking person who
@@ -82,9 +79,6 @@ const PersonalDescription = () => {
                     marginTop={{ base: "5", sm: "2" }}
                     className={styles.Content}
                 >
-                    <Heading as="h3" className={styles.SubTitle}>
-                        My dog
-                    </Heading>
                     <Text fontSize="lg" className={styles.Text}>
                         This is Bobby, a 1 year old American Staffordshire. Is
                         the life of the party in the house and we never get

@@ -1,13 +1,10 @@
 .Skills {
-    .SkillsHeader {
-        margin-top: 2rem;
+    .Title {
+        border-bottom: 0.1rem solid;
+        margin: 1rem 0;
     }
 
-    .Divider {
-        margin-top: 1rem;
-    }
-
-    .Container {
+    .Section {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;

@@ -1,5 +1,6 @@
 import { Heading } from "@chakra-ui/react";
 
+import styles from "./TrelloClone.module.scss";
 
 export const TrelloClone=()=>{
     return (

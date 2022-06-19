@@ -8,9 +8,6 @@ const About = () => {
         <Container maxW={"7xl"} px={"20"} py={"5"}>
             <PersonalDescription />
             <Skills />
-            {/* <Experiences/> */}
-            {/* <Languages/> */}
-            {/* <Education/> */}
         </Container>
     );
 };

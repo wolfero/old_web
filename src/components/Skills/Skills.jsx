@@ -8,7 +8,7 @@ const Skills = () => {
     return (
         <Box as={"article"} className={styles.Skills}>
             <Heading className={styles.Title} as="h2">
-                Skills
+                My Skills
             </Heading>
             <Box as={"section"} className={styles.Section}>
                 {skillsTags.map((skill) => (

@@ -3,12 +3,9 @@
 
     .Gallery {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         gap: 1rem;
-
-        @media (max-width:768px) {
-            flex-wrap: wrap;
-        }
     }
 }

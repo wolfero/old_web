@@ -29,7 +29,7 @@ const ProjectCard = ({ title, githubLink, webLink, image }) => {
                     <Image className={styles.Foto} src={imageUrl} alt={title} />
                 </Box>
                 <Box className={styles.Content}>
-                    <Heading as={"h3"} className={styles.Title}>
+                    <Heading as={"h3"} size={"lg"} className={styles.Title}>
                         {title}
                     </Heading>
                     <Stack className={styles.Buttons}>

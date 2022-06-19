@@ -17,4 +17,10 @@ export const projectsLinks = [
         githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/TrelloClone",
         image: ""
     },
+    {
+        name: "Crypto Prices",
+        webLink: "/projects/crypto-prices",
+        githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/CryptoPrices",
+        image: ""
+    },
 ];

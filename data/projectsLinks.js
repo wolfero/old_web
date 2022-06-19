@@ -1,6 +1,6 @@
 export const projectsLinks = [
     {
-        name: "Personal web",
+        name: "My Website",
         webLink: "/",
         githubLink: "https://github.com/wolfero/web",
         image: ""
@@ -12,7 +12,7 @@ export const projectsLinks = [
         image: "/assets/projects/ticktacktoe.jpg"
     },
     {
-        name: "Trello clone",
+        name: "Trello Clone",
         webLink: "/projects/trello-clone",
         githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/TrelloClone",
         image: ""

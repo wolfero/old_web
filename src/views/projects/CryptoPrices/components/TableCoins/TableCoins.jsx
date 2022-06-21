@@ -1,4 +1,5 @@
 import {
+    Container,
     Table,
     TableCaption,
     TableContainer,
@@ -6,39 +7,37 @@ import {
     Th,
     Thead,
     Tr,
-    Container,
     useColorModeValue,
 } from "@chakra-ui/react";
-import React from "react";
 
-import theme from "../../../../../theme";
 import { CoinRow } from "../CoinRow/CoinRow";
 
 export const TableCoins = ({ coins }) => {
-    const themeMode = useColorModeValue(
-        theme.colorsTags.white,
-        theme.colorsTags.black
-    );
     return (
         <Container maxW={"7xl"} px={"20"} py={"5"}>
             <TableContainer>
-                <Table variant={"striped"} size={"sm"} colorScheme={themeMode}>
-                    <TableCaption>Obtained from CoinGecko's API</TableCaption>
+                <Table
+                    size={"sm"}
+                    bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
+                >
                     <Thead>
                         <Tr>
-                            <Th>#</Th>
+                            <Th textAlign={"center"}>#</Th>
                             <Th>Name</Th>
-                            <Th>Price</Th>
-                            <Th>1h</Th>
-                            <Th>24h</Th>
-                            <Th>7d</Th>
+                            <Th textAlign={"center"}>Symbol</Th>
+                            <Th textAlign={"end"}>Price</Th>
+                            <Th textAlign={"center"}>1h</Th>
+                            <Th textAlign={"center"}>24h</Th>
+                            <Th textAlign={"center"}>7d</Th>
+                            <Th textAlign={"center"}>Last 7days</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
-                        {coins.map((coin,index) => (
+                        {coins.map((coin, index) => (
                             <CoinRow key={index} coin={coin} />
                         ))}
                     </Tbody>
+                    <TableCaption>Obtained from CoinGecko's API</TableCaption>
                 </Table>
             </TableContainer>
         </Container>

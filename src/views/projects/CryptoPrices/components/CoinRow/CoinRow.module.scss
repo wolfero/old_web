@@ -1,9 +1,25 @@
-.CoinName {
+.NameColumn {
     display: flex;
-    justify-content: flex-start;
-    gap: 1rem;
+    align-items: center;
+    gap: 0.5rem;
 
     .CoinImage {
-        max-width: 1rem;
+        max-height: 1.5rem;
     }
+
+    .CoinName {
+        flex: 1;
+        display: flex;
+        gap: 2rem;
+        justify-content: space-between;
+    }
+}
+
+.CoinSymbol {
+    color: var(--color-gray);
+}
+
+.Graph {
+    display: flex;
+    justify-content: center;
 }

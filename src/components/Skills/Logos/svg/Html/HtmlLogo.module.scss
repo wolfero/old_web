@@ -1,4 +1,4 @@
-$color-html: red;
+$color-html: var(--color-red);
 
 .Html {
     transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);

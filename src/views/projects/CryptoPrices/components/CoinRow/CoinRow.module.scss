@@ -1,0 +1,9 @@
+.CoinName {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    .CoinImage {
+        max-width: 1rem;
+    }
+}

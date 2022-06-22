@@ -28,28 +28,35 @@
 
     .Content {
         .Title {
-            transform: translateY(-100%);
+            transform: translateY(-50%);
+            font-style: italic;
         }
-    }
 
-    .Buttons {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        gap: 1rem;
+        .Description {
+            max-width: 15rem;
+            text-align: justify;
+        }
 
-        a {
-            margin: 0;
-            text-decoration: none;
+        .Buttons {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            margin-top: 1rem;
+            gap: 1rem;
 
-            button {
-                border-radius: 0.5rem;
-                word-wrap: break-word;
-                transition: 0.2s linear;
+            a {
+                margin: 0;
+                text-decoration: none;
 
-                &:hover {
-                    transform: translateY(-0.25rem);
-                    box-shadow: 0 0.5rem 1rem gray;
+                button {
+                    border-radius: 0.5rem;
+                    word-wrap: break-word;
+                    transition: 0.2s linear;
+
+                    &:hover {
+                        transform: translateY(-0.25rem);
+                        box-shadow: 0 0.5rem 1rem gray;
+                    }
                 }
             }
         }

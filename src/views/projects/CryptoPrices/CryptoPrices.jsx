@@ -1,35 +1,55 @@
 import { Box, Heading } from "@chakra-ui/react";
-import Axios from "axios";
+import axios from "axios";
 import { useEffect, useState } from "react";
 
+import ErrorHandler from "../../../components/ErrorHandler/ErrorHandler";
+import { Spinner } from "../../../components/Spinner/Spinner";
 import { TableCoins } from "./components/TableCoins/TableCoins";
 
 export const CryptoPrices = () => {
     const [coins, setCoins] = useState([]);
-    const [errorMessage, setErrorMessage] = useState("");
+    const [error, setError] = useState({ message: "", code: "" });
+    const [isLoading, setIsLoading] = useState(false);
+
+    function getData() {
+        setIsLoading(true);
+        axios
+            .get(
+                "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&price_change_percentage=1h%2C24h%2C7d%2C"
+            )
+            .then((response) => {
+                setCoins(response.data);
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                setError({ message: error.message, code: error.code });
+                setIsLoading(false);
+            });
+    }
 
     useEffect(() => {
-        Axios({
-            url: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&price_change_percentage=1h%2C24h%2C7d%2C",
-        })
-            .then((response) => setCoins(response.data))
-            .catch((error) => {
-                setErrorMessage(error.message);
-            });
+        getData();
+        const interval = setInterval(getData, 60000);
+
+        return () => {
+            clearInterval(interval);
+        };
     }, []);
 
     return (
-        <>
+        <Box>
             <Heading textAlign={"center"}>Crypto Prices</Heading>
-            {errorMessage ? (
-                <ErrorMessage message={errorMessage} />
+            {error.message ? (
+                <ErrorHandler error={error} parentSlug="projects" />
             ) : (
-                <TableCoins coins={coins} />
+                printSpinnerOrTable(isLoading, coins)
             )}
-        </>
+        </Box>
     );
 };
 
-const ErrorMessage = ({ message }) => <Box textAlign={"center"} bg={"red"} mt={"5"}>{message}</Box>;
+function printSpinnerOrTable(isLoading, coins) {
+    return isLoading ? <Spinner /> : <TableCoins coins={coins} />;
+}
 
 export default CryptoPrices;

@@ -1,4 +1,4 @@
-import { Box, Container, Input } from "@chakra-ui/react";
+import { Box, Container, Heading } from "@chakra-ui/react";
 
 import styles from "./Projects.module.scss";
 
@@ -9,14 +9,9 @@ export const Projects = () => {
     return (
         <Container className={styles.Projects} maxW={"full"} px={"20"} py={"5"}>
             <Box className={styles.Gallery}>
-                {projectsLinks.map(({ name, webLink, githubLink, image }) => (
-                    <ProjectCard
-                        key={name}
-                        title={name}
-                        githubLink={githubLink}
-                        webLink={webLink}
-                        image={image}
-                    ></ProjectCard>
+                <Heading textAlign={"center"}>🚧 In development</Heading>
+                {projectsLinks.map((project) => (
+                    <ProjectCard key={project.name} project={project} />
                 ))}
             </Box>
         </Container>

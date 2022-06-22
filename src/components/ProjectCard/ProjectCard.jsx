@@ -11,8 +11,8 @@ import {
 import styles from "./ProjectCard.module.scss";
 import theme from "../../theme/index";
 
-const ProjectCard = ({ title, githubLink, webLink, image }) => {
-    const imageUrl = image ? image : "/assets/default.png";
+const ProjectCard = ({ project }) => {
+    const imageUrl = project.image ? project.image : "/assets/default.png";
     const [lightMode, darkMode] = [
         theme.colorsTags.white,
         theme.colorsTags.black,
@@ -26,14 +26,19 @@ const ProjectCard = ({ title, githubLink, webLink, image }) => {
                 color={useColorModeValue(lightMode, darkMode)}
             >
                 <Box className={styles.FotoBox} bg="blue.500">
-                    <Image className={styles.Foto} src={imageUrl} alt={title} />
+                    <Image
+                        className={styles.Foto}
+                        src={imageUrl}
+                        alt={project.name}
+                    />
                 </Box>
                 <Box className={styles.Content}>
                     <Heading as={"h3"} size={"lg"} className={styles.Title}>
-                        {title}
+                        {project.name}
                     </Heading>
+                    <Box as="p">{project.description}</Box>
                     <Stack className={styles.Buttons}>
-                        <Link href={githubLink}>
+                        <Link href={project.githubLink}>
                             <Button
                                 fontSize={"sm"}
                                 bg="red.500"
@@ -51,7 +56,7 @@ const ProjectCard = ({ title, githubLink, webLink, image }) => {
                                 In Github
                             </Button>
                         </Link>
-                        <Link href={webLink}>
+                        <Link href={project.webLink}>
                             <Button
                                 fontSize={"sm"}
                                 bg={"blue.500"}

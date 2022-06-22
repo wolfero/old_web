@@ -1,7 +1,7 @@
 export const projectsLinks = [
     {
-        name: "My Website",
-        description: "",
+        name: "This Website",
+        description: "The website is made with NextJs and JavaScript. For styling I use Chakra UI and Sass to customize components.",
         webLink: "/",
         githubLink: "https://github.com/wolfero/web",
         image: ""
@@ -15,7 +15,7 @@ export const projectsLinks = [
     },
     {
         name: "Trello Clone",
-        description: "",
+        description: "🚧 In development",
         webLink: "/projects/trello-clone",
         githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/TrelloClone",
         image: ""
@@ -27,4 +27,5 @@ export const projectsLinks = [
         githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/CryptoPrices",
         image: "/assets/projects/cryptoPrices.jpg"
     },
+
 ];

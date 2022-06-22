@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import NavItem from "../NavItem/NavItem";
-import pageLinks from "../../../data/page-links";
+import pageLinks from "../../../data/pageLinks";
 
 import styles from "./Navbar.module.scss";
 

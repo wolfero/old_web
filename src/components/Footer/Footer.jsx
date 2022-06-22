@@ -11,7 +11,7 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 import SocialButton from "../Buttons/SocialButton";
 import CopyButton from "../Buttons/CopyButton";
-import { socialLinks } from "../../../data/page-links";
+import { socialLinks } from "../../../data/pageLinks";
 
 import styles from "./Footer.module.scss";
 

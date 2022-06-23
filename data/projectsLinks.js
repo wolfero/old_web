@@ -7,11 +7,11 @@ export const projectsLinks = [
         image: ""
     },
     {
-        name: "Tick Tack Toe",
+        name: "Tic Tac Toe",
         description: "",
-        webLink: "/projects/ticktacktoe",
-        githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/TickTackToe",
-        image: "/assets/projects/ticktacktoe.jpg"
+        webLink: "/projects/tictactoe",
+        githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/TicTacToe",
+        image: "/assets/projects/tictactoe.jpg"
     },
     {
         name: "Trello Clone",

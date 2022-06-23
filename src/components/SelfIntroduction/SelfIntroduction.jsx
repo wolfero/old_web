@@ -1,5 +1,6 @@
 import { ArrowRightIcon } from "@chakra-ui/icons";
-import { Box, Image, Link, Text, Button } from "@chakra-ui/react";
+import { Box, Image, Text, Button } from "@chakra-ui/react";
+import Link from "next/link";
 
 import styles from "./SelfIntroduction.module.scss";
 
@@ -24,15 +25,15 @@ const SelfIntroduction = () => {
                     is, the more I care about solving it. I&apos;m pretty hard
                     on myself as I was always told.
                 </Text>
-                <Text mt={4}>
+                <Text mt={4} className={styles.Text}>
                     &quot;Today be better than yesterday, but tomorrow, be
                     better than today&quot;.
                 </Text>
-                <Link href="/about" marginTop="2" textAlign={"end"}>
+                <Link href="/about">
                     <Button
                         bg={"red.500"}
                         _hover={{
-                            bg: "red.400",
+                            bg: "blue.500",
                         }}
                     >
                         Read more here

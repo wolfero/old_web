@@ -57,5 +57,5 @@ export const CoinRow: FC<CoinRowProps> = ({ coin }) => {
 };
 
 function roundPrice(price: number) {
-    return price.toFixed(1);
+    return +price.toFixed(1);
 }

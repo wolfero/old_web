@@ -1,5 +1,5 @@
 {
-  "post": {
+  "posts": {
     "contentPath": "data/posts",
     "basePath": "/blog",
     "sortBy": "date",

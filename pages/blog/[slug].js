@@ -4,7 +4,6 @@ export default Post;
 import { getFileBySlug } from "../../lib/mdx";
 export async function getStaticProps({ params }) {
     const post = await getFileBySlug(params.slug);
-
     return {
         props: {
             post,
@@ -14,7 +13,7 @@ export async function getStaticProps({ params }) {
 
 import { getMdxPaths } from "next-mdx/server";
 export async function getStaticPaths() {
-    const paths = (await getMdxPaths("post"))
+    const paths = (await getMdxPaths("posts"))
         .map((p) => `/blog/${p.params.slug}`)
         .flat();
     return {

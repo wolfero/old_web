@@ -1,7 +1,8 @@
 import { MouseEventHandler } from "react";
+import { Value } from "../Board/board";
 
 export interface SquareProps {
-    square: string,
+    square: Value,
     className: string,
     onClick: MouseEventHandler<HTMLButtonElement>
 }

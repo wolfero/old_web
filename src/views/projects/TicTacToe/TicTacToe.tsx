@@ -1,9 +1,10 @@
 import { Box, Heading, useColorMode } from "@chakra-ui/react";
 import { useCallback, useMemo, useState } from "react";
 
+import Square from "./components/Square/Square";
 import styles from "./TicTacToe.module.scss";
 
-const DEFAULT_BOARD = [...Array(9)];
+const DEFAULT_BOARD: number[] = [...Array(9)];
 const winningCases = [
     [0, 1, 2],
     [3, 4, 5],
@@ -15,34 +16,10 @@ const winningCases = [
     [2, 4, 6],
 ];
 
-const getWinner = (squares) =>
+const getWinner = (squares: number[]) =>
     winningCases
         .map((line) => line.map((number) => squares[number]))
         .find(([a, b, c]) => a === b && a === c)?.[0];
-
-const Square = ({ square, className, onClick }) => {
-    return (
-        <button className={className} onClick={onClick}>
-            {square}
-        </button>
-    );
-};
-
-const Board = ({ onSquareClick, squares, isDark }) => {
-    const squareButtonClass = [styles.Square, isDark].join(" ");
-    return (
-        <Box className={styles.Board}>
-            {squares.map((square, index) => (
-                <Square
-                    square={square}
-                    key={index}
-                    className={squareButtonClass}
-                    onClick={() => onSquareClick(index)}
-                />
-            ))}
-        </Box>
-    );
-};
 
 export const Game = () => {
     const [squares, setSquares] = useState(DEFAULT_BOARD);
@@ -50,7 +27,7 @@ export const Game = () => {
 
     const firstPLayer = "X";
     const secondPlayer = "O";
-    const getNextPlayer = (squares) =>
+    const getNextPlayer = (squares: number[]) =>
         squares.filter(Boolean).length % 2 === 0 ? firstPLayer : secondPlayer;
     const nextPlayer = useMemo(() => getNextPlayer(squares), [squares]);
 

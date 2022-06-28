@@ -1,0 +1,52 @@
+---
+title: "Migrate my website to TS"
+date: "2022-06-27"
+preview: "/assets/blog/migration-to-ts/js-to-ts.webp"
+tags:
+    - "👨‍🎓 Learning"
+    - "📘 Typescript"
+    - "⚛ React"
+---
+
+# Migrate my website to TypeScript
+
+<MdxImage
+    src="/assets/blog/migration-to-ts/js-to-ts.webp"
+    alt="js-to-ts"
+></MdxImage>
+
+## What is TypeScript?
+
+TypeScript is a programming language developed by Microsoft in 2012. Its main ambition is to improve the productivity of complex application development. It is an open source language developed as a superset of JavaScript. What this means, in simple terms is that any valid JavaScript code is also valid to TypeScript.
+
+## What advantages offers TypeScript over JavaScript?
+
+In terms of software development, TypeScript offers:
+
+-   **Optional static typing.** JavaScript is a dynamically typed language, which means that types are checked, and data type errors are only detected at runtime. This can be very dangerous and can create errors during production.
+
+-   **TypeScript introduces optional strong static typing:** once declared, a variable does not change its type and can only take specific values.
+
+-   **Readability.** Thanks to the addition of strict types and other elements that make the code more self-expressive, you can see the design intent of the developers who originally wrote the code. This is especially important for distributed teams working on the same project. A code that speaks for itself can compensate for the lack of direct communication between team members.
+
+-   **IDE support.** Type information renders editors and integrated development environments (IDEs) much more useful. They can offer features like code navigation and auto-complete, providing accurate suggestions.
+
+-   **The power of object-orientation.** TypeScript supports Object-Oriented Programming (OOP) concepts such as classes, interfaces, inheritance, etc. The OOP paradigm makes it easier to build well-organized scalable code, and this advantage becomes more apparent as your project grows in size and complexity.
+
+-   **The support of a talented community.** Behind TypeScript is a massive community of very gifted people working day by day to improve the language.
+
+-   **Integrated support for updated versions** of ECMAScript, which is the scripting language that forms the basis of JavaScript.
+
+-   **ECMAScript defines the standards and novelties of JavaScript.** TypeScript takes great care to include all these new features with each update.
+
+## How to migrate the website from JavaScript to TypeScript?
+
+It has been a bit of a dilemma, because at first I wanted to redo the whole site from scratch. Talking to a couple of people who already have a lot of experience with TypeScript, they recommended me to migrate the configurations and then fix the errors that were coming out because of the famous any. So I changed the configuration, the truth following the NextJs documentation was quite simple, in fact even much of the work is done by the framework itself.
+
+Once this was done, the red festival began. In almost all the components I had to add things because it marked me that I had an any. I have also been able to use interfaces and it was not until I migrated the internal project of the cryptocurrency price list where I saw the ease that the TS brings us. I remember that when I was developing the project, I had to resort thousands of times to the official API page to consult what was returned.
+
+Thanks to make the migration I was able to find a bug in my Tic Tac Toe project, which apparently was due to my bad way of developing the project in JS.
+
+## Conclusion
+
+I can say that I have fallen in love with TypeScript and that everything I'm going to do from now on I'm going to try to do with it. I have a few projects in mind that I want to give them a hand, but with TypeScript.

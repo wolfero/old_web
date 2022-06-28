@@ -5,7 +5,7 @@ const HeadTags = ({ metadata = {} }) => {
     title: metadata.title || "Frantisek Klucar - Fero",
     description: metadata.description || "Personal web",
     slug: metadata.slug || "",
-    image: "/assets/default.jpg",
+    image: "/assets/default.png",
     date: metadata.date || new Date().toISOString(),
     domain: "https://web-wolfero.vercel.app/",
     site_name: "Frantisek Klucar",

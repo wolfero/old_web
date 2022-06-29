@@ -1,10 +1,13 @@
 import { Box, Button, Heading, Link, useColorMode } from "@chakra-ui/react";
 import { useCallback, useState } from "react";
 import { BsGithub } from "react-icons/bs";
+import { projectsLinks } from "../../../../data/projectsLinks";
 
 import Board from "./components/Board/Board";
 import { Value } from "./models/Board/board";
 import styles from "./TicTacToe.module.scss";
+
+const linkGitHub = projectsLinks[2].githubLink;
 
 function calculateWinner(squares: Value[]) {
     const winningCombinations = [
@@ -92,7 +95,7 @@ export const Game = () => {
                     isDark,
                 }}
             />
-            <Link href="#" textAlign={"center"}>
+            <Link href={linkGitHub} textAlign={"center"}>
                 <Button
                     fontSize={"lg"}
                     bg="red.500"

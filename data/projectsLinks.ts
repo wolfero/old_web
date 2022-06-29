@@ -17,7 +17,7 @@ export const projectsLinks = [
         name: "Tic Tac Toe",
         description: "This is an exercise in which I practice the hooks of useMemo, useCallback, useState and React components.",
         webLink: "/projects/tictactoe",
-        githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/TicTacToe",
+        githubLink: "https://github.com/wolfero/web/tree/master/src/views/Projects/TicTacToe",
         image: "/assets/projects/tictactoe.jpg"
     },
 
@@ -25,14 +25,14 @@ export const projectsLinks = [
         name: "Crypto Prices",
         description: "Here I have practiced the basic react hooks, such as useState and ussEffect, also make requests to an api with axios.",
         webLink: "/projects/crypto-prices",
-        githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/CryptoPrices",
+        githubLink: "https://github.com/wolfero/web/tree/master/src/views/Projects/CryptoPrices",
         image: "/assets/projects/cryptoPrices.jpg"
     },
     {
         name: "Trello Clone",
         description: "🚧 In development",
         webLink: "/projects/trello-clone",
-        githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/TrelloClone",
+        githubLink: "https://github.com/wolfero/web/tree/master/src/views/Projects/TrelloClone",
         image: ""
     },
 ];

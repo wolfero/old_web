@@ -1,2 +1,2 @@
-import Game from "../../../src/views/P-rojects/TicTacToe/TicTacToe";
+import Game from "../../../src/views/Projects/TicTacToe/TicTacToe";
 export default Game;

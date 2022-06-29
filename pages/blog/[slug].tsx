@@ -1,4 +1,4 @@
-import Post from "../../src/views/B-log/Post/Post";
+import Post from "../../src/views/Blog/Post/Post";
 export default Post;
 
 import { getFileBySlug } from "../../lib/mdx";

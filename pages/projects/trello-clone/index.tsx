@@ -1,2 +1,2 @@
-import TrelloClone from "../../../src/views/P-rojects/TrelloClone/TrelloClone";
+import TrelloClone from "../../../src/views/Projects/TrelloClone/TrelloClone";
 export default TrelloClone;

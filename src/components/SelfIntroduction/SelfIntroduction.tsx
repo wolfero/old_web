@@ -1,6 +1,5 @@
 import { ArrowRightIcon } from "@chakra-ui/icons";
-import { Box, Image, Text, Button } from "@chakra-ui/react";
-import Link from "next/link";
+import { Box, Image, Text, Button, Link } from "@chakra-ui/react";
 
 import styles from "./SelfIntroduction.module.scss";
 

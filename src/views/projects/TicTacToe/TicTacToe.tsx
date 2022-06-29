@@ -1,5 +1,6 @@
-import { Box, Heading, useColorMode } from "@chakra-ui/react";
+import { Box, Button, Heading, Link, useColorMode } from "@chakra-ui/react";
 import { useCallback, useState } from "react";
+import { BsGithub } from "react-icons/bs";
 
 import Board from "./components/Board/Board";
 import { Value } from "./models/Board/board";
@@ -91,6 +92,19 @@ export const Game = () => {
                     isDark,
                 }}
             />
+            <Link href="#" textAlign={"center"}>
+                <Button
+                    fontSize={"lg"}
+                    bg="red.500"
+                    _hover={{
+                        bg: "red.400",
+                    }}
+                    gap={"1rem"}
+                >
+                    <BsGithub />
+                    Github
+                </Button>
+            </Link>
         </Box>
     );
 };

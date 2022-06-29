@@ -1,3 +1,3 @@
-export interface ColoringPriceProps {
+export type ColoringPriceProps = {
     price: number
 }

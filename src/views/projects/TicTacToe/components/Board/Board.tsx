@@ -4,7 +4,7 @@ import styles from "./Board.module.scss";
 import Square from "../Square/Square";
 import { BoardProps } from "../../models/Board/board";
 
-const Board: React.FC<BoardProps> = ({ onSquareClick, squares, isDark }) => {
+const Board = ({ onSquareClick, squares, isDark }: BoardProps) => {
     const squareButtonClass = [styles.Square, isDark].join(" ");
     return (
         <Box className={styles.Board}>

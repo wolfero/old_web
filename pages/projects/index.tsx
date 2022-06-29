@@ -1,2 +1,2 @@
-import  Projects  from "../../src/views/projects/Projects";
+import  Projects  from "../../src/views/Projects/Projects";
 export default Projects;

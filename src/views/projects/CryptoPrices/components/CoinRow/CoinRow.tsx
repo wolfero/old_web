@@ -1,11 +1,10 @@
-import { FC } from "react";
 import { Box, Image, Td, Tr, useColorModeValue } from "@chakra-ui/react";
 
 import styles from "./CoinRow.module.scss";
-import ColoringPrice from "../ColoringPrice/ColoringPrice";
 import { CoinRowProps } from "../../model/CoinRow/coinRow";
+import ColoringPrice from "../ColoringPrice/ColoringPrice";
 
-export const CoinRow: FC<CoinRowProps> = ({ coin }) => {
+export const CoinRow = ({ coin }: CoinRowProps) => {
     const wrapImageLink = coin.image.split("images/");
     const coinCode = wrapImageLink[1].split("/")[0];
     const coinChart = `https://www.coingecko.com/coins/${coinCode}/sparkline`;

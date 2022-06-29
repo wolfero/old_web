@@ -1,2 +1,2 @@
-import CryptoPrices from "../../../src/views/projects/CryptoPrices/CryptoPrices";
+import CryptoPrices from "../../../src/views/Projects/CryptoPrices/CryptoPrices";
 export default CryptoPrices;

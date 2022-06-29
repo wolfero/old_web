@@ -1,6 +1,6 @@
 import { SquareProps } from "../../models/Square/square";
 
-const Square: React.FC<SquareProps> = ({ square, className, onClick }) => {
+const Square = ({ square, className, onClick }:SquareProps) => {
     return (
         <button className={className} onClick={onClick}>
             {square}

@@ -9,10 +9,12 @@ import {
     Tr,
     useColorModeValue,
 } from "@chakra-ui/react";
+import { FC } from "react";
 
+import { TableCoinsProps } from "../../model/TableCoins/tableCoins";
 import { CoinRow } from "../CoinRow/CoinRow";
 
-export const TableCoins = ({ coins }) => {
+export const TableCoins: FC<TableCoinsProps> = ({ coins }) => {
     return (
         <Container maxW={"7xl"} px={{ base: "5", lg: "20" }} py={"5"}>
             <TableContainer>

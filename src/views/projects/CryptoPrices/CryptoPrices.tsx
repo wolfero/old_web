@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 import ErrorHandler from "../../../components/ErrorHandler/ErrorHandler";
 import { Spinner } from "../../../components/Spinner/Spinner";
 import { TableCoins } from "./components/TableCoins/TableCoins";
+import { Coin } from "./model/Coin/coin";
 
 export const CryptoPrices = () => {
-    const [coins, setCoins] = useState([]);
+    const [coins, setCoins] = useState(Array<Coin>());
     const [error, setError] = useState({ message: "", code: "" });
     const [isLoading, setIsLoading] = useState(false);
 
@@ -48,7 +49,7 @@ export const CryptoPrices = () => {
     );
 };
 
-function printSpinnerOrTable(isLoading, coins) {
+function printSpinnerOrTable(isLoading:boolean, coins:Coin[]) {
     return isLoading ? <Spinner /> : <TableCoins coins={coins} />;
 }
 

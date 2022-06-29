@@ -10,8 +10,6 @@
     }
 
     .Restart {
-        background-color: var(--color-black);
-        color: var(--color-white);
         padding: 0.5rem;
         border-radius: 0.5rem;
         &:hover {
@@ -20,40 +18,6 @@
         }
 
         &.DarkMode {
-            @extend .Dark;
-            &:hover {
-                background-color: var(--color-red);
-                color: var(--color-white);
-            }
-        }
-    }
-
-    .Board {
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        grid-template-columns: 10rem 10rem 10rem;
-        grid-template-rows: 10rem 10rem 10rem;
-        grid-gap: 0.5rem;
-
-        .Square {
-            background-color: var(--color-black);
-            color: var(--color-white);
-            border-radius: 0.5rem;
-            font-size: 5rem;
-            font-weight: bold;
-            text-align: center;
-            width: 10rem;
-            height: 10rem;
-
-            &.DarkMode {
-                @extend .Dark;
-                &:hover {
-                    background-color: var(--color-red);
-                    color: var(--color-white);
-                }
-            }
-
             &:hover {
                 background-color: var(--color-red);
                 color: var(--color-white);
@@ -73,24 +37,16 @@
                 }
             }
         }
-
-        .Board {
-            grid-template-columns: 5rem 5rem 5rem;
-            grid-template-rows: 5rem 5rem 5rem;
-            .Square {
-                width: 5rem;
-                height: 5rem;
-                &.DarkMode {
-                    &:hover {
-                        background-color: none;
-                    }
-                }
-            }
-        }
     }
 }
 
-.Dark {
+
+.DarkMode {
     background-color: var(--color-white);
     color: var(--color-black);
+}
+
+.LightMode {
+    background-color: var(--color-black);
+    color: var(--color-white);
 }

@@ -8,7 +8,7 @@ export const projectsLinks = [
     },
     {
         name: "Tic Tac Toe",
-        description: "",
+        description: "This is an exercise in which I practice the hooks of useMemo, useCallback, useState and React components.",
         webLink: "/projects/tictactoe",
         githubLink: "https://github.com/wolfero/web/tree/master/src/views/projects/TicTacToe",
         image: "/assets/projects/tictactoe.jpg"

@@ -7,7 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { MdSearch } from "react-icons/md";
 
-import PostList from "../../components/blog/PostList";
+import PostList from "../../components/blog/PostList/PostList";
 import { PostsProps, PostsType } from "../../model/Blog/posts";
 
 export const Blog = ({ posts }: PostsProps) => {

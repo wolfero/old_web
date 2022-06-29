@@ -1,6 +1,6 @@
 import { MdAccessTime } from "react-icons/md";
 import { HStack, Text } from "@chakra-ui/react";
-import { ReadingTime } from "../../model/Blog/readingTime";
+import { ReadingTime } from "../../../model/Blog/readingTime";
 
 const PostReadingTime = ({ readingTime }: ReadingTime) => {
     return (

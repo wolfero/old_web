@@ -1,6 +1,6 @@
 import { Container } from "@chakra-ui/react";
 
-import PostList from "../../components/blog/PostList";
+import PostList from "../../components/blog/PostList/PostList";
 import Skills from "../../components/Skills/Skills";
 import SelfIntroduction from "../../components/SelfIntroduction/SelfIntroduction";
 import { PostsProps } from "../../model/Blog/posts";

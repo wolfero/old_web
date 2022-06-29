@@ -1,15 +1,15 @@
 import { Box, Heading, Link, Image } from "@chakra-ui/react";
 
-import PostTags from "./PostTags";
-import PostDate from "./PostDate";
-import PostReadingTime from "./PostReadingTime";
-import { formatDate } from "../../../lib/format-date";
-import { PostProps } from "../../model/Blog/post";
-import { FrontMatter } from "../../model/Blog/FrontMatter";
+import PostTags from "../PostTags/PostTags";
+import PostDate from "../PostDate/PostDate";
+import PostReadingTime from "../PostReadingTime/PostReadingTime";
+import { formatDate } from "../../../../lib/format-date";
+import { PostProps } from "../../../model/Blog/post";
+import { FrontMatter } from "../../../model/Blog/FrontMatter";
 
 const defaultImage = "/assets/blog/default-icon.svg";
 
-const Post = ({ post }: PostProps) => {
+const PostPreview = ({ post }: PostProps) => {
     const metadata = post.frontMatter;
     const hasPreviewImage = (metadata: FrontMatter) =>
         metadata.preview ?? defaultImage;
@@ -28,7 +28,6 @@ const Post = ({ post }: PostProps) => {
                     href={post.url}
                 >
                     <Image
-                        transform="scale(1.0)"
                         src={hasPreviewImage(metadata)}
                         alt={metadata.preview}
                         objectFit="cover"
@@ -58,4 +57,4 @@ const Post = ({ post }: PostProps) => {
     );
 };
 
-export default Post;
+export default PostPreview;

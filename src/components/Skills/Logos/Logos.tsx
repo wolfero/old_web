@@ -24,7 +24,7 @@ const Logos = ({ skill }: LogosProps) => {
             <Box
                 className={styles.SkillsLogo}
                 _hover={{
-                    boxShadow: "0 0.5rem 1rem 0 ",
+                    boxShadow: "0 0.5rem 1rem 0 " + skill.color,
                 }}
             >
                 {logoType[skill.type]}

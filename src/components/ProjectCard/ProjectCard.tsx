@@ -40,36 +40,46 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                     {project.description}
                 </Box>
                 <Stack className={styles.Buttons}>
-                    <Link href={project.githubLink}>
-                        <Button
-                            fontSize={"sm"}
-                            bg="red.500"
-                            _hover={{
-                                bg: "red.400",
-                            }}
-                            _active={{
-                                bg: useColorModeValue(lightMode, darkMode),
-                                color: useColorModeValue(darkMode, lightMode),
-                            }}
-                        >
-                            In Github
-                        </Button>
-                    </Link>
-                    <Link href={project.webLink}>
-                        <Button
-                            fontSize={"sm"}
-                            bg={"blue.500"}
-                            _hover={{
-                                bg: "blue.400",
-                            }}
-                            _active={{
-                                bg: useColorModeValue(lightMode, darkMode),
-                                color: useColorModeValue(darkMode, lightMode),
-                            }}
-                        >
-                            In Web
-                        </Button>
-                    </Link>
+                    {project.githubLink ? (
+                        <Link href={project.githubLink}>
+                            <Button
+                                fontSize={"sm"}
+                                bg="red.500"
+                                _hover={{
+                                    bg: "red.400",
+                                }}
+                                _active={{
+                                    bg: useColorModeValue(lightMode, darkMode),
+                                    color: useColorModeValue(
+                                        darkMode,
+                                        lightMode
+                                    ),
+                                }}
+                            >
+                                In Github
+                            </Button>
+                        </Link>
+                    ) : null}
+                    {project.webLink ? (
+                        <Link href={project.webLink}>
+                            <Button
+                                fontSize={"sm"}
+                                bg={"blue.500"}
+                                _hover={{
+                                    bg: "blue.400",
+                                }}
+                                _active={{
+                                    bg: useColorModeValue(lightMode, darkMode),
+                                    color: useColorModeValue(
+                                        darkMode,
+                                        lightMode
+                                    ),
+                                }}
+                            >
+                                In Web
+                            </Button>
+                        </Link>
+                    ) : null}
                 </Stack>
             </Box>
         </Box>

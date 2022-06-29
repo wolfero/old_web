@@ -1,13 +1,13 @@
 .Projects {
     .Gallery {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
+        justify-content: start;
+        flex-wrap: wrap;
+        gap: 3.5rem;
 
         @media (max-width: 768px) {
             & {
-                flex-wrap: wrap;
+                justify-content: center;
             }
         }
     }

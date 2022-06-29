@@ -1,4 +1,4 @@
-import Home from "../src/views/Home/Home";
+import Home from "../src/views/H-ome/Home";
 export default Home;
 
 import { getAllFiles } from "../lib/mdx";

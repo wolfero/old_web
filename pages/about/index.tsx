@@ -1,2 +1,2 @@
-import About from "../../src/views/About/About";
+import About from "../../src/views/A-bout/About";
 export default About;

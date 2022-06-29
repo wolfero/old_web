@@ -19,10 +19,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         theme.colorsTags.black,
     ];
 
-    const colorMode = (color1: string, color2: string) => {
-        return useColorModeValue(color1, color2);
-    };
-
     return (
         <Box
             className={styles.Card}
@@ -53,8 +49,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                                     bg: "red.400",
                                 }}
                                 _active={{
-                                    bg: colorMode(lightMode, darkMode),
-                                    color: colorMode(darkMode, lightMode),
+                                    bg: "blue.500",
                                 }}
                             >
                                 In Github
@@ -70,8 +65,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                                     bg: "blue.400",
                                 }}
                                 _active={{
-                                    bg: colorMode(lightMode, darkMode),
-                                    color: colorMode(darkMode, lightMode),
+                                    bg: "red.500",
                                 }}
                             >
                                 In Web

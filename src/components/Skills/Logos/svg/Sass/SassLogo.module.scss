@@ -9,7 +9,7 @@ $color-sass: #C36291;
     z-index: 2;
     stroke: $color-sass;
     filter: drop-shadow(0 0 1rem $color-sass);
-    animation: 2s 1s sassAnimation cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    animation: 2s 1s sassAnimation cubic-bezier(0.215, 0.61, 0.355, 1) infinite alternate;
 }
 
 @keyframes sassAnimation {

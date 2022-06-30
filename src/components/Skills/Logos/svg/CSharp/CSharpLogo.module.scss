@@ -1,0 +1,43 @@
+.CSharp {
+    .TopFigure {
+        fill: #a179dc;
+    }
+
+    .BotFigure {
+        fill: #280068;
+    }
+
+    .RightFigure {
+        fill: #390091;
+    }
+
+    .Text {
+        animation: textAnimation 3s 1s infinite alternate;
+    }
+}
+
+@keyframes textAnimation {
+    62% {
+        opacity: 1;
+    }
+
+    65% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    77% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    85% {
+        opacity: 1;
+    }
+}

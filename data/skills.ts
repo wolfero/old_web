@@ -33,5 +33,15 @@ export const skillsTags = [
         type: "php",
         title: "PHP",
         color: "#787CB4",
+    },
+    {
+        type: "java",
+        title: "Java",
+        color: "#E66F00",
+    },
+    {
+        type: "csharp",
+        title: "C #",
+        color: "#753091",
     }
 ]

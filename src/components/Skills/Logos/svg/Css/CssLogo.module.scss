@@ -1,19 +1,18 @@
-$color-css: #268b8f;
-$color-css-active: #1eb6bb;
+$color-css: #2760E5;
 
 .Css {
     transition: 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
     height: 100%;
     z-index: 2;
-    filter: drop-shadow(0 0 0.1rem $color-css-active);
+    filter: drop-shadow(0 0 0.1rem $color-css);
     animation: cssAnim 3s 1s infinite alternate
         cubic-bezier(0.68, -0.55, 0.265, 1.55);
     animation-delay: 0.4s;
-    stroke: $color-css-active;
+    stroke: $color-css;
 
     #cssLetter {
         transition: 0.2s;
-        stroke: $color-css-active;
+        stroke: $color-css;
         animation: cssAnim2 3s 1s infinite alternate-reverse
             cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
@@ -26,11 +25,11 @@ $color-css-active: #1eb6bb;
 
 @keyframes cssAnim {
     from {
-        filter: drop-shadow(0 0 0.1rem $color-css-active);
+        filter: drop-shadow(0 0 0.1rem $color-css);
     }
 
     to {
-        filter: drop-shadow(0 0 0.5rem $color-css-active);
+        filter: drop-shadow(0 0 0.5rem $color-css);
     }
 }
 

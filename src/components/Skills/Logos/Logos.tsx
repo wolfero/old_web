@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 
+import { LogosProps } from "../../../model/Skills/logos";
 import HtmlLogo from "./svg/Html/HtmlLogo";
 import CssLogo from "./svg/Css/CssLogo";
 import Es6Logo from "./svg/JS/JsLogo";
@@ -7,7 +8,7 @@ import SassLogo from "./svg/Sass/SassLogo";
 import ReactLogo from "./svg/React/ReactLogo";
 import GitLogo from "./svg/Git/GitLogo";
 import styles from "./Logos.module.scss";
-import { LogosProps } from "../../../model/Skills/logos";
+import PhpLogo from "./svg/Php/PhpLogo";
 
 const logoType: { [key: string]: JSX.Element } = {
     html: <HtmlLogo />,
@@ -16,6 +17,7 @@ const logoType: { [key: string]: JSX.Element } = {
     es6: <Es6Logo />,
     react: <ReactLogo />,
     git: <GitLogo />,
+    php: <PhpLogo />,
 };
 
 const Logos = ({ skill }: LogosProps) => {

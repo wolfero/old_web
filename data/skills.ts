@@ -2,31 +2,36 @@ export const skillsTags = [
     {
         type: "html",
         title: "HTML",
-        color: "red"
+        color: "#E56027"
     },
     {
         type: "css",
         title: "CSS",
-        color: "cyan"
+        color: "#2760E5"
     },
     {
         type: "es6",
         title: "JavaScript",
-        color: "yellow"
+        color: "#EAD41C"
     },
     {
         type: "sass",
         title: "Sass",
-        color: "pink"
+        color: "#C36291"
     },
     {
         type: "react",
         title: "React",
-        color: "cyan"
+        color: "#09CEF2"
     },
     {
         type: "git",
         title: "Git",
-        color: "orange",
+        color: "#E44D30",
+    },
+    {
+        type: "php",
+        title: "PHP",
+        color: "#787CB4",
     }
 ]

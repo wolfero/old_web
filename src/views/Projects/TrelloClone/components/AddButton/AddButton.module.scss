@@ -8,7 +8,7 @@
 	font-weight: var(--chakra-fontWeights-semibold);
 }
 
-.AddCard {
+.AddTask {
 	@extend .Button;
 	display: flex;
 	align-items: center;
@@ -19,7 +19,7 @@
 	}
 }
 
-.AddList {
+.AddCard {
 	@extend .Button;
 	display: inline-flex;
 	align-items: center;
@@ -28,5 +28,26 @@
 
 	&:hover {
 		background: var(--chakra-colors-whiteAlpha-400);
+	}
+}
+
+
+.AddButtonContainer {
+	padding: 0.5rem;
+
+	.AddButtonText {
+		background-color: var(--color-white);
+		color: var(--color-black);
+		box-shadow: 0.05rem 0.05rem 0.1rem;
+
+		&::placeholder {
+			color: var(--color-gray);
+		}
+	}
+
+	.AddButtonGroup {
+		padding: 0.5rem 0;
+		display: flex;
+		gap: 1rem;
 	}
 }

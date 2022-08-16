@@ -1,8 +1,8 @@
 import sample from '../../../../../data/sample';
 
-const loadLists = async () => {
+const loadCards = async () => {
 	//TODO LOAD LIST FROM FIREBASE
-	return await sample.lists;
+	return await sample.cards;
 };
 
-export default loadLists;
+export default loadCards;

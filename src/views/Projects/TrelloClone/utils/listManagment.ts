@@ -7,8 +7,8 @@ import {
 } from 'firebase/firestore';
 
 import { db, timestamp } from '../../../../../data/firebase';
-import { ListProps } from '../model/ListProps';
-import loadLists from './loadLists';
+import { CardType } from '../model/CardType';
+import loadCards from './loadCards';
 
 export const addMoreList = async (title: string) => {
 	if (!title) return;
@@ -26,7 +26,7 @@ export const removeList = async (listId: string) => {
 };
 
 export const updateListTitle = async (title: string, listId: string) => {
-	const lists: ListProps[] = await loadLists();
+	const lists: CardType[] = await loadCards();
 	const listRef = doc(db, 'lists', listId);
 
 	lists.forEach(async (list) => {

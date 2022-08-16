@@ -1,10 +1,10 @@
 const data = {
-	lists: [
+	cards: [
 		{
-			id: 'list-1',
+			id: 'card-1',
 			title: 'To do 1',
 			type: 'card',
-			cards: [
+			tasks: [
 				{
 					id: 'card-1',
 					title: 'test1-1',
@@ -28,10 +28,10 @@ const data = {
 			],
 		},
 		{
-			id: 'list-1',
+			id: 'card-1',
 			title: 'To do 2',
 			type: 'card',
-			cards: [
+			tasks: [
 				{
 					id: 'card-1',
 					title: 'test2-1',
@@ -40,7 +40,7 @@ const data = {
 			],
 		},
 	],
-	listIds: ['list-1', 'list-2'],
+	cardsIds: ['card-1', 'card-2'],
 };
 
 export default data;

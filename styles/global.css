@@ -40,23 +40,23 @@ a:focus {
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
-    scrollbar-width: auto;
-    scrollbar-color: var(--color-red) #171923;
+    scrollbar-width: 0.8rem;
+    scrollbar-color: var(--color-red) transparent;
 }
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-    width: 1rem;
+    width: 0.8rem;
 }
 
 *::-webkit-scrollbar-track {
-    background: #171923;
+    background-color: var(--color-black);
 }
 
 *::-webkit-scrollbar-thumb {
     background-color: var(--color-red);
     border-radius: 1rem;
-    border: 3px solid #171923;
+    border: 2px solid #171923;
 }
 
 

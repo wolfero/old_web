@@ -1,0 +1,32 @@
+.Button {
+	padding: 0.5rem 1rem;
+    gap: 1rem;
+	font-size: large;
+	width: 100%;
+	white-space: nowrap;
+	border-radius: var(--chakra-radii-md);
+	font-weight: var(--chakra-fontWeights-semibold);
+}
+
+.AddCard {
+	@extend .Button;
+	display: flex;
+	align-items: center;
+	color: var(--color-gray);
+	
+	&:hover {
+		background-color: #091e4214;
+	}
+}
+
+.AddList {
+	@extend .Button;
+	display: inline-flex;
+	align-items: center;
+	color: var(--color-white);
+    background-color: var(--chakra-colors-whiteAlpha-200);
+
+	&:hover {
+		background: var(--chakra-colors-whiteAlpha-400);
+	}
+}

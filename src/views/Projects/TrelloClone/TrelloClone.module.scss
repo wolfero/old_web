@@ -1,0 +1,21 @@
+.Container {
+	min-height: 100vh;
+	background-image: url('/assets/projects/TrelloBoard.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	
+	.Navbar {
+		background-color: var(--chakra-colors-whiteAlpha-500);
+		color: var(--color-black);
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem;
+
+		.BookMark {
+			color: #ff0000;
+		}
+	}
+}

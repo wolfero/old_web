@@ -1,17 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Droppable, Draggable, DragDropContext } from 'react-beautiful-dnd';
 import { Box } from '@chakra-ui/react';
-import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 
-import sample from '../../../../../../data/sample';
-import { db } from '../../../../../../data/firebase';
 import List from '../List/List';
 import AddButton from '../AddButton/AddButton';
+import loadLists from '../../utils/loadLists';
 
 import styles from './Board.module.scss';
+import { ListProps } from '../../model/ListProps';
 
 const Board = () => {
-	const [lists, setLists] = useState(sample.lists);//TODO LOAD LIST FROM FIREBASE
+	const [lists, setLists] = useState<ListProps[]>([]);
+
+	useEffect(() => {
+		async function getLists() {
+			const result = await Promise.resolve(loadLists());
+			setLists(result);
+		}
+
+		getLists();
+	}, []);
 
 	return (
 		<DragDropContext>

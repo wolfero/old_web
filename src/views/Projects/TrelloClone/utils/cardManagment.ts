@@ -4,6 +4,7 @@ import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../../../data/firebase';
 import { Card } from '../model/Card';
 import { ListProps } from '../model/ListProps';
+import loadLists from './loadLists';
 
 export const addMoreCard = async (title: string, listId: string) => {
 	if (!title) return;
@@ -20,8 +21,12 @@ export const addMoreCard = async (title: string, listId: string) => {
 	});
 };
 
-export const removeCard = (index: number, listId: string, cardId: string) => {
-	const lists: ListProps[] = []; //TODO LOAD LISTS
+export const removeCard = async (
+	index: number,
+	listId: string,
+	cardId: string
+) => {
+	const lists: ListProps[] = await loadLists();
 	const listRef = doc(db, 'lists', listId);
 
 	lists.forEach(async (list) => {
@@ -35,13 +40,13 @@ export const removeCard = (index: number, listId: string, cardId: string) => {
 	});
 };
 
-export const updateCardTitle = (
+export const updateCardTitle = async (
 	title: string,
 	index: number,
 	listId: string,
 	cardId: string
 ) => {
-	const lists: ListProps[] = []; //TODO LOAD LISTS
+	const lists: ListProps[] = await loadLists();
 	const listRef = doc(db, 'lists', listId);
 
 	lists.forEach(async (list) => {

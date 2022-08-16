@@ -8,6 +8,7 @@ import {
 
 import { db, timestamp } from '../../../../../data/firebase';
 import { ListProps } from '../model/ListProps';
+import loadLists from './loadLists';
 
 export const addMoreList = async (title: string) => {
 	if (!title) return;
@@ -25,7 +26,7 @@ export const removeList = async (listId: string) => {
 };
 
 export const updateListTitle = async (title: string, listId: string) => {
-	const lists: ListProps[] = []; //TODO LOAD LISTS
+	const lists: ListProps[] = await loadLists();
 	const listRef = doc(db, 'lists', listId);
 
 	lists.forEach(async (list) => {

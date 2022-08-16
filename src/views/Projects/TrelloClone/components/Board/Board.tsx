@@ -11,23 +11,7 @@ import AddButton from '../AddButton/AddButton';
 import styles from './Board.module.scss';
 
 const Board = () => {
-	const [lists, setLists] = useState(sample.lists);
-
-	const addMoreCard = async (title: string, listIds: string[]) => {
-		if (!title) {
-			return;
-		}
-
-		const newList = {
-			id: lists.length + 1,
-			title,
-		};
-
-		const listRef = doc(db, 'lists', listIds);
-		await updateDoc(listRef, {
-			cards: arrayUnion(newList),
-		});
-	};
+	const [lists, setLists] = useState(sample.lists);//TODO LOAD LIST FROM FIREBASE
 
 	return (
 		<DragDropContext>

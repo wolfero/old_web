@@ -1,36 +1,30 @@
+@import '../Card/Card.module.scss';
+
 .Board {
 	display: flex;
 	gap: 1rem;
 	position: relative;
 	margin-left: 1rem;
-    margin-right: 1rem;
+	margin-right: 1rem;
 	margin-top: 1rem;
-    padding-bottom: 1rem;
+	padding-bottom: 1rem;
 	height: 85vh;
 	left: 0;
 	right: 0;
 	overflow-x: auto;
 	overflow-y: hidden;
-    scroll-snap-type: x mandatory;
+	scroll-snap-type: x mandatory;
 
-    .Card {
-        padding: 0.5rem;
-        height: max-content;
-        min-width: 20rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap:1rem;
-        border-radius: 3px;
-        scroll-snap-align: start;
-    }
-	
-    &::-webkit-scrollbar{
-        height: 0.8rem;
-    }
+	.Card {
+		background-color: transparent;
+	}
 
-    &::-webkit-scrollbar-track{
-        border-radius: 1rem;
-        background-color: var(--chakra-colors-whiteAlpha-400);
-    }
+	&::-webkit-scrollbar {
+		height: 0.8rem;
+	}
+
+	&::-webkit-scrollbar-track {
+		border-radius: 1rem;
+		background-color: var(--chakra-colors-whiteAlpha-400);
+	}
 }

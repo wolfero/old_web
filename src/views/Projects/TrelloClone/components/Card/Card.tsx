@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { Box } from '@chakra-ui/react';
 
@@ -14,23 +14,22 @@ type CardListProps = {
 	index: number;
 };
 
-const Card = ({ card, index }: CardListProps) => {
+const Card = memo(function Card({ card, index }: CardListProps) {
 	return (
-		<Draggable draggableId={card.id.toString()} index={index}>
+		<Draggable draggableId={card.id} index={index}>
 			{(provided) => (
 				<Box
 					className={styles.Card}
-					{...provided.dragHandleProps}
 					{...provided.draggableProps}
 					ref={provided.innerRef}
 				>
-					<CardTitle title={card.title} />
-					<CardContent card={card} />
+					<CardTitle title={card.title} provided={provided} />
+					<CardContent card={card} index={index} />
 					<AddButton cardId={card.id} type={card.type} />
 				</Box>
 			)}
 		</Draggable>
 	);
-};
+});
 
 export default Card;

@@ -1,39 +1,48 @@
-import { Box, Heading } from '@chakra-ui/react';
-import React from 'react';
-import { Droppable, Draggable } from 'react-beautiful-dnd';
+import React, { memo } from 'react';
+import { Box } from '@chakra-ui/react';
+import { Droppable } from 'react-beautiful-dnd';
 
 import { CardType } from '../../model/CardType';
+import Task, { Row } from '../Task/Task';
 
 import styles from './CardContent.module.scss';
 
 type CardContentProps = {
 	card: CardType;
+	index: number;
 };
 
-const ListContent = ({ card }: CardContentProps) => {
+const CardContent = memo(function CardContent({
+	card,
+	index,
+}: CardContentProps) {
 	return (
-		<Droppable droppableId={card.id.toString()} type="task">
+		<Droppable
+			droppableId={card.id}
+			mode="virtual"
+			type="task"
+			renderClone={(provided, snapshot, rubric) => (
+				<Task
+					index={index}
+					task={card.tasks[rubric.source.index]}
+					provided={provided}
+					isDragging={snapshot.isDragging}
+				/>
+			)}
+		>
 			{(provided) => (
 				<Box
 					ref={provided.innerRef}
 					{...provided.droppableProps}
 					className={styles.CardContent}
 				>
-					{card.tasks.map((card, index) => (
-						<Heading
-							as={'h3'}
-							size={'md'}
-							key={index}
-							className={styles.Task}
-						>
-							{card.title}
-						</Heading>
+					{card.tasks.map((task, index) => (
+						<Row task={task} index={index} key={task.id} />
 					))}
-					{provided.placeholder}
 				</Box>
 			)}
 		</Droppable>
 	);
-};
+});
 
-export default ListContent;
+export default CardContent;

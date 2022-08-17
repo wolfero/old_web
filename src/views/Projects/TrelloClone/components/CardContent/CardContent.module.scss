@@ -4,18 +4,10 @@
 	padding: 0.25rem;
 	gap: 0.5rem;
 	overflow-x: hidden;
-    overflow-y: auto;
+	overflow-y: auto;
 
-	&::-webkit-scrollbar-track{
+	&::-webkit-scrollbar-track {
 		border-radius: 1rem;
-        background-color: var(--chakra-colors-blackAlpha-300);
-    }
-
-	.Task {
-		padding: 0.5rem;
-		border-radius: 3px;
-        box-shadow: 0 1px 0 #091e4240;
-		color: var(--color-black);
-		background-color: var(--color-white);
+		background-color: var(--chakra-colors-blackAlpha-300);
 	}
 }

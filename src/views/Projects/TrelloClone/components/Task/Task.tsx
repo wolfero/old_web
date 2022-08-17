@@ -17,7 +17,7 @@ export const Row = memo(function Row({ task, index }: RowProps) {
 	}
 
 	return (
-		<Draggable draggableId={task.id} index={index} key={task.id}>
+		<Draggable draggableId={task.id} index={index}>
 			{(provided) => (
 				<Task provided={provided} index={index} task={task} />
 			)}

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import {
 	Droppable,
 	DragDropContext,
-	ResponderProvided,
 	resetServerContext,
 	DropResult,
 } from 'react-beautiful-dnd';
@@ -71,20 +70,26 @@ const Board = () => {
 		const sourceCard = cards.filter(
 			(card) => card.id === result.source.droppableId
 		);
-		const destinationCard = cards.filter(
-			(card) => card.id === result.destination.droppableId
-		);
-		const movedTask = sourceCard[0].tasks.splice(result.source.index, 1);
+		if (result.destination != undefined) {
+			const destination = result.destination;
+			const destinationCard = cards.filter(
+				(card) => card.id === destination.droppableId
+			);
+			const movedTask = sourceCard[0].tasks.splice(
+				result.source.index,
+				1
+			);
 
-		cards.forEach((card) => {
-			if (card.id === sourceCard[0].id) {
-				card.tasks = sourceCard[0].tasks;
-			} else if (card.id === destinationCard[0].id) {
-				card.tasks.push(movedTask[0]);
-			}
-		});
-		setCards(cards);
-		return;
+			cards.forEach((card) => {
+				if (card.id === sourceCard[0].id) {
+					card.tasks = sourceCard[0].tasks;
+				} else if (card.id === destinationCard[0].id) {
+					card.tasks.splice(destination.index, 0, movedTask[0]);
+				}
+			});
+			setCards(cards);
+			return;
+		}
 	}
 
 	const [isBrowser, setIsBrowser] = useState(false);

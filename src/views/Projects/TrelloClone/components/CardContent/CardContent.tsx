@@ -37,7 +37,7 @@ const CardContent = memo(function CardContent({
 					className={styles.CardContent}
 				>
 					{card.tasks.map((task, index) => (
-						<Row task={task} index={index} key={task.id} />
+						<Row task={task} index={index} key={index} />
 					))}
 				</Box>
 			)}

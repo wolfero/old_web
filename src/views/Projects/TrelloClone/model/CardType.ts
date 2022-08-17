@@ -3,6 +3,6 @@ import { TaskType } from "./TaskType";
 export type CardType = {
 	id: string;
 	title: string;
-	type: string,
+	type: string;
 	tasks: TaskType[];
 };

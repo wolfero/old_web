@@ -46,11 +46,7 @@ const Board = () => {
 			// await updateDoc(destinationRef, { timestamp: timestamp });
 			// await updateDoc(sourceRef, { timestamp: timestamp });
 
-			const cardsOrder = reorderCards(
-				cards,
-				source.index,
-				destination.index
-			);
+			const cardsOrder = reorderCards(cards, source.index, destination.index);
 			setCards(cardsOrder);
 			return;
 		}
@@ -71,14 +67,10 @@ const Board = () => {
 			// const cardsRef = doc(db, 'cards', destination.droppableId);
 			// await updateDoc(cardsRef, { tasks: updatedTasks });
 
-			const tasks = reorderTasks(
-				card.tasks,
-				source.index,
-				destination.index
-			);
+			const tasks = reorderTasks(card.tasks, source.index, destination.index);
 			card.tasks = tasks;
 			return;
-		} 
+		}
 		//TODO CONECTE TO FIREBASE
 		// else {
 		// 	const sourceCard = cards.filter((card) => card.id === source.droppableId)[0];
@@ -123,15 +115,16 @@ const Board = () => {
 	}, []);
 
 	return (
-		<StoreApi.Provider
-			value={{
-				addMoreCard,
-				addMoreTask,
-				updateCardTitle,
-				updateTaskTitle,
-				removeCard,
-				removeTask,
-			}}
+		<
+			// StoreApi.Provider
+			// value={{
+			// 	addMoreCard,
+			// 	addMoreTask,
+			// 	updateCardTitle,
+			// 	updateTaskTitle,
+			// 	removeCard,
+			// 	removeTask,
+			// }}
 		>
 			{isBrowser ? (
 				<DragDropContext onDragEnd={onDragEnd}>
@@ -154,7 +147,9 @@ const Board = () => {
 					</Droppable>
 				</DragDropContext>
 			) : null}
-		</StoreApi.Provider>
+		</
+			// StoreApi.Provider
+		>
 	);
 };
 

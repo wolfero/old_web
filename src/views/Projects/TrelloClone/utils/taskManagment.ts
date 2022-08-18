@@ -1,4 +1,3 @@
-import { randomUUID } from 'crypto';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 
 import { db } from '../../../../../data/firebase';
@@ -6,11 +5,15 @@ import { TaskType } from '../model/TaskType';
 import { CardType } from '../model/CardType';
 import loadCards from './loadCards';
 
-export const addMoreTask = async (title: string, cardId: string) => {
+export const addMoreTask = async (
+	title: string,
+	taskId: string,
+	cardId: string
+) => {
 	if (!title) return;
 
 	const newTask: TaskType = {
-		id: randomUUID(),
+		id: taskId,
 		title,
 		type: 'task',
 	};

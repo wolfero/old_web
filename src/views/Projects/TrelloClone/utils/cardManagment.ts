@@ -10,10 +10,11 @@ import { db, timestamp } from '../../../../../data/firebase';
 import { CardType } from '../model/CardType';
 import loadCards from './loadCards';
 
-export const addMoreCard = async (title: string) => {
+export const addMoreCard = async (title: string, cardId: string) => {
 	if (!title) return;
 
 	await addDoc(collection(db, 'cards'), {
+		id: cardId,
 		title,
 		type: 'card',
 		tasks: [],

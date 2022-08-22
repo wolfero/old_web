@@ -63,6 +63,9 @@ const Board = () => {
 			await updateDoc(sourceRef, {
 				timestamp: cards[destination.index].timestamp,
 			});
+			
+			//TODO AVERIGUAR PORQUE NO ACTUALIZA TITULO DEL CARD AL MOVERLOS
+
 		} else if (source.droppableId === destination.droppableId) {
 			const card = cards.filter((card) => card.id === source.droppableId)[0];
 

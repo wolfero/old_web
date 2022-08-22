@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AddIcon, CloseIcon } from '@chakra-ui/icons';
 import { Box, Button, Collapse, Input } from '@chakra-ui/react';
 
 import styles from './AddButton.module.scss';
+import { StoreApi } from '../Board/Board';
 
 type AddButtonProps = {
 	cardId?: string;
@@ -13,6 +14,17 @@ function AddButton({ cardId, type }: AddButtonProps) {
 	const [open, setOpen] = useState(false);
 	const [title, setTitle] = useState('');
 	const changeState = () => setOpen((prev) => !prev);
+	const { addMoreCard, addMoreTask } = useContext(StoreApi);
+
+	const handleSubmit = () => {
+		if (type === 'task' && cardId) {
+			addMoreTask(title, cardId);
+		} else if (type === 'card') {
+			addMoreCard(title);
+		}
+		setOpen(false);
+		setTitle('');
+	};
 
 	return (
 		<Box>
@@ -20,12 +32,16 @@ function AddButton({ cardId, type }: AddButtonProps) {
 				<div className={styles.AddButtonContainer}>
 					<Input
 						className={styles.AddButtonText}
+						value={title}
 						placeholder={
-							type === 'card'
-								? 'Enter a title for this card...'
-								: 'Enter list title...'
+							type === 'task'
+								? 'Enter a title for this task...'
+								: 'Enter a title for this card...'
 						}
 						onChange={(e) => setTitle(e.target.value)}
+						onKeyPress={(e) => {
+							if (e.key === 'Enter') handleSubmit();
+						}}
 						autoFocus
 					/>
 					<div className={styles.AddButtonGroup}>
@@ -33,7 +49,7 @@ function AddButton({ cardId, type }: AddButtonProps) {
 							bg={'blue.400'}
 							color={'black'}
 							_hover={{ bg: 'blue.500' }}
-							onClick={() => changeState()}
+							onClick={handleSubmit}
 						>
 							Create
 						</Button>
@@ -41,7 +57,10 @@ function AddButton({ cardId, type }: AddButtonProps) {
 							bg={'red.400'}
 							color={'black'}
 							_hover={{ bg: 'red.500' }}
-							onClick={() => changeState()}
+							onClick={() => {
+								changeState();
+								setTitle('');
+							}}
 						>
 							<CloseIcon />
 						</Button>
@@ -51,12 +70,10 @@ function AddButton({ cardId, type }: AddButtonProps) {
 			<Collapse in={!open}>
 				<button
 					onClick={changeState}
-					className={
-						type === 'card' ? styles.AddTask : styles.AddCard
-					}
+					className={type === 'task' ? styles.AddTask : styles.AddCard}
 				>
 					<AddIcon boxSize={'4'} />
-					{type === 'card' ? 'Add a task' : 'Add another card'}
+					{type === 'task' ? 'Add a task' : 'Add another card'}
 				</button>
 			</Collapse>
 		</Box>

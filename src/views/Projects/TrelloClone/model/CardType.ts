@@ -1,3 +1,4 @@
+import { Timestamp } from "firebase/firestore";
 import { TaskType } from "./TaskType";
 
 export type CardType = {
@@ -5,4 +6,5 @@ export type CardType = {
 	title: string;
 	type: string;
 	tasks: TaskType[];
+	timestamp:Timestamp
 };

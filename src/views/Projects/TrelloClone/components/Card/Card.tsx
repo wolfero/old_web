@@ -18,14 +18,10 @@ const Card = memo(function Card({ card, index }: CardListProps) {
 	return (
 		<Draggable draggableId={card.id} index={index}>
 			{(provided) => (
-				<Box
-					className={styles.Card}
-					{...provided.draggableProps}
-					ref={provided.innerRef}
-				>
-					<CardTitle title={card.title} provided={provided} />
+				<Box className={styles.Card} {...provided.draggableProps} ref={provided.innerRef}>
+					<CardTitle cardId={card.id} title={card.title} provided={provided} />
 					<CardContent card={card} index={index} />
-					<AddButton cardId={card.id} type={card.type} />
+					<AddButton cardId={card.id} type={'task'} />
 				</Box>
 			)}
 		</Draggable>

@@ -1,57 +1,69 @@
-import { createContext, useEffect, useState } from 'react';
-import { Droppable, DragDropContext, resetServerContext, DropResult } from 'react-beautiful-dnd';
+import NoSSR from 'react-no-ssr';
 import { Box } from '@chakra-ui/react';
-import { GetServerSideProps } from 'next';
-import { doc, updateDoc } from 'firebase/firestore';
+import { createContext, useEffect, useState } from 'react';
+import { doc, onSnapshot, orderBy, query, updateDoc, collection } from 'firebase/firestore';
+import { Droppable, DragDropContext, DropResult } from 'react-beautiful-dnd';
 
 import Card from '../Card/Card';
 import AddButton from '../AddButton/AddButton';
-import loadCards from '../../utils/loadCards';
 import { CardType } from '../../model/CardType';
-import { TaskType } from '../../model/TaskType';
-import { db, timestamp } from '../../../../../../data/firebase';
+import { db } from '../../../../../../data/firebase';
 import { addMoreCard, removeCard, updateCardTitle } from '../../utils/cardManagement';
 import { addMoreTask, removeTask, updateTaskTitle } from '../../utils/taskManagement';
 
 import styles from './Board.module.scss';
+import { title } from 'process';
 
-const StoreApi = createContext(null);
+export const StoreApi = createContext({
+	addMoreCard,
+	removeCard,
+	updateCardTitle,
+	addMoreTask,
+	removeTask,
+	updateTaskTitle,
+});
 
 const Board = () => {
 	const [cards, setCards] = useState<CardType[]>([]);
-	const reorderCards = (list: CardType[], startIndex: number, endIndex: number) => {
-		const result = Array.from(list);
-		const [removed] = result.splice(startIndex, 1);
-		result.splice(endIndex, 0, removed);
-		return result;
+	const loadCards = () => {
+		const result = query(collection(db, 'cards'), orderBy('timestamp', 'asc'));
+		onSnapshot(result, (snapshot) => {
+			setCards(
+				snapshot.docs.map((doc): CardType => {
+					const { title, type, tasks, timestamp } = doc.data();
+					return {
+						id: doc.id,
+						title,
+						type,
+						tasks,
+						timestamp,
+					};
+				})
+			);
+		});
 	};
-	const reorderTasks = (list: TaskType[], startIndex: number, endIndex: number) => {
-		const result = Array.from(list);
-		const [removed] = result.splice(startIndex, 1);
-		result.splice(endIndex, 0, removed);
-		return result;
-	};
+
+	useEffect(() => {
+		loadCards();
+	}, []);
+
 	const onDragEnd = async (result: DropResult) => {
 		const { destination, source, draggableId, type } = result;
 
-		if (destination === undefined) {
+		if (!destination) {
 			return;
 		}
 
-		if (type === 'column') {
-			//TODO CONECTE TO FIREBASE
-			// const destinationRef = doc(db, 'cards', cards[destination.index].id);
-			// const sourceRef = doc(db, 'cards', cards[source.index].id);
-
-			// await updateDoc(destinationRef, { timestamp: timestamp });
-			// await updateDoc(sourceRef, { timestamp: timestamp });
-
-			const cardsOrder = reorderCards(cards, source.index, destination.index);
-			setCards(cardsOrder);
-			return;
-		}
-
-		if (source.droppableId === destination.droppableId) {
+		if (type === 'card') {
+			const destinationRef = doc(db, 'cards', cards[destination.index].id);
+			const sourceRef = doc(db, 'cards', cards[source.index].id);
+			await updateDoc(destinationRef, {
+				timestamp: cards[source.index].timestamp,
+			});
+			await updateDoc(sourceRef, {
+				timestamp: cards[destination.index].timestamp,
+			});
+		} else if (source.droppableId === destination.droppableId) {
 			const card = cards.filter((card) => card.id === source.droppableId)[0];
 
 			const updatedTasks = card.tasks.map((task, index) => {
@@ -63,72 +75,40 @@ const Board = () => {
 				}
 				return task;
 			});
-			//TODO CONECTE TO FIREBASE
-			// const cardsRef = doc(db, 'cards', destination.droppableId);
-			// await updateDoc(cardsRef, { tasks: updatedTasks });
 
-			const tasks = reorderTasks(card.tasks, source.index, destination.index);
-			card.tasks = tasks;
+			const cardsRef = doc(db, 'cards', destination.droppableId);
+			await updateDoc(cardsRef, { tasks: updatedTasks });
+			return;
+		} else {
+			const sourceCard = cards.filter((card) => card.id === source.droppableId)[0];
+			const destinationCard = cards.filter((card) => card.id === destination.droppableId)[0];
+			const draggingTask = sourceCard.tasks.filter((task) => task.id === draggableId)[0];
+
+			const sourceCardRef = doc(db, 'cards', source.droppableId);
+			sourceCard?.tasks.splice(source.index, 1);
+			await updateDoc(sourceCardRef, { tasks: sourceCard?.tasks });
+
+			const destinationCardRef = doc(db, 'cards', destination.droppableId);
+			destinationCard?.tasks.splice(destination.index, 0, draggingTask);
+			await updateDoc(destinationCardRef, { tasks: destinationCard.tasks });
 			return;
 		}
-		//TODO CONECTE TO FIREBASE
-		// else {
-		// 	const sourceCard = cards.filter((card) => card.id === source.droppableId)[0];
-		// 	const destinationCard = cards.filter((card) => card.id === destination.droppableId)[0];
-		// 	const draggingTask = sourceCard.tasks.filter((task) => task.id === draggableId)[0];
-
-		// 	const sourceCardRef = doc(db, 'cards', source.droppableId);
-		// 	sourceCard?.tasks.splice(source.index, 1);
-		// 	await updateDoc(sourceCardRef, {
-		// 		tasks: sourceCard?.tasks,
-		// 	});
-
-		// 	const destinationCardRef = doc(db, 'cards', destination.droppableId);
-		// 	destinationCard?.tasks.splice(destination.index, 0, draggingTask);
-		// 	await updateDoc(destinationCardRef, { tasks: destinationCard.tasks });
-		// }
-
-		const sourceCard = cards.filter((card) => card.id === source.droppableId);
-		const destinationCard = cards.filter((card) => card.id === destination.droppableId);
-		const movedTask = sourceCard[0].tasks.splice(source.index, 1);
-
-		cards.forEach((card) => {
-			if (card.id === sourceCard[0].id) {
-				card.tasks = sourceCard[0].tasks;
-			} else if (card.id === destinationCard[0].id) {
-				card.tasks.splice(destination.index, 0, movedTask[0]);
-			}
-		});
-		setCards(cards);
-		return;
 	};
 
-	const [isBrowser, setIsBrowser] = useState(false);
-	useEffect(() => {
-		async function getLists() {
-			const result = await Promise.resolve(loadCards());
-			setCards(result);
-		}
-
-		getLists();
-		setIsBrowser(process.browser);
-	}, []);
-
 	return (
-		<
-			// StoreApi.Provider
-			// value={{
-			// 	addMoreCard,
-			// 	addMoreTask,
-			// 	updateCardTitle,
-			// 	updateTaskTitle,
-			// 	removeCard,
-			// 	removeTask,
-			// }}
+		<StoreApi.Provider
+			value={{
+				addMoreCard,
+				addMoreTask,
+				updateCardTitle,
+				updateTaskTitle,
+				removeCard,
+				removeTask,
+			}}
 		>
-			{isBrowser ? (
+			<NoSSR>
 				<DragDropContext onDragEnd={onDragEnd}>
-					<Droppable droppableId="all-droppables" direction="horizontal" type="column">
+					<Droppable droppableId="all-droppables" direction="horizontal" type="card">
 						{(provided) => (
 							<div
 								className={styles.Board}
@@ -136,26 +116,19 @@ const Board = () => {
 								{...provided.droppableProps}
 							>
 								{cards.map((card, index) => (
-									<Card card={card} key={card.id} index={index} />
+									<Card card={card} key={index} index={index} />
 								))}
 								<Box className={styles.Card}>
-									<AddButton type="list" />
+									<AddButton type="card" />
 								</Box>
 								{provided.placeholder}
 							</div>
 						)}
 					</Droppable>
 				</DragDropContext>
-			) : null}
-		</
-			// StoreApi.Provider
-		>
+			</NoSSR>
+		</StoreApi.Provider>
 	);
-};
-
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-	resetServerContext();
-	return { props: { data: [] } };
 };
 
 export default Board;

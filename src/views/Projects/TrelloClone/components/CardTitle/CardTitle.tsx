@@ -1,22 +1,30 @@
 import { Box, Heading, Input } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React, { memo, useContext, useState } from 'react';
 import { DraggableProvided } from 'react-beautiful-dnd';
-import { BsThreeDots, BsTrashFill } from 'react-icons/bs';
+import { BsTrashFill } from 'react-icons/bs';
+import { CardType } from '../../model/CardType';
+import { StoreApi } from '../Board/Board';
 
 import styles from './CardTitle.module.scss';
 
 type CardTitleProps = {
+	cardId: string;
 	title: string;
 	provided: DraggableProvided;
 };
 
-const CardTitle = ({ title, provided }: CardTitleProps) => {
+const CardTitle = memo(function CardTitle({ cardId, title, provided }: CardTitleProps) {
 	const [open, setOpen] = useState(false);
-	// const [openOption, setOpenOption] = useState(false);
 	const [newTitle, setNewTitle] = useState(title);
+	const { updateCardTitle, removeCard } = useContext(StoreApi);
 
 	const handleOnBlur = () => {
+		updateCardTitle(newTitle, cardId);
 		setOpen((prev) => !prev);
+	};
+
+	const handleDelete = () => {
+		removeCard(cardId);
 	};
 
 	return (
@@ -43,36 +51,13 @@ const CardTitle = ({ title, provided }: CardTitleProps) => {
 					>
 						{newTitle}
 					</Heading>
-					<button
-						className={styles.Button}
-						// onClick={() => setOpenOption((prev) => !prev)}
-						onClick={() => console.log('deleted card')} //TODO DELETE CARD
-					>
-						{/* <BsThreeDots /> */}
+					<button className={styles.Button} onClick={handleDelete}>
 						<BsTrashFill />
 					</button>
-					{/* {openOption && (
-						//ClickOutComponent => https://www.npmjs.com/package/react-onclickout
-						<ClickOutComponent
-							onClickOut={(e) => {
-								setOpenOption((prev) => !prev);
-							}}
-						>
-							<ul>
-								<li
-									onClick={() => {
-										setOpenOption((curr) => !curr);
-									}}
-								>
-									Delete Card
-								</li>
-							</ul>
-						</ClickOutComponent>
-					)} */}
 				</Box>
 			)}
 		</>
 	);
-};
+});
 
 export default CardTitle;

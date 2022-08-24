@@ -12,7 +12,6 @@ import { addMoreCard, removeCard, updateCardTitle } from '../../utils/cardManage
 import { addMoreTask, removeTask, updateTaskTitle } from '../../utils/taskManagement';
 
 import styles from './Board.module.scss';
-import { title } from 'process';
 
 export const StoreApi = createContext({
 	addMoreCard,
@@ -56,19 +55,13 @@ const Board = () => {
 
 		if (type === 'card') {
 			const destinationRef = doc(db, 'cards', cards[destination.index].id);
+			await updateDoc(destinationRef, { timestamp: cards[source.index].timestamp });
 			const sourceRef = doc(db, 'cards', cards[source.index].id);
-			await updateDoc(destinationRef, {
-				timestamp: cards[source.index].timestamp,
-			});
-			await updateDoc(sourceRef, {
-				timestamp: cards[destination.index].timestamp,
-			});
+			await updateDoc(sourceRef, { timestamp: cards[destination.index].timestamp });
 			
 			//TODO AVERIGUAR PORQUE NO ACTUALIZA TITULO DEL CARD AL MOVERLOS
-
 		} else if (source.droppableId === destination.droppableId) {
 			const card = cards.filter((card) => card.id === source.droppableId)[0];
-
 			const updatedTasks = card.tasks.map((task, index) => {
 				if (index === source.index) {
 					return card.tasks[destination.index];
@@ -81,7 +74,6 @@ const Board = () => {
 
 			const cardsRef = doc(db, 'cards', destination.droppableId);
 			await updateDoc(cardsRef, { tasks: updatedTasks });
-			return;
 		} else {
 			const sourceCard = cards.filter((card) => card.id === source.droppableId)[0];
 			const destinationCard = cards.filter((card) => card.id === destination.droppableId)[0];
@@ -94,7 +86,6 @@ const Board = () => {
 			const destinationCardRef = doc(db, 'cards', destination.droppableId);
 			destinationCard?.tasks.splice(destination.index, 0, draggingTask);
 			await updateDoc(destinationCardRef, { tasks: destinationCard.tasks });
-			return;
 		}
 	};
 

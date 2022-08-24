@@ -9,12 +9,10 @@
 	}
 
 	.Button {
-		padding: 0.5rem;
+		margin-right: 0.5rem;
 		font-size: 1.5rem;
-		border-radius: 0.5rem;
 		&:hover{
-			color: var(--color-white);
-			background-color: var(--color-gray);
+			color: var(--color-red);
 		}
 	}
 }

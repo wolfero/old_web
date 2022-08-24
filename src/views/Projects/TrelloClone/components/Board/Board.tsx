@@ -27,18 +27,17 @@ const Board = () => {
 	const loadCards = () => {
 		const result = query(collection(db, 'cards'), orderBy('timestamp', 'asc'));
 		onSnapshot(result, (snapshot) => {
-			setCards(
-				snapshot.docs.map((doc): CardType => {
-					const { title, type, tasks, timestamp } = doc.data();
-					return {
-						id: doc.id,
-						title,
-						type,
-						tasks,
-						timestamp,
-					};
-				})
-			);
+			const allCards = snapshot.docs.map((doc): CardType => {
+				const { title, type, tasks, timestamp } = doc.data();
+				return {
+					id: doc.id,
+					title,
+					type,
+					tasks,
+					timestamp,
+				};
+			});
+			setCards(allCards);
 		});
 	};
 
@@ -48,18 +47,18 @@ const Board = () => {
 
 	const onDragEnd = async (result: DropResult) => {
 		const { destination, source, draggableId, type } = result;
-
 		if (!destination) {
 			return;
 		}
 
 		if (type === 'card') {
+			//TODO REFACTORING EN UNA FUNCIÓN
 			const destinationRef = doc(db, 'cards', cards[destination.index].id);
 			await updateDoc(destinationRef, { timestamp: cards[source.index].timestamp });
 			const sourceRef = doc(db, 'cards', cards[source.index].id);
 			await updateDoc(sourceRef, { timestamp: cards[destination.index].timestamp });
-			
-			//TODO AVERIGUAR PORQUE NO ACTUALIZA TITULO DEL CARD AL MOVERLOS
+
+			//! AVERIGUAR PORQUE NO ACTUALIZA TITULO DEL CARD AL MOVERLOS
 		} else if (source.droppableId === destination.droppableId) {
 			const card = cards.filter((card) => card.id === source.droppableId)[0];
 			const updatedTasks = card.tasks.map((task, index) => {

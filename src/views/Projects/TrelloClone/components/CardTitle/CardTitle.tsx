@@ -1,8 +1,7 @@
 import { Box, Heading, Input } from '@chakra-ui/react';
-import React, { memo, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { DraggableProvided } from 'react-beautiful-dnd';
 import { BsTrashFill } from 'react-icons/bs';
-import { CardType } from '../../model/CardType';
 import { StoreApi } from '../Board/Board';
 
 import styles from './CardTitle.module.scss';
@@ -13,7 +12,7 @@ type CardTitleProps = {
 	provided: DraggableProvided;
 };
 
-const CardTitle = memo(function CardTitle({ cardId, title, provided }: CardTitleProps) {
+const CardTitle = ({ cardId, title, provided }: CardTitleProps) => {
 	const [open, setOpen] = useState(false);
 	const [newTitle, setNewTitle] = useState(title);
 	const { updateCardTitle, removeCard } = useContext(StoreApi);
@@ -58,6 +57,6 @@ const CardTitle = memo(function CardTitle({ cardId, title, provided }: CardTitle
 			)}
 		</>
 	);
-});
+};
 
 export default CardTitle;

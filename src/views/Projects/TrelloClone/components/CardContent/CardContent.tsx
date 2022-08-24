@@ -12,10 +12,7 @@ type CardContentProps = {
 	index: number;
 };
 
-const CardContent = memo(function CardContent({
-	card,
-	index,
-}: CardContentProps) {
+const CardContent = ({ card, index }: CardContentProps) => {
 	return (
 		<Droppable
 			droppableId={card.id}
@@ -43,6 +40,6 @@ const CardContent = memo(function CardContent({
 			)}
 		</Droppable>
 	);
-});
+};
 
 export default CardContent;

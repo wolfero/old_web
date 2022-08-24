@@ -15,9 +15,7 @@ export const addMoreCard = async (title: string) => {
 
 export const updateCardTitle = async (title: string, cardId: string) => {
 	const cardsRef = doc(db, 'cards', cardId);
-	await updateDoc(cardsRef, {
-		title: title,
-	});
+	await updateDoc(cardsRef, { title: title });
 };
 
 export const removeCard = async (cardId: string) => {

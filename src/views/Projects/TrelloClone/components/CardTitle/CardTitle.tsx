@@ -21,10 +21,7 @@ const CardTitle = ({ cardId, title, provided }: CardTitleProps) => {
 		updateCardTitle(newTitle, cardId);
 		setOpen((prev) => !prev);
 	};
-
-	const handleDelete = () => {
-		removeCard(cardId);
-	};
+	const handleDelete = () => removeCard(cardId);
 
 	return (
 		<>

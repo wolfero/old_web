@@ -6,39 +6,40 @@ import { TaskType } from '../../model/TaskType';
 
 import styles from './Task.module.scss';
 import { BsTrashFill } from 'react-icons/bs';
+import { removeTask } from '../../utils/taskManagement';
 
 type RowProps = {
 	task: TaskType;
+	cardId: string;
 	index: number;
 };
 
-export const Row = memo(function Row({ task, index }: RowProps) {
+export const Row = ({ task, cardId, index }: RowProps) => {
 	if (!task) {
 		return null;
 	}
 
 	return (
 		<Draggable draggableId={task.id} index={index}>
-			{(provided) => <Task provided={provided} index={index} task={task} />}
+			{(provided) => <Task provided={provided} index={index} cardId={cardId} task={task} />}
 		</Draggable>
 	);
-});
+};
 
 type TaskProps = {
 	task: TaskType;
 	index: number;
+	cardId: string;
 	provided: DraggableProvided;
 	isDragging?: boolean;
 };
 
-const Task = memo(function Task({ task, index, provided }: TaskProps) {
+const Task = ({ task, index, cardId, provided }: TaskProps) => {
 	if (!task) {
 		return null;
 	}
 
-	const handleDelete=()=>{
-		
-	}
+	const handleDelete = () => removeTask(index, cardId, task.id);
 
 	return (
 		<Heading
@@ -56,6 +57,6 @@ const Task = memo(function Task({ task, index, provided }: TaskProps) {
 			</button>
 		</Heading>
 	);
-});
+};
 
 export default Task;

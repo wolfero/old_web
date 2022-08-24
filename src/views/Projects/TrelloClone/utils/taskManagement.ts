@@ -12,6 +12,7 @@ import { v4 as uuid } from 'uuid';
 import { db } from '../../../../../data/firebase';
 import { TaskType } from '../model/TaskType';
 import { CardType } from '../model/CardType';
+import { async } from '@firebase/util';
 
 export const addMoreTask = async (title: string, cardId: string) => {
 	if (!title) return;
@@ -60,34 +61,20 @@ export const updateTaskTitle = async (
 				}),
 			});
 		}
-		return card;
 	});
 };
 
-export const removeTask = async (index: number, cardId: string, taskId: string) => {
-	const cards: CardType[] = [];
-	const result = query(collection(db, 'cards'), orderBy('timestamp', 'asc'));
-	onSnapshot(result, (snapshot) => {
-		snapshot.docs.map((doc) => {
-			const { id, title, type, tasks, timestamp } = doc.data();
-			cards.push({
-				id,
-				title,
-				type,
-				tasks,
-				timestamp,
-			});
-		});
-	});
+export const removeTask = (index: number, cardId: string, taskId: string) => {
 	const cardRef = doc(db, 'cards', cardId);
-
-	cards.forEach(async (card) => {
-		if (card.id === cardId) {
-			card.tasks.splice(index, 1);
+	onSnapshot(cardRef, async (doc) => {
+		const documentData = doc.data();
+		if (documentData) {
+			const tasks: TaskType[] = documentData.tasks;
+			tasks.splice(index, 1);
+			const updatedTasks = tasks.filter((task: TaskType) => task.id !== taskId);
 			await updateDoc(cardRef, {
-				tasks: card.tasks.filter((task) => task.id !== taskId),
+				tasks: updatedTasks,
 			});
 		}
-		return card;
 	});
 };

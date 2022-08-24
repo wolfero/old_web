@@ -21,6 +21,7 @@ const CardContent = ({ card, index }: CardContentProps) => {
 			renderClone={(provided, snapshot, rubric) => (
 				<Task
 					index={index}
+					cardId={card.id}
 					task={card.tasks[rubric.source.index]}
 					provided={provided}
 					isDragging={snapshot.isDragging}
@@ -34,7 +35,7 @@ const CardContent = ({ card, index }: CardContentProps) => {
 					className={styles.CardContent}
 				>
 					{card.tasks.map((task, index) => (
-						<Row task={task} index={index} key={index} />
+						<Row task={task} index={index} cardId={card.id} key={index} />
 					))}
 				</Box>
 			)}

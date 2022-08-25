@@ -8,7 +8,12 @@ import Card from '../Card/Card';
 import AddButton from '../AddButton/AddButton';
 import { CardType } from '../../model/CardType';
 import { db } from '../../../../../../data/firebase';
-import { addMoreCard, removeCard, updateCardTitle } from '../../utils/cardManagement';
+import {
+	addMoreCard,
+	removeCard,
+	updateCardPosition,
+	updateCardTitle,
+} from '../../utils/cardManagement';
 import { addMoreTask, removeTask, updateTaskTitle } from '../../utils/taskManagement';
 
 import styles from './Board.module.scss';
@@ -52,11 +57,13 @@ const Board = () => {
 		}
 
 		if (type === 'card') {
-			//TODO REFACTORING EN UNA FUNCIÓN
-			const destinationRef = doc(db, 'cards', cards[destination.index].id);
-			await updateDoc(destinationRef, { timestamp: cards[source.index].timestamp });
-			const sourceRef = doc(db, 'cards', cards[source.index].id);
-			await updateDoc(sourceRef, { timestamp: cards[destination.index].timestamp });
+			const cardDestinationId = cards[destination.index].id;
+			const cardDestinationTimesTamp = cards[source.index].timestamp;
+			updateCardPosition(cardDestinationId, cardDestinationTimesTamp);
+
+			const cardSourceId = cards[source.index].id;
+			const cardSourceTimesTamp = cards[destination.index].timestamp;
+			updateCardPosition(cardSourceId, cardSourceTimesTamp);
 
 			//! AVERIGUAR PORQUE NO ACTUALIZA TITULO DEL CARD AL MOVERLOS
 		} else if (source.droppableId === destination.droppableId) {

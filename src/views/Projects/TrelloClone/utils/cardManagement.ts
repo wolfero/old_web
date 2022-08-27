@@ -3,8 +3,7 @@ import {
 	collection,
 	deleteDoc,
 	doc,
-	DocumentData,
-	DocumentReference,
+	FieldValue,
 	Timestamp,
 	updateDoc,
 } from 'firebase/firestore';
@@ -28,7 +27,8 @@ export const updateCardTitle = async (title: string, cardId: string) => {
 };
 
 export const removeCard = async (cardId: string) => {
-	await deleteDoc(doc(db, 'cards', cardId));
+	const cardRef = doc(db, 'cards', cardId);
+	await deleteDoc(cardRef);
 };
 
 export const updateCardPosition = async (cardId: string, timestamp: Timestamp) => {

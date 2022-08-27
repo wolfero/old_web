@@ -35,7 +35,7 @@ const CardContent = ({ card, index }: CardContentProps) => {
 					className={styles.CardContent}
 				>
 					{card.tasks.map((task, index) => (
-						<Row task={task} index={index} cardId={card.id} key={index} />
+						<Row task={task} index={index} cardId={card.id} key={task.id} />
 					))}
 				</Box>
 			)}

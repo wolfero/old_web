@@ -7,7 +7,7 @@ import { Droppable, DragDropContext, DropResult } from 'react-beautiful-dnd';
 import Card from '../Card/Card';
 import AddButton from '../AddButton/AddButton';
 import { CardType } from '../../model/CardType';
-import { db } from '../../../../../../data/firebase';
+import { db, timestamp } from '../../../../../../data/firebase';
 import {
 	addMoreCard,
 	removeCard,
@@ -30,8 +30,8 @@ export const StoreApi = createContext({
 const Board = () => {
 	const [cards, setCards] = useState<CardType[]>([]);
 	const loadCards = () => {
-		const result = query(collection(db, 'cards'), orderBy('timestamp', 'asc'));
-		onSnapshot(result, (snapshot) => {
+		const newQuery = query(collection(db, 'cards'), orderBy('timestamp', 'asc'));
+		onSnapshot(newQuery, (snapshot) => {
 			const allCards = snapshot.docs.map((doc): CardType => {
 				const { title, type, tasks, timestamp } = doc.data();
 				return {
@@ -42,7 +42,7 @@ const Board = () => {
 					timestamp,
 				};
 			});
-			setCards(allCards);
+			setCards([...allCards]);
 		});
 	};
 
@@ -64,15 +64,12 @@ const Board = () => {
 			const cardSourceId = cards[source.index].id;
 			const cardSourceTimesTamp = cards[destination.index].timestamp;
 			updateCardPosition(cardSourceId, cardSourceTimesTamp);
-
-			//! AVERIGUAR PORQUE NO ACTUALIZA TITULO DEL CARD AL MOVERLOS
 		} else if (source.droppableId === destination.droppableId) {
 			const card = cards.filter((card) => card.id === source.droppableId)[0];
 			const updatedTasks = card.tasks.map((task, index) => {
 				if (index === source.index) {
 					return card.tasks[destination.index];
-				}
-				if (index === destination.index) {
+				} else if (index === destination.index) {
 					return card.tasks[source.index];
 				}
 				return task;
@@ -86,11 +83,11 @@ const Board = () => {
 			const draggingTask = sourceCard.tasks.filter((task) => task.id === draggableId)[0];
 
 			const sourceCardRef = doc(db, 'cards', source.droppableId);
-			sourceCard?.tasks.splice(source.index, 1);
+			sourceCard.tasks.splice(source.index, 1);
 			await updateDoc(sourceCardRef, { tasks: sourceCard?.tasks });
 
 			const destinationCardRef = doc(db, 'cards', destination.droppableId);
-			destinationCard?.tasks.splice(destination.index, 0, draggingTask);
+			destinationCard.tasks.splice(destination.index, 0, draggingTask);
 			await updateDoc(destinationCardRef, { tasks: destinationCard.tasks });
 		}
 	};
@@ -116,7 +113,7 @@ const Board = () => {
 								{...provided.droppableProps}
 							>
 								{cards.map((card, index) => (
-									<Card card={card} key={index} index={index} />
+									<Card card={card} key={card.id} index={index} />
 								))}
 								<Box className={styles.Card}>
 									<AddButton type="card" />

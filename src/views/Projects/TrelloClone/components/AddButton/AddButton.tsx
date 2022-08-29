@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react';
 import { AddIcon, CloseIcon } from '@chakra-ui/icons';
 import { Box, Button, Collapse, Input } from '@chakra-ui/react';
 
-import styles from './AddButton.module.scss';
 import { StoreApi } from '../Board/Board';
+
+import styles from './AddButton.module.scss';
 
 type AddButtonProps = {
 	cardId?: string;

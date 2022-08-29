@@ -1,10 +1,10 @@
-import { Timestamp } from "firebase/firestore";
-import { TaskType } from "./TaskType";
+import { Timestamp } from 'firebase/firestore';
+import { TaskType } from './TaskType';
 
-export type CardType = {
+export interface CardType {
 	id: string;
 	title: string;
 	type: string;
 	tasks: TaskType[];
-	timestamp:Timestamp
-};
+	timestamp: Timestamp;
+}

@@ -1,18 +1,12 @@
-import React, { memo, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Heading, Input } from '@chakra-ui/react';
-import { Draggable, DraggableProvided } from 'react-beautiful-dnd';
+import { Draggable } from 'react-beautiful-dnd';
+import { BsTrashFill } from 'react-icons/bs';
 
-import { TaskType } from '../../model/TaskType';
+import { StoreApi } from '../Board/Board';
+import { RowProps, TaskProps } from '../../model/TaskType';
 
 import styles from './Task.module.scss';
-import { BsTrashFill } from 'react-icons/bs';
-import { StoreApi } from '../Board/Board';
-
-type RowProps = {
-	task: TaskType;
-	cardId: string;
-	index: number;
-};
 
 export const Row = ({ task, cardId, index }: RowProps) => {
 	if (!task) {
@@ -26,14 +20,6 @@ export const Row = ({ task, cardId, index }: RowProps) => {
 	);
 };
 
-type TaskProps = {
-	task: TaskType;
-	index: number;
-	cardId: string;
-	provided: DraggableProvided;
-	isDragging?: boolean;
-};
-
 const Task = ({ task, index, cardId, provided }: TaskProps) => {
 	if (!task) {
 		return null;
@@ -42,7 +28,6 @@ const Task = ({ task, index, cardId, provided }: TaskProps) => {
 	const [open, setOpen] = useState(false);
 	const [newTitle, setNewTitle] = useState(task.title);
 	const { updateTaskTitle, removeTask } = useContext(StoreApi);
-
 	const handleOnBlur = () => {
 		updateTaskTitle(newTitle, index, cardId, task.id);
 		setOpen((prev) => !prev);

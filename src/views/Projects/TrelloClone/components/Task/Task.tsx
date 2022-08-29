@@ -32,7 +32,7 @@ const Task = ({ task, index, cardId, provided }: TaskProps) => {
 		updateTaskTitle(newTitle, index, cardId, task.id);
 		setOpen((prev) => !prev);
 	};
-	const handleDelete = () => removeTask(index, cardId, task.id);
+	const handleDelete = () => removeTask(cardId, task.id);
 
 	return (
 		<>

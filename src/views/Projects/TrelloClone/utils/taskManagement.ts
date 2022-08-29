@@ -24,18 +24,12 @@ export const updateTaskTitle = (title: string, index: number, cardId: string, ta
 		const documentData = doc.data();
 		if (documentData) {
 			const tasks: TaskType[] = documentData.tasks;
-			tasks[index].title = title;
-			await updateDoc(cardRef, {
-				tasks: tasks.map((task) => {
-					if (task.id === taskId) {
-						task.title = title;
-						return task;
-					}
-					return task;
-				}),
-			});
+			const updatedTask = tasks.filter((task) => task.id === taskId);
+			updatedTask[0].title=title;
+			// await updateDoc(cardRef, { tasks: [...updatedTask] });
 		}
 	});
+	//TODO PROBLEMA DE BUCLE INFINITO DE PETICIONES DESCONOCIDO A LA HORA DE ACTUALIZAR TITULO
 };
 
 export const updatedTasksPositionOnCard = async (

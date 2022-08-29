@@ -29,8 +29,8 @@ const Task = ({ task, index, cardId, provided }: TaskProps) => {
 	const [newTitle, setNewTitle] = useState(task.title);
 	const { updateTaskTitle, removeTask } = useContext(StoreApi);
 	const handleOnBlur = () => {
-		updateTaskTitle(newTitle, index, cardId, task.id);
 		setOpen((prev) => !prev);
+		updateTaskTitle(newTitle, index, cardId, task.id);
 	};
 	const handleDelete = () => removeTask(cardId, task.id);
 
@@ -51,7 +51,7 @@ const Task = ({ task, index, cardId, provided }: TaskProps) => {
 				<Heading
 					as={'h3'}
 					size={'md'}
-					key={index}
+					key={task.id}
 					{...provided.draggableProps}
 					{...provided.dragHandleProps}
 					ref={provided.innerRef}

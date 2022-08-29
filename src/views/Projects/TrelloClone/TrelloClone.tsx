@@ -1,5 +1,6 @@
 import { Box, Heading } from '@chakra-ui/react';
 import { BsBookmarkFill } from 'react-icons/bs';
+
 import Board from './components/Board/Board';
 
 import styles from './TrelloClone.module.scss';

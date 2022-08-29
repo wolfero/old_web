@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { Box } from '@chakra-ui/react';
 import { Droppable } from 'react-beautiful-dnd';
 
@@ -24,7 +24,6 @@ const CardContent = ({ card, index }: CardContentProps) => {
 					cardId={card.id}
 					task={card.tasks[rubric.source.index]}
 					provided={provided}
-					isDragging={snapshot.isDragging}
 				/>
 			)}
 		>

@@ -2,6 +2,7 @@ import { Box, Heading, Input } from '@chakra-ui/react';
 import React, { useContext, useState } from 'react';
 import { DraggableProvided } from 'react-beautiful-dnd';
 import { BsTrashFill } from 'react-icons/bs';
+
 import { StoreApi } from '../Board/Board';
 
 import styles from './CardTitle.module.scss';

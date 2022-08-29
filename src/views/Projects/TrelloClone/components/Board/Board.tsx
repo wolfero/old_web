@@ -1,13 +1,11 @@
 import NoSSR from 'react-no-ssr';
 import { Box } from '@chakra-ui/react';
 import { createContext, useEffect, useState } from 'react';
-import { doc, onSnapshot, orderBy, query, updateDoc, collection } from 'firebase/firestore';
 import { Droppable, DragDropContext, DropResult } from 'react-beautiful-dnd';
 
 import Card from '../Card/Card';
 import AddButton from '../AddButton/AddButton';
 import { CardType } from '../../model/CardType';
-import { db } from '../../../../../../data/firebase';
 import {
 	addMoreCard,
 	loadCards,

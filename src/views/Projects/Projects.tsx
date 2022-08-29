@@ -1,8 +1,9 @@
 import { Box, Container, Heading } from "@chakra-ui/react";
 
-import styles from "./Projects.module.scss";
 import { projectsLinks } from "../../../data/projectsLinks";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
+
+import styles from "./Projects.module.scss";
 
 export const Projects = () => {
     return (

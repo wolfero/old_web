@@ -1,4 +1,12 @@
-import { arrayRemove, arrayUnion, doc, onSnapshot, updateDoc } from 'firebase/firestore';
+import {
+	arrayRemove,
+	arrayUnion,
+	doc,
+	DocumentData,
+	DocumentReference,
+	onSnapshot,
+	updateDoc,
+} from 'firebase/firestore';
 import { DraggableLocation, DropResult } from 'react-beautiful-dnd';
 import { v4 as uuid } from 'uuid';
 
@@ -18,18 +26,31 @@ export const addMoreTask = async (title: string, cardId: string) => {
 	await updateDoc(cardRef, { tasks: arrayUnion(newTask) });
 };
 
-export const updateTaskTitle = (title: string, index: number, cardId: string, taskId: string) => {
+export const updateTaskTitle = async (
+	newTitle: string,
+	index: number,
+	cardId: string,
+	taskId: string
+) => {
 	const cardRef = doc(db, 'cards', cardId);
 	onSnapshot(cardRef, async (doc) => {
-		const documentData = doc.data();
-		if (documentData) {
-			const tasks: TaskType[] = documentData.tasks;
-			const updatedTask = tasks.filter((task) => task.id === taskId);
-			updatedTask[0].title=title;
-			// await updateDoc(cardRef, { tasks: [...updatedTask] });
+		if (doc.exists()) {
+			const documentData = doc.data();
+			if (documentData) {
+				const tasks: TaskType[] = documentData.tasks;
+				const hasPendingWrites = doc.metadata.hasPendingWrites;
+				if (!hasPendingWrites) {
+					const updatedTasks = tasks.map((task) => {
+						if (task.id === taskId) {
+							task.title = newTitle;
+						}
+						return task;
+					});
+					await updateDoc(cardRef, { tasks: updatedTasks });
+				}
+			}
 		}
 	});
-	//TODO PROBLEMA DE BUCLE INFINITO DE PETICIONES DESCONOCIDO A LA HORA DE ACTUALIZAR TITULO
 };
 
 export const updatedTasksPositionOnCard = async (

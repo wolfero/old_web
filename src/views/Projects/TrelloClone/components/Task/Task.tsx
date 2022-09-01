@@ -28,9 +28,10 @@ const Task = ({ task, index, cardId, provided }: TaskProps) => {
 	const [open, setOpen] = useState(false);
 	const [newTitle, setNewTitle] = useState(task.title);
 	const { updateTaskTitle, removeTask } = useContext(StoreApi);
-	const handleOnBlur = () => {
+	const handleOnBlur = (savedTitle: string) => {
 		setOpen((prev) => !prev);
-		updateTaskTitle(newTitle, index, cardId, task.id);
+		updateTaskTitle(savedTitle, index, cardId, task.id);
+		setNewTitle(savedTitle);
 	};
 	const handleDelete = () => removeTask(cardId, task.id);
 
@@ -39,11 +40,13 @@ const Task = ({ task, index, cardId, provided }: TaskProps) => {
 			{open ? (
 				<Input
 					type={'text'}
-					value={newTitle}
-					onChange={(e) => setNewTitle(e.target.value)}
-					onBlur={handleOnBlur}
+					defaultValue={newTitle}
+					onBlur={(e) => handleOnBlur(e.target.value)}
 					onKeyPress={(e) => {
-						if (e.key === 'Enter') handleOnBlur();
+						if (e.key === 'Enter') {
+							const target = e.target as HTMLInputElement;
+							handleOnBlur(target.value);
+						}
 					}}
 					autoFocus
 				/>

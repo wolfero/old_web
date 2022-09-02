@@ -2,8 +2,6 @@ import {
 	arrayRemove,
 	arrayUnion,
 	doc,
-	DocumentData,
-	DocumentReference,
 	onSnapshot,
 	updateDoc,
 } from 'firebase/firestore';
@@ -39,6 +37,8 @@ export const updateTaskTitle = async (
 			if (documentData) {
 				const tasks: TaskType[] = documentData.tasks;
 				const hasPendingWrites = doc.metadata.hasPendingWrites;
+				//hasPendingWrites is for local changes
+				// if no control this we have infinite loop
 				if (!hasPendingWrites) {
 					const updatedTasks = tasks.map((task) => {
 						if (task.id === taskId) {

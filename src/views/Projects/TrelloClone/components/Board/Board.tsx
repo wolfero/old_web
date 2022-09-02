@@ -32,8 +32,17 @@ export const StoreApi = createContext({
 	updateTaskTitle,
 });
 
-const Board = () => {
+//Custom Hook
+const useCardSubscription = () => {
 	const [cards, setCards] = useState<CardType[]>([]);
+	useEffect(() => {
+		loadCards(setCards);
+	}, []);
+	return { cards };
+};
+
+const Board = () => {
+	const { cards } = useCardSubscription();
 	const onDragEnd = async (result: DropResult) => {
 		const { destination, source, draggableId, type } = result;
 		if (!destination) {
@@ -48,10 +57,6 @@ const Board = () => {
 			updateTaskPositionOnDifferentCard(cards, result);
 		}
 	};
-
-	useEffect(() => {
-		loadCards(setCards);
-	}, []);
 
 	return (
 		<StoreApi.Provider

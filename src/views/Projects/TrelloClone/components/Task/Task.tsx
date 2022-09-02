@@ -30,7 +30,7 @@ const Task = ({ task, index, cardId, provided }: TaskProps) => {
 	const { updateTaskTitle, removeTask } = useContext(StoreApi);
 	const handleOnBlur = (savedTitle: string) => {
 		setOpen((prev) => !prev);
-		updateTaskTitle(savedTitle, index, cardId, task.id);
+		updateTaskTitle(savedTitle, cardId, task.id);
 		setNewTitle(savedTitle);
 	};
 	const handleDelete = () => removeTask(cardId, task.id);

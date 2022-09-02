@@ -26,7 +26,6 @@ export const addMoreTask = async (title: string, cardId: string) => {
 
 export const updateTaskTitle = async (
 	newTitle: string,
-	index: number,
 	cardId: string,
 	taskId: string
 ) => {

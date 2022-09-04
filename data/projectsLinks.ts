@@ -35,4 +35,11 @@ export const projectsLinks = [
         githubLink: "https://github.com/wolfero/web/tree/master/src/views/Projects/TrelloClone",
         image: "/assets/projects/trelloClone.jpg"
     },
+    {
+        name: "Rock, Paper, Scissors Game",
+        description: "🚧 In development",
+        webLink: "/projects/rock-paper-scissors-game",
+        githubLink: "https://github.com/wolfero/web/tree/master/src/views/Projects/RockPaperScissorsGame",
+        image: ""
+    },
 ];

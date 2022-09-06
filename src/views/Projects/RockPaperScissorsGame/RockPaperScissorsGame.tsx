@@ -28,7 +28,7 @@ const RockPaperScissorsGame = () => {
 	const [losses, setLosses] = useState(0);
 	const [winRate, setWinRate] = useState(0);
 	const [gameCount, setGameCount] = useState(0);
-	
+
 	const [verdict, setVerdict] = useState('');
 	const [userChoice, setUserChoice] = useState('');
 	const [computerChoice, setComputerChoice] = useState('');
@@ -93,7 +93,6 @@ const RockPaperScissorsGame = () => {
 	};
 
 	const checkResult = () => {
-		setGameCount((prev) => prev + 1);
 		const outCome = outComes[userChoice as keyof OutComes];
 		const result: string = outCome[computerChoice as keyof OutComes];
 		switch (result) {
@@ -110,6 +109,7 @@ const RockPaperScissorsGame = () => {
 				setVerdict('It is a draw!');
 				break;
 		}
+		setGameCount((prev) => prev + 1);
 	};
 	const handleClick = (value: string) => {
 		setUserChoice(value);
@@ -125,7 +125,7 @@ const RockPaperScissorsGame = () => {
 		if (choicesAreNotEmpty) {
 			checkResult();
 		}
-	}, [computerChoice]);
+	}, [userChoice,computerChoice]);
 
 	return (
 		<Box className={styles.Game} px={'20'} py={'5'}>

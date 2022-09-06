@@ -1,0 +1,75 @@
+.Game {
+	.Dashboard {
+		display: flex;
+		margin: 5rem 0;
+		text-transform: capitalize;
+		justify-content: space-around;
+
+		.Choice {
+			border-radius: 1.5rem;
+			background-color: var(--color-white);
+			button {
+				height: 15rem;
+				width: 15rem;
+				border-radius: 1.3rem;
+				@media (max-width: 768px) {
+					& {
+						height: 10rem;
+						width: 10rem;
+					}
+				}
+				@media (max-width: 425px) {
+					& {
+						height: 10rem;
+						width: 10rem;
+					}
+				}
+			}
+			&:hover {
+				background-color: var(--color-red);
+			}
+		}
+
+		.Rock,
+		.Paper,
+		.Scissors {
+			@extend .Choice;
+		}
+	}
+
+	.Result {
+		text-align: center;
+		margin: 5rem 0;
+
+		.Restart {
+			display: flex;
+			padding-top: 2rem;
+			justify-content: center;
+		}
+	}
+
+	.Score {
+		display: flex;
+		padding: 1rem 0;
+		justify-content: space-around;
+	}
+
+	.WinRate {
+		padding: 1rem 0;
+		text-align: center;
+	}
+
+	@media (max-width: 425px) {
+		.Dashboard {
+			gap: 1rem;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.Score {
+			gap: 1rem;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+}

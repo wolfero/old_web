@@ -2,17 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { Box, Button, Heading, Img, Text } from '@chakra-ui/react';
 
 import styles from './RockPaperScissorsGame.module.scss';
-
-const iconLinks = [
-	'/assets/projects/RockPaperScissorsGame/RockIcon.svg',
-	'/assets/projects/RockPaperScissorsGame/PaperIcon.svg',
-	'/assets/projects/RockPaperScissorsGame/ScissorsIcon.svg',
-];
+import Choice from './components/Choice';
 
 const choices = [
-	{ type: 'rock', className: styles.Rock, iconLink: iconLinks[0] },
-	{ type: 'paper', className: styles.Paper, iconLink: iconLinks[1] },
-	{ type: 'scissors', className: styles.Scissors, iconLink: iconLinks[2] },
+	{
+		type: 'rock',
+		className: styles.Rock,
+		iconLink: '/assets/projects/RockPaperScissorsGame/RockIcon.svg',
+	},
+	{
+		type: 'paper',
+		className: styles.Paper,
+		iconLink: '/assets/projects/RockPaperScissorsGame/PaperIcon.svg',
+	},
+	{
+		type: 'scissors',
+		className: styles.Scissors,
+		iconLink: '/assets/projects/RockPaperScissorsGame/ScissorsIcon.svg',
+	},
 ];
 
 const RockPaperScissorsGame = () => {
@@ -21,15 +28,18 @@ const RockPaperScissorsGame = () => {
 	const [losses, setLosses] = useState(0);
 	const [winRate, setWinRate] = useState(0);
 	const [gameCount, setGameCount] = useState(0);
+	
+	const [verdict, setVerdict] = useState('');
 	const [userChoice, setUserChoice] = useState('');
 	const [computerChoice, setComputerChoice] = useState('');
-	const [verdict, setVerdict] = useState('');
 
 	const resetGame = () => {
 		setWins(0);
 		setDraws(0);
 		setLosses(0);
 		setWinRate(0);
+		setGameCount(0);
+
 		setVerdict('');
 		setUserChoice('');
 		setComputerChoice('');
@@ -123,11 +133,12 @@ const RockPaperScissorsGame = () => {
 			<Box className={styles.Dashboard}>
 				{choices.map((choice, index) => {
 					return (
-						<Box key={index} className={choice.className}>
-							<Button onClick={() => handleClick(choice.type)}>
-								<Img src={choice.iconLink} />
-							</Button>
-						</Box>
+						<Choice
+							key={index}
+							className={choice.className}
+							onClick={() => handleClick(choice.type)}
+							iconLink={choice.iconLink}
+						/>
 					);
 				})}
 			</Box>

@@ -1,9 +1,9 @@
 .Projects {
     .Gallery {
         display: flex;
-        justify-content: start;
+        justify-content: center;
         flex-wrap: wrap;
-        gap: 3.5rem;
+        gap: 4rem;
 
         @media (max-width: 768px) {
             & {

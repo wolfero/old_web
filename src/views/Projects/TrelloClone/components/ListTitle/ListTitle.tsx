@@ -5,24 +5,24 @@ import { BsTrashFill } from 'react-icons/bs';
 
 import { StoreApi } from '../Board/Board';
 
-import styles from './CardTitle.module.scss';
+import styles from './ListTitle.module.scss';
 
-type CardTitleProps = {
-	cardId: string;
+type ListTitleProps = {
+	listId: string;
 	title: string;
 	provided: DraggableProvided;
 };
 
-const CardTitle = ({ cardId, title, provided }: CardTitleProps) => {
+const ListTitle = ({ listId, title, provided }: ListTitleProps) => {
 	const [open, setOpen] = useState(false);
 	const [newTitle, setNewTitle] = useState(title);
-	const { updateCardTitle, removeCard } = useContext(StoreApi);
+	const { updateListTitle, removeList } = useContext(StoreApi);
 
 	const handleOnBlur = () => {
-		updateCardTitle(newTitle, cardId);
+		updateListTitle(newTitle, listId);
 		setOpen((prev) => !prev);
 	};
-	const handleDelete = () => removeCard(cardId);
+	const handleDelete = () => removeList(listId);
 
 	return (
 		<>
@@ -57,4 +57,4 @@ const CardTitle = ({ cardId, title, provided }: CardTitleProps) => {
 	);
 };
 
-export default CardTitle;
+export default ListTitle;

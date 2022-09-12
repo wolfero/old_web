@@ -3,86 +3,86 @@ import { Box } from '@chakra-ui/react';
 import { createContext, useEffect, useState } from 'react';
 import { Droppable, DragDropContext, DropResult } from 'react-beautiful-dnd';
 
-import Card from '../Card/Card';
+import List from '../List/List';
 import AddButton from '../AddButton/AddButton';
-import { CardType } from '../../model/CardType';
+import { ListType as ListType } from '../../model/ListType';
 import {
-	addMoreCard,
-	loadCards,
+	addList,
+	loadLists,
+	removeList,
+	updateListPosition,
+	updateListTitle,
+} from '../../utils/listManagement';
+import {
+	addCard,
 	removeCard,
-	updateCardPosition,
 	updateCardTitle,
+	updatedCardsPositionOnList,
+	updateCardPositionOnDifferentList,
 } from '../../utils/cardManagement';
-import {
-	addMoreTask,
-	removeTask,
-	updatedTasksPositionOnCard,
-	updateTaskPositionOnDifferentCard,
-	updateTaskTitle,
-} from '../../utils/taskManagement';
 
 import styles from './Board.module.scss';
 
 export const StoreApi = createContext({
-	addMoreCard,
+	addList,
+	removeList,
+	updateListTitle,
+	addCard,
 	removeCard,
 	updateCardTitle,
-	addMoreTask,
-	removeTask,
-	updateTaskTitle,
 });
 
 //Custom Hook
-const useCardSubscription = () => {
-	const [cards, setCards] = useState<CardType[]>([]);
+const useListSubscription = () => {
+	const [lists, setLists] = useState<ListType[]>([]);
 	useEffect(() => {
-		loadCards(setCards);
+		loadLists(setLists);
 	}, []);
-	return { cards };
+	return { lists };
 };
 
 const Board = () => {
-	const { cards } = useCardSubscription();
+	const { lists } = useListSubscription();
 	const onDragEnd = async (result: DropResult) => {
 		const { destination, source, draggableId, type } = result;
 		if (!destination) {
 			return;
 		}
 
-		if (type === 'card') {
-			updateCardPosition(cards, destination, source);
+		if (type === 'list') {
+			updateListPosition(lists, destination, source);
 		} else if (source.droppableId === destination.droppableId) {
-			updatedTasksPositionOnCard(cards, destination, source);
+			updatedCardsPositionOnList(lists, destination, source);
 		} else {
-			updateTaskPositionOnDifferentCard(cards, result);
+			updateCardPositionOnDifferentList(lists, result);
 		}
 	};
 
 	return (
 		<StoreApi.Provider
 			value={{
-				addMoreCard,
-				addMoreTask,
+				addList,
+				addCard,
+				updateListTitle,
 				updateCardTitle,
-				updateTaskTitle,
+				removeList,
 				removeCard,
-				removeTask,
 			}}
 		>
 			<NoSSR>
 				<DragDropContext onDragEnd={onDragEnd}>
-					<Droppable droppableId="all-droppables" direction="horizontal" type="card">
+					<Droppable droppableId="all-droppables" direction="horizontal" type="list">
 						{(provided) => (
 							<div
 								className={styles.Board}
 								ref={provided.innerRef}
 								{...provided.droppableProps}
 							>
-								{cards.map((card, index) => (
-									<Card card={card} key={card.id} index={index} />
+								{lists.map((list, index) => (
+									<List list={list} key={list.id} index={index} />
 								))}
-								<Box className={styles.Card}>
-									<AddButton type="card" />
+								<Box className={styles.List}>
+									<AddButton type="list" />
 								</Box>
 								{provided.placeholder}
 							</div>

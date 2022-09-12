@@ -1,4 +1,4 @@
-@import '../Card/Card.module.scss';
+@import '../List/List.module.scss';
 
 .Board {
 	display: flex;
@@ -14,7 +14,7 @@
 	overflow-x: auto;
 	overflow-y: hidden;
 
-	.Card {
+	.List {
 		background-color: transparent;
 	}
 

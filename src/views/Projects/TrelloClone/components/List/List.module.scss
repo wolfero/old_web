@@ -1,0 +1,13 @@
+.List {
+	padding: 0.5rem;
+	height: max-content;
+	min-width: 20rem;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+    gap:1rem;
+	background-color: var(--chakra-colors-whiteAlpha-800);
+	color: var(--color-black);
+	border-radius: 3px;
+	scroll-snap-align: start;
+}

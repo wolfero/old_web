@@ -8,7 +8,7 @@
 	font-weight: var(--chakra-fontWeights-semibold);
 }
 
-.AddTask {
+.AddCard {
 	@extend .Button;
 	display: flex;
 	align-items: center;
@@ -19,7 +19,7 @@
 	}
 }
 
-.AddCard {
+.AddList {
 	@extend .Button;
 	display: inline-flex;
 	align-items: center;

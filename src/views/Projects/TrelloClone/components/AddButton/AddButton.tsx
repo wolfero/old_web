@@ -7,21 +7,21 @@ import { StoreApi } from '../Board/Board';
 import styles from './AddButton.module.scss';
 
 type AddButtonProps = {
-	cardId?: string;
+	listId?: string;
 	type: string;
 };
 
-function AddButton({ cardId, type }: AddButtonProps) {
+function AddButton({ listId, type }: AddButtonProps) {
 	const [open, setOpen] = useState(false);
 	const [title, setTitle] = useState('');
 	const changeState = () => setOpen((prev) => !prev);
-	const { addMoreCard, addMoreTask } = useContext(StoreApi);
+	const { addList, addCard } = useContext(StoreApi);
 
 	const handleSubmit = () => {
-		if (type === 'task' && cardId) {
-			addMoreTask(title, cardId);
-		} else if (type === 'card') {
-			addMoreCard(title);
+		if (type === 'card' && listId) {
+			addCard(title, listId);
+		} else if (type === 'list') {
+			addList(title);
 		}
 		setOpen(false);
 		setTitle('');
@@ -35,9 +35,9 @@ function AddButton({ cardId, type }: AddButtonProps) {
 						className={styles.AddButtonText}
 						value={title}
 						placeholder={
-							type === 'task'
-								? 'Enter a title for this task...'
-								: 'Enter a title for this card...'
+							type === 'card'
+								? 'Enter a title for this card...'
+								: 'Enter a title for this list...'
 						}
 						onChange={(e) => setTitle(e.target.value)}
 						onKeyPress={(e) => {
@@ -71,10 +71,10 @@ function AddButton({ cardId, type }: AddButtonProps) {
 			<Collapse in={!open}>
 				<button
 					onClick={changeState}
-					className={type === 'task' ? styles.AddTask : styles.AddCard}
+					className={type === 'card' ? styles.AddCard : styles.AddList}
 				>
 					<AddIcon boxSize={'4'} />
-					{type === 'task' ? 'Add a task' : 'Add another card'}
+					{type === 'card' ? 'Add a card' : 'Add another list'}
 				</button>
 			</Collapse>
 		</Box>

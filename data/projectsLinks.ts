@@ -35,7 +35,7 @@ export const projectsLinks = [
 	{
 		name: 'Trello Clone',
 		description:
-			'In this project I try to create a trello clone with its basic functions: create cards and tasks, reorganize and edit them.',
+			'In this project I try to create a trello clone with its basic functions: create lists and cards, reorganize and edit them.',
 		webLink: '/projects/trello-clone',
 		githubLink: 'https://github.com/wolfero/web/tree/master/src/views/Projects/TrelloClone',
 		image: '/assets/projects/TrelloClone/trelloClone.jpg',

@@ -1,13 +1,24 @@
 .Card {
 	padding: 0.5rem;
-	height: max-content;
-	min-width: 20rem;
-	display: flex;
-	flex-direction: column;
-    justify-content: space-between;
-    gap:1rem;
-	background-color: var(--chakra-colors-whiteAlpha-800);
-	color: var(--color-black);
 	border-radius: 3px;
-	scroll-snap-align: start;
+	box-shadow: 0 1px 0 #091e4240;
+	color: var(--color-black);
+	background-color: var(--color-white);
+	display: flex;
+	justify-content: space-between;
+	
+	&:hover {
+		.Button {
+			display: inline-block;
+		}
+	}
+
+	.Button {
+		display: none;
+		font-size: 1rem;
+
+		&:hover {
+			color: var(--color-red);
+		}
+	}
 }

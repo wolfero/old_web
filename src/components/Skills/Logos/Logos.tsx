@@ -22,7 +22,7 @@ const logoType: { [key: string]: JSX.Element } = {
 
 const Logos = ({ skill }: LogosProps) => {
     return (
-        <Box className={styles.SkillsBox} key={skill.type}>
+        <Box as={'li'} className={styles.SkillsBox} key={skill.type}>
             <Box
                 className={styles.SkillsLogo}
                 _hover={{

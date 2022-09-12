@@ -1,23 +1,28 @@
 .SkillsBox {
-    text-align: center;
+	text-align: center;
 
-    .SkillsLogo {
-        display: flex;
-        padding: 1rem;
-        height: 8rem;
-        width: 8rem;
-        justify-content: center;
-        align-items: center;
-        transition: 0.5s;
-        border-radius: 2rem;
-        background-color: #111;
+	.SkillsLogo {
+		display: flex;
+		padding: 1rem;
+		height: 8rem;
+		width: 8rem;
+		justify-content: center;
+		align-items: center;
+		transition: 0.5s;
+		border-radius: 2rem;
+		background-color: #111;
 
-        &:hover {
-            transform: translateY(-0.2rem);
-        }
-    }
+		&:hover {
+			transform: translateY(-0.2rem);
+		}
 
-    .SkillsLogoTitle {
-        margin-top: 1rem;
-    }
+		@media (max-width: 768px) {
+			height: 6rem;
+			width: 6rem;
+		}
+	}
+
+	.SkillsLogoTitle {
+		margin-top: 1rem;
+	}
 }

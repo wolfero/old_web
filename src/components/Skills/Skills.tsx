@@ -10,7 +10,7 @@ const Skills = () => {
             <Heading className={styles.Title} as="h2">
                 My Skills
             </Heading>
-            <Box as={"section"} className={styles.Section}>
+            <Box as={"ul"} className={styles.Section}>
                 {skillsTags.map((skill) => (
                     <Logos skill={skill} key={skill.type} />
                 ))}

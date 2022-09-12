@@ -30,7 +30,7 @@ const PersonalDescription = () => {
 						Frontend side than the Backend, but I keep forcing myself to improve in one
 						or the other.
 					</Text>
-					<Text className={styles.Phrase}>
+					<Text className={styles.Text}>
 						I&apos;m currently studying React by myself, how to do TDD on the Frontend
 						side and TypeScript.
 					</Text>

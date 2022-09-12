@@ -38,12 +38,6 @@
 				text-align: justify;
 				object-fit: contain;
 			}
-
-			.Phrase {
-				@extend .Text;
-				margin-top: 2rem;
-				font-style: italic;
-			}
 		}
 
 		@media (max-width: 768px) {

@@ -1,13 +1,17 @@
 .Posts {
-    .Title {
-        border-bottom: 0.1rem solid;
-        margin: 1rem 0;
-    }
-    .List {
-        margin-top: 2rem;
-        display: flex;
-        gap: 3.5rem;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-    }
+	.Title {
+		border-bottom: 0.1rem solid;
+		margin: 1rem 0;
+	}
+	.List {
+		margin-top: 2rem;
+		display: flex;
+		gap: 3.5rem;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		.Element {
+			width: 20rem;
+		}
+	}
 }

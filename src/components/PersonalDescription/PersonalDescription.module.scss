@@ -1,55 +1,69 @@
 .Article {
+	.Title {
+		border-bottom: 0.1rem solid;
+		margin: 1rem 0;
+	}
 
-    .Title {
-        border-bottom: 0.1rem solid;
-        margin: 1rem 0;
-    }
+	.Section {
+		display: flex;
+		justify-content: space-between;
+		gap: 2rem;
 
-    .Section {
-        display: flex;
-        justify-content: space-between;
-        gap: 2rem;
+		.FotoBox {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+			flex: 0rem;
+			max-width: 360px;
 
-        .FotoBox {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            align-content: center;
-            flex: 0rem;
-            max-width: 360px;
+			.Foto {
+				border-radius: 1rem;
+			}
+		}
 
-            .Foto {
-                border-radius: 1rem;
-            }
-        }
+		.PersonalFoto {
+			@extend .FotoBox;
+		}
 
-        .Content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            flex: 1;
+		.Content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			flex: 1;
 
-            .Text {
-                margin-top: 1rem;
-                text-align: justify;
-                object-fit: contain;
-            }
-        }
+			.Text {
+				margin-top: 1rem;
+				font-size: 1.2rem;
+				text-align: justify;
+				object-fit: contain;
+			}
 
-        @media (max-width: 768px) {
-            & {
-                flex-direction: column;
-                align-items: center;
+			.Phrase {
+				@extend .Text;
+				margin-top: 2rem;
+				font-style: italic;
+			}
+		}
 
-                .FotoBox {
-                    order: 2;
-                }
+		@media (max-width: 768px) {
+			& {
+				flex-direction: column;
+				align-items: center;
 
-                .Content {
-                    align-self: flex-start;
-                    order: 1;
-                }
-            }
-        }
-    }
+				.FotoBox {
+					order: 2;
+				}
+
+				.PersonalFoto {
+					order: 1;
+				}
+
+				.Content {
+					align-self: flex-start;
+					order: 1;
+				}
+			}
+		}
+	}
 }

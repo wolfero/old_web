@@ -8,8 +8,6 @@ import SassLogo from "./svg/Sass/SassLogo";
 import ReactLogo from "./svg/React/ReactLogo";
 import GitLogo from "./svg/Git/GitLogo";
 import styles from "./Logos.module.scss";
-import PhpLogo from "./svg/Php/PhpLogo";
-import JavaLogo from "./svg/Java/JavaLogo";
 import CSharpLogo from "./svg/CSharp/CSharpLogo";
 
 const logoType: { [key: string]: JSX.Element } = {
@@ -19,8 +17,6 @@ const logoType: { [key: string]: JSX.Element } = {
     es6: <Es6Logo />,
     react: <ReactLogo />,
     git: <GitLogo />,
-    php: <PhpLogo />,
-    java: <JavaLogo />,
     csharp: <CSharpLogo />,
 };
 

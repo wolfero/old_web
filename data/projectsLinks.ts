@@ -16,15 +16,6 @@ export const projectsLinks = [
 		image: '/assets/projects/Savvily/Savvily.jpg',
 	},
 	{
-		name: 'Tic Tac Toe',
-		description:
-			'This is an exercise in which I practice the hooks of useMemo, useCallback, useState and React components.',
-		webLink: '/projects/tictactoe',
-		githubLink: 'https://github.com/wolfero/web/tree/master/src/views/Projects/TicTacToe',
-		image: '/assets/projects/TicTacToe/tictactoe.jpg',
-	},
-
-	{
 		name: 'Crypto Prices',
 		description:
 			'Here I have practiced the basic react hooks, such as useState and ussEffect, also make requests to an api with axios.',
@@ -39,6 +30,22 @@ export const projectsLinks = [
 		webLink: '/projects/trello-clone',
 		githubLink: 'https://github.com/wolfero/web/tree/master/src/views/Projects/TrelloClone',
 		image: '/assets/projects/TrelloClone/trelloClone.jpg',
+	},
+	{
+		name: 'Netflix Clone',
+		description: '🚧 IN DEVELOPMENT 🚧',
+		webLink: '/projects/netflix-clone',
+		githubLink:
+			'https://github.com/wolfero/web/tree/master/src/views/Projects/NetflixClone',
+		image: '',
+	},
+	{
+		name: 'Tic Tac Toe',
+		description:
+			'This is an exercise in which I practice the hooks of useMemo, useCallback, useState and React components.',
+		webLink: '/projects/tictactoe',
+		githubLink: 'https://github.com/wolfero/web/tree/master/src/views/Projects/TicTacToe',
+		image: '/assets/projects/TicTacToe/tictactoe.jpg',
 	},
 	{
 		name: 'Rock, Paper, Scissors',

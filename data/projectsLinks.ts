@@ -34,9 +34,8 @@ export const projectsLinks = [
 	{
 		name: 'Netflix Clone',
 		description: '🚧 IN DEVELOPMENT 🚧',
-		webLink: '/projects/netflix-clone',
-		githubLink:
-			'https://github.com/wolfero/web/tree/master/src/views/Projects/NetflixClone',
+		webLink: 'https://wolfero-netflix-clone.vercel.app/',
+		githubLink: 'https://github.com/wolfero/netflix-clone',
 		image: '',
 	},
 	{

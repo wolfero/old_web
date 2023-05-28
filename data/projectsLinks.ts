@@ -5,7 +5,7 @@ export const projectsLinks = [
 			'The website is made with NextJs and JavaScript. For styling I use Chakra UI and Sass to customize components.',
 		webLink: '/',
 		githubLink: 'https://github.com/wolfero/web',
-		image: '',
+		image: '/assets/projects/web.png',
 	},
 	{
 		name: 'Savvily',
@@ -36,7 +36,7 @@ export const projectsLinks = [
 		description: '🚧 IN DEVELOPMENT 🚧',
 		webLink: 'https://wolfero-netflix-clone.vercel.app/',
 		githubLink: 'https://github.com/wolfero/netflix-clone',
-		image: '',
+		image: '/assets/projects/NetflixClone/netflixClone.png',
 	},
 	{
 		name: 'Tic Tac Toe',

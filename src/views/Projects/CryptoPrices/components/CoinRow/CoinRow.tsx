@@ -7,7 +7,7 @@ import ColoringPrice from "../ColoringPrice/ColoringPrice";
 export const CoinRow = ({ coin }: CoinRowProps) => {
     const wrapImageLink = coin.image.split("images/");
     const coinCode = wrapImageLink[1].split("/")[0];
-    const coinChart = `https://www.coingecko.com/coins/${coinCode}/sparkline`;
+    const coinChart = `https://www.coingecko.com/coins/${coinCode}/sparkline.svg`;
 
     return (
         <Tr
